@@ -20,7 +20,7 @@ const db      = require('./db');
 const ku      = require('./kullanicilar');
 const { vardiyaRaporuOlustur, gunlukRaporuOlustur, haftalikRaporuOlustur, aylikRaporuOlustur, anlikUretimOzetle } = require('./rapor');
 const { mesajiIsle, anaMenuMesaji, botMesaji } = require('./menu');
-const { gunlukGrafikOlustur } = require('./grafik');
+const { gunlukGrafikOlustur, fireGrafikOlustur } = require('./grafik');
 
 // ── Kayıt oturumları (multi-turn) ─────────────────────────────
 // chatId → { asama: 'isim'|'pozisyon'|'birim', isim, pozisyon }
@@ -698,6 +698,21 @@ const [uretimKayitlari, beslemeKayitlari, aktifMikserler, bekleyenMikserler] =
     );
     await mesajGonderGorsel(pngBuf, ['admin', 'uretim']);
     console.log('🖼️  Günlük görsel kart gönderildi.');
+
+    // Fire trend grafikleri — her hat için ayrı
+    for (const [makineDB, hatAdi] of Object.entries(config.hatlar)) {
+      const basInfo = baslangicBilgileri[hatAdi];
+      if (!basInfo?.baslangicTarihi) continue;
+      try {
+        const fireTrend = await db.gunlukFireTrendGetir(makineDB, makineDB, basInfo.baslangicTarihi);
+        if (fireTrend.length === 0) continue;
+        const firePng = fireGrafikOlustur(fireTrend, hatAdi);
+        await mesajGonderGorsel(firePng, ['admin', 'uretim']);
+        console.log(`📊 Fire trend grafiği gönderildi: ${hatAdi}`);
+      } catch (fe) {
+        console.error(`⚠️  Fire grafik hatası (${hatAdi}):`, fe.message);
+      }
+    }
   } catch (err) {
     console.error('⚠️  Görsel kart oluşturulamadı:', err.message);
   }

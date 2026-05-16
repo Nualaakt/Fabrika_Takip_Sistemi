@@ -348,4 +348,153 @@ function gunlukGrafikOlustur(uretimKayitlari, hurdaKayitlari, tarih,
   return canvas.toBuffer('image/png');
 }
 
-module.exports = { gunlukGrafikOlustur };
+// ══════════════════════════════════════════════════════════════
+//  FİRE TREND GRAFİĞİ
+//  veri: [{ tarih, gunlukOran, kumulatifOran }]
+//  hatAdi: 'EXT-1' | 'EXT-2'
+// ══════════════════════════════════════════════════════════════
+function fireGrafikOlustur(veri, hatAdi) {
+  const accent = hatAdi === 'EXT-2' ? C.ext2 : C.ext1;
+
+  const W      = 960;
+  const H      = 400;
+  const PAD_L  = 58;   // sol Y ekseni
+  const PAD_R  = 62;   // sağ Y ekseni
+  const PAD_T  = 54;   // başlık
+  const PAD_B  = 44;   // X ekseni tarihleri
+
+  const cX = PAD_L;
+  const cY = PAD_T;
+  const cW = W - PAD_L - PAD_R;
+  const cH = H - PAD_T - PAD_B;
+
+  const canvas = createCanvas(W, H);
+  const ctx    = canvas.getContext('2d');
+
+  // ── Arka plan ────────────────────────────────────────────────
+  fill(ctx, 0, 0, W, H, C.bg);
+  fill(ctx, cX, cY, cW, cH, C.rowAlt);
+
+  // ── Başlık ───────────────────────────────────────────────────
+  fill(ctx, 0, 0, W, PAD_T - 2, C.cardLift);
+  fill(ctx, 0, 0, 4, PAD_T - 2, accent);
+  fill(ctx, 0, PAD_T - 2, W, 1, C.cardBdr);
+  txt(ctx, `${hatAdi} — FİRE ORANI`, PAD_L, (PAD_T - 2) / 2,
+    'bold 16px "Segoe UI",Arial', C.valBright, 'left', 'middle');
+
+  if (!veri || veri.length === 0) {
+    txt(ctx, 'Veri yok', W / 2, H / 2, '14px "Segoe UI",Arial', C.label, 'center', 'middle');
+    return canvas.toBuffer('image/png');
+  }
+
+  const N = veri.length;
+
+  // ── Y ekseni ölçekleri ───────────────────────────────────────
+  const maxGunluk    = Math.max(...veri.map(d => d.gunlukOran),    0.1);
+  const maxKumulatif = Math.max(...veri.map(d => d.kumulatifOran), 0.1);
+  const yMaxL = Math.ceil(maxGunluk    / 5) * 5 || 5;
+  const yMaxR = Math.ceil(maxKumulatif / 5) * 5 || 5;
+
+  // Yardımcı: veri değerini sol/sağ Y pozisyonuna çevir
+  const yL = v => cY + cH - (v / yMaxL) * cH;
+  const yR = v => cY + cH - (v / yMaxR) * cH;
+  const xOf = i => cX + (i + 0.5) * (cW / N);
+
+  // ── Yatay grid çizgileri (sol eksen adımları) ────────────────
+  const gridStep = yMaxL <= 10 ? 1 : yMaxL <= 20 ? 2 : 5;
+  for (let v = 0; v <= yMaxL; v += gridStep) {
+    const gy = Math.round(yL(v));
+    fill(ctx, cX, gy, cW, 1, C.divider);
+    txt(ctx, `%${v}`, cX - 6, gy, '10px "Segoe UI",Arial', C.label, 'right', 'middle');
+  }
+
+  // Sağ Y ekseni etiketleri
+  const gridStepR = yMaxR <= 10 ? 1 : yMaxR <= 20 ? 2 : 5;
+  for (let v = 0; v <= yMaxR; v += gridStepR) {
+    const gy = Math.round(yR(v));
+    txt(ctx, `%${v}`, cX + cW + 6, gy, '10px "Segoe UI",Arial', C.chrome, 'left', 'middle');
+  }
+
+  // Sol eksen başlığı
+  txt(ctx, 'Günlük', 10, cY + cH / 2, '10px "Segoe UI",Arial', C.label, 'center', 'middle');
+  // Sağ eksen başlığı
+  txt(ctx, 'Kümülatif', W - 10, cY + cH / 2, '10px "Segoe UI",Arial', C.chrome, 'center', 'middle');
+
+  // ── Çubuklar (günlük fire %) ─────────────────────────────────
+  const barW = Math.max(4, (cW / N) * 0.65);
+  for (let i = 0; i < N; i++) {
+    const v  = veri[i].gunlukOran;
+    const bx = xOf(i) - barW / 2;
+    const by = yL(v);
+    const bh = cY + cH - by;
+    if (bh > 0) {
+      fill(ctx, Math.round(bx), Math.round(by), Math.round(barW), Math.round(bh), accent + 'cc');
+      fill(ctx, Math.round(bx), Math.round(by), Math.round(barW), 2, accent);
+    }
+  }
+
+  // ── Kümülatif çizgi ─────────────────────────────────────────
+  ctx.beginPath();
+  ctx.strokeStyle = '#ffa726';
+  ctx.lineWidth   = 2.5;
+  ctx.lineJoin    = 'round';
+  for (let i = 0; i < N; i++) {
+    const px = xOf(i);
+    const py = yR(veri[i].kumulatifOran);
+    i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+  }
+  ctx.stroke();
+
+  // Çizgi üzerindeki noktalar
+  for (let i = 0; i < N; i++) {
+    const px = xOf(i);
+    const py = yR(veri[i].kumulatifOran);
+    fill(ctx, px - 3, py - 3, 6, 6, '#ffa726');
+  }
+
+  // ── Veri etiketleri ─────────────────────────────────────────
+  // Hangi noktalara etiket: ilk, son, yerel zirve (komşulardan büyük)
+  const etiketGoster = i => {
+    if (i === 0 || i === N - 1) return true;
+    return veri[i].gunlukOran > veri[i-1].gunlukOran &&
+           veri[i].gunlukOran > veri[i+1].gunlukOran &&
+           veri[i].gunlukOran > 1;
+  };
+
+  for (let i = 0; i < N; i++) {
+    if (!etiketGoster(i)) continue;
+    const v  = veri[i].gunlukOran;
+    const px = xOf(i);
+    const by = yL(v) - 6;
+    // Etiket kutusu
+    const lbl = `%${v.toFixed(1)}`;
+    fill(ctx, px - 18, by - 14, 36, 16, C.cardLift + 'dd');
+    txt(ctx, lbl, px, by - 5, 'bold 10px "Segoe UI",Arial', C.valBright, 'center', 'middle');
+  }
+
+  // ── X ekseni tarihleri ───────────────────────────────────────
+  const adim = N <= 15 ? 1 : N <= 30 ? 2 : 3;
+  for (let i = 0; i < N; i += adim) {
+    const tarih = veri[i].tarih; // 'YYYY-MM-DD'
+    const [yil, ay, gun] = tarih.split('-');
+    const lbl = `${gun}.${ay}`;
+    const px  = xOf(i);
+    txt(ctx, lbl, px, cY + cH + 14, '10px "Segoe UI",Arial', C.label, 'center', 'middle');
+  }
+
+  // ── Eksen çerçevesi ─────────────────────────────────────────
+  fill(ctx, cX, cY + cH, cW, 1, C.divider);   // alt
+  fill(ctx, cX, cY, 1, cH, C.divider);         // sol
+  fill(ctx, cX + cW, cY, 1, cH, C.divider);    // sağ
+
+  // ── Legend ───────────────────────────────────────────────────
+  const ly = H - 12;
+  fill(ctx, W / 2 - 100, ly - 6, 14, 10, accent + 'cc');
+  txt(ctx, 'Günlük fire', W / 2 - 82, ly - 1, '10px "Segoe UI",Arial', C.label, 'left', 'middle');
+  fill(ctx, W / 2 + 30, ly - 3, 14, 4, '#ffa726');
+  txt(ctx, 'Kümülatif', W / 2 + 48, ly - 1, '10px "Segoe UI",Arial', C.chrome, 'left', 'middle');
+
+  return canvas.toBuffer('image/png');
+}
+
+module.exports = { gunlukGrafikOlustur, fireGrafikOlustur };
