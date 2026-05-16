@@ -8,6 +8,7 @@
     "pm2": "pm2 start ecosystem.config.js"
   },
   "dependencies": {
+    "@napi-rs/canvas": "^1.0.0",
     "mssql": "^11.0.1",
     "node-cron": "^3.0.3",
     "qrcode-terminal": "^0.12.0",

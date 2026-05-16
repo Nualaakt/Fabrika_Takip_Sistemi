@@ -11,7 +11,7 @@
 //    node index.js --gunluk YYYY-MM-DD → belirtilen günün raporunu gönder
 // ══════════════════════════════════════════════════════════════
 
-const { Client, LocalAuth } = require('whatsapp-web.js');
+const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
 const qrcode  = require('qrcode-terminal');
 const cron    = require('node-cron');
 
@@ -20,6 +20,7 @@ const db      = require('./db');
 const ku      = require('./kullanicilar');
 const { vardiyaRaporuOlustur, gunlukRaporuOlustur, haftalikRaporuOlustur, aylikRaporuOlustur, anlikUretimOzetle } = require('./rapor');
 const { mesajiIsle, anaMenuMesaji, botMesaji } = require('./menu');
+const { gunlukGrafikOlustur } = require('./grafik');
 
 // ── Kayıt oturumları (multi-turn) ─────────────────────────────
 // chatId → { asama: 'isim'|'pozisyon'|'birim', isim, pozisyon }
@@ -107,6 +108,43 @@ async function mesajGonder(metin, roller) {
 }
 
 function bekle(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+// ── Görsel gönder (PNG buffer) ────────────────────────────────
+async function mesajGonderGorsel(pngBuffer, roller, caption = '') {
+  const base64 = pngBuffer.toString('base64');
+  const media  = new MessageMedia('image/png', base64, 'rapor.png');
+  const hedefler = (roller
+    ? config.alicilar.filter(a => roller.includes(a.rol))
+    : config.alicilar
+  ).filter(a => a.aktif !== false);
+
+  for (const alici of hedefler) {
+    try {
+      const hedefId = alici.gid ? alici.gid : alici.tel + '@c.us';
+      await client.sendMessage(hedefId, media, caption ? { caption } : {});
+      console.log(`🖼️  Görsel gönderildi → ${alici.isim} (${alici.rol})`);
+      await bekle(1500);
+    } catch (err) {
+      console.error(`✕ Görsel HATA → ${alici.isim}: ${err.message}`);
+    }
+  }
+
+  if (roller) {
+    for (const rol of roller) {
+      if (rol === 'admin') continue;
+      const kayitlilar = ku.aktifKullanicilar(rol);
+      for (const kul of kayitlilar) {
+        try {
+          await client.sendMessage(kul.chatId, media, caption ? { caption } : {});
+          console.log(`🖼️  Görsel gönderildi → ${kul.isim} [kayıtlı] (${kul.birim})`);
+          await bekle(1500);
+        } catch (err) {
+          console.error(`✕ Görsel HATA → ${kul.isim} [kayıtlı]: ${err.message}`);
+        }
+      }
+    }
+  }
+}
 
 function sureFmt(dakika) {
   const dk = Math.round(dakika);
@@ -642,6 +680,16 @@ const [uretimKayitlari, beslemeKayitlari, aktifMikserler, bekleyenMikserler] =
 
   await mesajGonder(mesajAdmin,  ['admin']);
   await mesajGonder(mesajNormal, ['uretim']);
+
+  // ── Görsel kart ────────────────────────────────────────────
+  try {
+    const pngBuf = gunlukGrafikOlustur(uretimKayitlari, hurdaKayitlari, new Date(tarih));
+    await mesajGonderGorsel(pngBuf, ['admin', 'uretim']);
+    console.log('🖼️  Günlük görsel kart gönderildi.');
+  } catch (err) {
+    console.error('⚠️  Görsel kart oluşturulamadı:', err.message);
+  }
+
   console.log('✅ Günlük rapor gönderildi.\n');
 }
 
