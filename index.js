@@ -1357,7 +1357,7 @@ client.on('message', async (msg) => {
       }
       await client.sendMessage(hedefAdres, '⏳ Güncelleme çekiliyor (git pull)...');
       await bekle(500);
-      exec('git -C "Z:\\wpsys" pull', async (err, stdout, stderr) => {
+      exec(`git -C "${__dirname}" pull`, async (err, stdout, stderr) => {
         const cikti = (stdout || '').trim();
         const hata  = (stderr || '').trim();
         const ozet  = cikti || hata || '(çıktı yok)';
