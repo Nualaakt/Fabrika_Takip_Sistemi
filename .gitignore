@@ -1,0 +1,10 @@
+node_modules/
+.wwebjs_auth/
+.wwebjs_cache/
+logs/
+*.log
+llm/model/*.gguf
+.claude/
+@sonZaman
+*.tmp
+*.pptx
