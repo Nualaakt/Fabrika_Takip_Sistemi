@@ -193,6 +193,7 @@ module.exports = {
   gunlukMikserGetir,
   makineBaslangicBilgisiGetir,
   gunlukHammaddeMarkalariGetir,
+  gunlukFireTrendGetir,
 };
 
 // ── 5. GÜNLÜK ÜRETİM (tüm gün) ───────────────────────────────
@@ -607,6 +608,69 @@ async function gunlukHammaddeMarkalariGetir(tarih) {
     eva: evaMarka.size > 0 ? [...evaMarka].join(' + ') : null,
     poe: poeMarka.size > 0 ? [...poeMarka].join(' + ') : null,
   };
+}
+
+// ── 21. GÜNLÜK FİRE TREND (grafik için) ──────────────────────
+//
+//  makineDB    : HurdaRecycleGirisi.Makine değeri ('JWELL', 'GWELL')
+//  uretimHatti : Production.UretimHatti değeri (aynı, 'JWELL', 'GWELL')
+//  baslangicTarihi : makinenin o run'a başladığı tarih
+//
+async function gunlukFireTrendGetir(makineDB, uretimHatti, baslangicTarihi) {
+  const db = await baglan();
+  const d  = new Date(baslangicTarihi);
+  const bas = d.getFullYear() + '-' +
+    String(d.getMonth() + 1).padStart(2, '0') + '-' +
+    String(d.getDate()).padStart(2, '0');
+
+  const hReq = db.request();
+  hReq.input('makine',    sql.NVarChar, makineDB);
+  hReq.input('baslangic', sql.NVarChar, bas);
+  const hSonuc = await hReq.query(`
+    SELECT
+      CONVERT(VARCHAR(10), KayitTarihi, 120) AS Tarih,
+      SUM(ISNULL(EriyikHurda,0) + ISNULL(HaliHurda,0) + ISNULL(RuloHurda,0)
+        + ISNULL(HaliRecycle,0) + ISNULL(RuloRecycle,0) + ISNULL(Sarim,0)) AS FireKg
+    FROM HurdaRecycleGirisi
+    WHERE Makine = @makine
+      AND CONVERT(VARCHAR(10), KayitTarihi, 120) >= @baslangic
+    GROUP BY CONVERT(VARCHAR(10), KayitTarihi, 120)
+    ORDER BY Tarih ASC
+  `);
+
+  const uReq = db.request();
+  uReq.input('hat',       sql.NVarChar, uretimHatti);
+  uReq.input('baslangic', sql.NVarChar, bas);
+  const uSonuc = await uReq.query(`
+    SELECT
+      CONVERT(VARCHAR(10), UretimTarihi, 120) AS Tarih,
+      SUM(CAST(MetreKg AS FLOAT) * CAST(Gram AS FLOAT) * CAST(Genislik AS FLOAT)
+          / 1000000.0) AS UretimKg
+    FROM Production
+    WHERE UretimHatti = @hat
+      AND CONVERT(VARCHAR(10), UretimTarihi, 120) >= @baslangic
+      AND MetreKg > 0 AND Gram > 100 AND Genislik BETWEEN 900 AND 1400
+    GROUP BY CONVERT(VARCHAR(10), UretimTarihi, 120)
+    ORDER BY Tarih ASC
+  `);
+
+  const hurdaMap  = Object.fromEntries(hSonuc.recordset.map(r => [r.Tarih, r.FireKg  || 0]));
+  const uretimMap = Object.fromEntries(uSonuc.recordset.map(r => [r.Tarih, r.UretimKg || 0]));
+
+  const tarihler = [...new Set([...Object.keys(hurdaMap), ...Object.keys(uretimMap)])].sort();
+
+  let kFire = 0, kUretim = 0;
+  return tarihler.map(tarih => {
+    const fireKg   = hurdaMap[tarih]  || 0;
+    const uretimKg = uretimMap[tarih] || 0;
+    const topGirdi = uretimKg + fireKg;
+    const gunlukOran = topGirdi > 0 ? (fireKg / topGirdi) * 100 : 0;
+    kFire   += fireKg;
+    kUretim += uretimKg;
+    const kTop = kUretim + kFire;
+    const kumulatifOran = kTop > 0 ? (kFire / kTop) * 100 : 0;
+    return { tarih, fireKg, uretimKg, gunlukOran, kumulatifOran };
+  });
 }
 
 // ── BAKIM: Açık arızalar ──────────────────────────────────────
