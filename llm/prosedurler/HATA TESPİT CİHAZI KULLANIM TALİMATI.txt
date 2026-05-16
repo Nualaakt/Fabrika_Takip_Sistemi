@@ -1,0 +1,26 @@
+1.	Yazılımın Başlatılması ve Durdurulması
+1.1.	Bilgisayar açıldıktan sonra, masaüstünde bulunan SYVS.EXE kısayol simgesine çift tıklanarak yazılımın ana arayüzüne giriş yapılır.
+ 
+Resim 1. Uygulama kısayolu
+1.2.	Ana arayüz açıldıktan sonra, aşağıda gösterilen Başlat butonuna basılarak yazılım çalıştırılır.
+1.3.	Yazılım çalışmaya başladıktan sonra herhangi bir kullanıcı müdahalesine gerek yoktur.
+ 
+Resim 2. Uygulama ekranı başlatma butonu
+ 
+Resim 3. Aktif uygulama ekranı
+
+1.4.	Yazılımı durdurmak için, aşağıda işaretlenmiş olan Durdur butonuna basılarak makinenin çalışması sonlandırılır.
+ 
+Resim 4. Uygulama durdurma butonu
+1.5.	Program çalışır durumdayken, bu talimatta belirtilen butonlar dışında herhangi bir işlem yapılmamalıdır.
+1.6.	Program hataları algılamaz veya ekran güncellenmezse, sağ üst köşedeki kapatma (X) butonuna basılarak program kapatılmalı, ardından 1. adımdan itibaren yeniden başlatılmalıdır.
+1.7.	Herhangi bir arıza, hata veya tereddüt durumunda üretim sorumlusu ile derhal iletişime geçilmelidir.
+2.	Revizyon Tarihçesi
+Revizyon No
+Revision No	İlgili Madde/ Relevant Clause	Yazar
+Prepared By	Kontrol Eden/Onaylayan
+Approved By	Değişiklik Tanımı
+Modification Description	Düzenleme Tarihi
+Modification Date
+1.0	-	Kaan Talu	Ayşen Akar	Yeni oluşturulmuştur.	13.01.2026
+

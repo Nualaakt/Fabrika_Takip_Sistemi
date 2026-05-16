@@ -1,0 +1,139 @@
+
+
+
+
+
+
+GRANÜL MAKİNESİ       KULLANIM TALİMATI
+
+
+
+VERSİYON 2.0
+
+
+
+
+DOKÜMAN NO: CPS-SOP-031
+
+
+
+
+
+İçindekiler
+1.	Amaç	3
+2.	Kapsam	3
+3.	Sorumluluklar	3
+4.	Tanımlar ve Kısaltmalar	3
+5.	Uyarılar; Çevre, İş Sağlığı Güvenliği Önerileri	3
+6.	Prosedür	4
+6.1	Başlatma Talimatı	4
+6.2	Çalıştırma Talimatı	4
+6.2.1	Operatörün Yapacakları	4
+6.2.2	Makine Çalışırken Dikkat Edilmesi Gerekenler	5
+6.3	Kullanım Talimatı	6
+6.4	Durdurma Talimatı	6
+6.5	Bakım Talimatı	7
+7.	Bağlı Dokümanlar	7
+8.	Revizyon Tarihçesi	7
+
+	
+
+
+
+
+
+
+
+
+
+1.	Amaç
+Bu prosedür POE ve EVA enkapsülant film geri dönüştürülmesinde kullanılan granül makinesinin kullanımını, dikkat edilmesi gereken kuralları ve uyarıcı bilgileri detaylandırmayı amaçlamaktadır.
+2.	Kapsam
+Bu prosedür üretimde kullanılan granül makinelerinin tamamını kapsamaktadır.
+3.	Sorumluluklar
+3.1	Üretim Personelleri
+3.1.1	Bu prosedürde yazan talimatlara uymaktan sorumludur.
+3.2	Vardiya Amirleri
+3.2.1	Bu prosedürde yazan talimatlara uymaktan ve üretim personellerini kontrol etmekten sorumludur.
+3.3	Üretim Mühendisi
+3.3.1	Üretim personellerini kontrol etmekten sorumludur.
+3.3.2	Gerekli durumlarda prosedürü güncellemekten sorumludur.
+4.	Tanımlar ve Kısaltmalar
+-
+5.	Uyarılar; Çevre, İş Sağlığı Güvenliği Önerileri
+5.1	Kimyasallar ile yapılan çalışmalarda “CPS-SOP-012 Kimyasal Maddeler İle Yapılan Çalışmalarda Alınacak Sağlık ve Güvenlik Önlemleri” prosedürü dikkate alınacaktır. Malzeme Güvenlik Bilgi Form’larının (SDS) EHS klasörü alanından ulaşılabilirliği rutin olarak kontrol edilmelidir.
+5.2	Kişisel Koruyucu Donanımlar kullanılacaktır. Kullanımda CPS-SOP-013 Kişisel Koruyucuların Kullanım, Bakım ve Temizliği" prosedürü dikkate alınacaktır.
+5.3	Proses esnasında oluşabilecek olan atıklar CPS-SOP-014 Atık Teslim Prosedürü’ne göre teslim edilmelidir. Atık teslim sürecinde kişisel koruyucuların kullanılması gerekmektedir.
+5.4	Yüzük, kolye, saat gibi aksesuarlarla üretim sahasına girmek yasaktır. 
+5.5	Üretim sahası içerisinde telefon kullanmak, müzik dinlemek, kulaklık takmak yasaktır.
+5.6	Kimyasallarla yapılan çalışmalarda İlk Yardım:
+5.6.1	Soluduğunda; açık havaya çıkın. Nefes alınamıyorsa suni solunum uygulayın, nefes almakta güçlük çekiyorsa uzman kişi tarafından oksijen takviyesi yapılmalıdır. Sağlık Birimi 112’yi arayın.
+5.6.2	Deriye temasında; kimyasalın temas ettiği giysilerinizi, takılarınızı ve ayakkabılarınızı çıkarıp kimyasalın tamamen temizlendiğinden emin olana dek (15-20 dakika) bol miktarda su ve sabun işe yıkayın. Yanıkların oluşması durumunda bölgeyi temiz, kuru ve sıkı olmayan biz bezle kapayın. Sağlık Birimi 112’yi arayın.
+5.6.3	Göz ile temasında; gözü 15-20 dakika boyunca su ile yıkayın. Sağlık Birimi 112’yi arayın.
+5.6.4	Yutulduğunda; yutan kişiyi zorla kusturmaya çalışmayın. Bilinç kaybı varsa ağızdan bir şey vermeyin. Sağlık Birimi 112’yi arayın.
+
+
+6.	Prosedür
+6.1	Başlatma Talimatı
+6.1.1	Granül makinesini başlatmadan önce tüm ekipmanların ve hava bağlantılarının yerlerine düzgün bir şekilde konulduğundan/monte edildiğinden emin olunmalıdır. 
+6.1.2	Geri dönüştürülecek malzemelerin içerisinden geçtiği boruların kelepçeleri kontrol edilmelidir.
+6.1.3	4 adet tankın da hava filtresinin temiz olduğu, yerlerine düzgün bir şekilde oturtulmuş olduğu kontrol edilmelidir.
+6.1.4	Bu adımlar tamamlandıktan sonra makine elektrik bağlantısı açılarak kullanıma başlanmalıdır.
+6.2	Çalıştırma Talimatı
+6.2.1	Operatörün Yapacakları
+6.2.1.1	Makine başlatma adımları tamamlandıktan sonra aşağıdaki ekran görünür.
+ 
+Şekil 1. Makine başlatma ekranı
+6.2.1.2	Bu ekrandan “ENTER” komutuna bastığımızda makinenin ana çalışma ekranı açılır.
+
+ 
+Şekil 2. Makine çalışma ekranı
+6.2.1.3	Makine çalıştırılırken, makine çalışma ekranı üzerinden aşağıdaki adımlar takip edilmelidir:
+6.2.1.4	Fan 1, 2, 3 ve 4 sırasıyla ekranın sağ tarafından açılır.
+6.2.1.5	Ortada bulunan Zone 1, Zone 2, Zone 3 ve Zone 4 alanları, makine kapalı konumundayken (Kırmızı renkte görünür) açılır ve her alanın gerekli değerleri girilir.
+6.2.1.6	Alanların sıcaklığı artmaya başlayınca ve Zone 4 noktası istenilen sıcaklığa ulaşınca sol üst tarafta bulunan “Main Engine” tuşu ve orta alt bölümde bulunan “Cutter” tuşuna basarak makinenin kesici bölümleri çalıştırılmaya başlanır.
+6.2.1.7	Makinenin içerisine malzeme beslenerek diğer alanların da sıcaklıklarının yükselmesi beklenir.
+6.2.1.8	Bu adım uygulanırken makinenin kesici ağzından malzeme birikmesi durumunda malzeme beslenmesi ağızda malzeme kalmayana kadar durdurulur, bölgede bulunan malzeme makinenin içerisine beslendikten sonra ise besleme devam eder.
+6.2.1.9	Makinenin diğer sıcaklık değerleri yükseldikten sonra “Zone 1” de bulunan sıcaklık değerinin normal değerlere düşmesi beklenir.
+6.2.1.10	Bu besleme adımları esnasında makineden çıkan malzeme hurda malzeme olarak ayrı bir poşette toplanmalıdır, makinenin sıcaklıkları optimum değere geldiğinde kırılan malzeme sağlam olarak kabul edilir.
+6.2.1.11	Tüm sıcaklık değerleri normal seviyelere ulaştığı zaman makineden çıkan ürün boşaltma kısmının altında bulunan bölümde toplanır.
+6.2.2	Makine Çalışırken Dikkat Edilmesi Gerekenler
+6.2.2.1	Makine çalışırken operatörün eli besleme vidasına çok yakın olmamalıdır. Eğer beslenen malzeme içeri giremiyorsa plastik bir çubukla ürünün makineye beslenmesi sağlanmalıdır.
+6.2.2.2	Makinenin çalışması esnasında kesici kapağı asla açılmamalıdır. Makinenin sağ kısmında bulunan kesicinin gözlem deliğine malzeme sıkışırsa temizlemeden önce kesici kapatılmalıdır sonrasında müdahale edilmelidir. 
+6.2.2.3	Makinenin içerisine çok malzeme beslenmesi durumunda vidada oluşan basınç artıp makine alarma geçebilir. Bu durumda, malzeme beslenmesi durdurulup vidanın içerisindeki yük azaldıktan sonra beslemeye devam edilir.
+6.2.2.4	Makineye beslenen malzemede bulunan kirlilikler ve saflığı bozabilecek her durum (erimemiş parça, kalem izi, yabancı madde, vb.) makineden kesici bir alet (makas, maket bıçağı, vb.) yardımı ile kesilip alanda bulunan hurda kısmına ayrılmalıdır.
+6.2.2.5	Kesme işleminde kullanılan maket bıçağının ucu çok açık olmamalıdır.
+6.2.2.6	Makineye beslenecek olan malzeme formu rulo şeklinde ise bu malzemenin makine standına forklift veya bir taşıma aracı ile taşınması gerekmektedir. Beslenecek malzemeler ağır olduğu için kesinlikle el ile taşıma sağlanmamalıdır.
+6.2.2.7	Mil kullanıldığı durumda parçanın standa düzgün bir şekilde oturduğundan emin olunmadan çalışma yapılmamalıdır. 
+6.2.2.8	Rulo geri dönüşüm ürünleri standa gerektiği durumlarda mil yardımı ile yerleştirilmelidir. Milin ruloya geçirilme işlemi taşıma aracının üstüne alındıktan sonra yapılmalıdır.
+6.2.2.9	Geri dönüşüm için beslenecek malzemeler ve kırılmış olan granül malzemeler kırıcı makinesi için ayrılmış olan alanın içerisinde bulunmalıdır.
+6.3	Kullanım Talimatı
+6.3.1	Makine kullanılmadan önce fabrika içerisindeki geri dönüşüm alanından kırılmak için uygun olan ürünler seçilip depo sorumlusuna bildirildikten sonra, kırıcı makinesi için ayrılmış olan alana taşınmalıdır.
+6.3.2	Makineye beslenecek ürün CPS-PLAN-022 Granül Makinesi Takip Defteri’ne kaydedilmelidir.
+6.3.3	Granül makinesi tarafından kırılan malzemeler silo içerisine aktarılıp ağırlığı vardiya sonunda siloların üzerine not alınmalıdır.
+6.3.4	Makinenin ilk çalıştırılması esnasında çıkan hurda malzemeler vardiya sonunda ağırlığı ve o günün tarihiyle birlikte poşetin üstüne yazılıp gerekli alana taşınmalıdır.
+6.4	Durdurma Talimatı
+6.4.1	Besleme işlemi bittikten sonra makine hemen kapatılmamalıdır.
+6.4.2	Makinenin içerisinden parçalanmış ürün alınması durduktan sonra makinenin besleme vidası, “Main Engine” bölümünden kapatılır.
+6.4.3	Sonrasında sırasıyla fanlar ekranın sağ bölümünden kapatılır.
+6.4.4	Kesme bıçağı 5 dakika döndükten sonra kapatılır.
+6.4.5	Makine yukarıdaki işlemler yapıldıktan sonra bekleme konumundadır, tekrar çalıştırmak için bu belgede bulunan adımlar baştan başlanır.
+6.5	Bakım Talimatı
+6.5.1	Makinenin temizliği ve bakım adımları CPS-FORM-043 Granül Makinesi Bakım Formu’na doldurulmalıdır.
+6.5.2	İki günde bir, makinede bulunan tankların iç kısımları, kapakları açılarak hava ile temizlenmeli, içerisinde katı bir malzeme kaldığı durumda ise bakır bir çubuk ile yardımcı olunmalıdır.
+6.5.3	İki günde bir, tankların üzerlerinde bulunan filtre kısmı, kelepçeler çıkarılarak hava ile temizlenmeli, sonrasında tekrar yerine takılmalıdır.
+6.5.4	Kesme bıçağı, üzerinde kir biriktiğinde veya makineye beslenen malzemeyi kesmekte zorluk çektiğinde değiştirilmelidir. Bıçağın değişimi bakım birimi personelleri tarafından yapılmalıdır.
+6.5.5	İki günde bir, tankların alt bölümünde bulunan filtre kısımları olarak kontrol edilip temizliği yapılmalıdır.
+7.	Bağlı Dokümanlar
+Doküman Adı	Doküman No
+Granül Makinesi Takip Defteri	CPS-PLAN-022
+Granül Makinesi Bakım Formu	CPS-FORM-043
+8.	Revizyon Tarihçesi 
+Versiyon No
+Version No	İlgili Madde	Yazar
+Modified By	Kontrol Eden/Onaylayan / Approving Authority Controller	Değişiklik Tanımı
+Modification Description	Düzenleme Tarihi
+Modification Date
+1.0	-	Kaan Talu	Ayşen Akar	Yeni oluşturulmuştur.	28.11.2023
+2.0	-	Kaan Talu	Ayşen Akar	Format değişikliği yapılmıştır.	01.12.2024
+

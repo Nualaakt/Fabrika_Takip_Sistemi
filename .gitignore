@@ -1,0 +1,23 @@
+# Bağımlılıklar
+node_modules/
+
+# WhatsApp oturum verileri
+.wwebjs_auth/
+.wwebjs_cache/
+
+# PM2 loglar
+logs/
+*.log
+
+# LLM model dosyası (4+ GB)
+llm/model/*.gguf
+
+# Claude ayarları
+.claude/
+
+# Geçici dosyalar
+@sonZaman
+*.tmp
+
+# Sunum çıktısı
+*.pptx

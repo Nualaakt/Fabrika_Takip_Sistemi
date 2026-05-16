@@ -1,0 +1,26 @@
+{
+  "sonId": 2,
+  "kayitlar": [
+    {
+      "id": 1,
+      "isim": "sevgi s",
+      "pozisyon": "müh",
+      "birim": "kalite",
+      "chatId": "260773402132506@lid",
+      "durum": "onaylandi",
+      "aktif": false,
+      "olusturmaTarihi": "2026-05-16T09:52:07.979Z",
+      "onayTarihi": "2026-05-16T09:52:33.211Z"
+    },
+    {
+      "id": 2,
+      "isim": "Kaan Talu2",
+      "pozisyon": "Üretim Personeli",
+      "birim": "uretim",
+      "chatId": "218296058134536@lid",
+      "durum": "bekliyor",
+      "aktif": false,
+      "olusturmaTarihi": "2026-05-16T11:28:18.582Z"
+    }
+  ]
+}

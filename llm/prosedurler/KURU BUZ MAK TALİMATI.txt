@@ -1,0 +1,136 @@
+
+
+
+
+
+
+KURU BUZ MAKİNESİ 
+KULLANIM KILAVUZU
+
+
+
+
+VERSİYON 1.0
+
+
+CPS-SOP-
+
+ 
+1.	Amaç
+Bu kılavuzun amacı, operatörlerin ekipmanı doğru şekilde kullanıp bakımını yapmalarını sağlayarak personel güvenliğini temin etmek, ekipmanın normal işlevini sürdürmek, arıza oranını azaltmak ve ekipman ömrünü uzatmaktır.
+2.	Kapsam
+Bu talimat, kuru buz makinesinin güvenlik önlemleri, çalıştırma talimatları ve bakım yönergelerini içermektedir. 
+Cihazı kullanmadan önce herkes bu kılavuzu dikkatlice okumalı, burada yer alan talimatlara kesinlikle uyarak cihazı güvenli ve doğru biçimde kullanmalı ve bakımını yapmalıdır.
+Bu uyarının amacı, yanlış kullanım sonucu meydana gelebilecek yaralanma ve kazaların önüne geçmektir. Lütfen tüm içeriği doğru şekilde anladıktan sonra kullanıma başlayın.
+3.	Sorumluluklar       
+3.1	Üretim ve Depo Personelleri
+3.1.1	Bu prosedürde yazan talimatlara uymaktan sorumludur.
+3.2	Vardiya Amiri Operatör/Operatör Yardımcısı)
+3.2.1	Bu prosedürde yazan talimatlara uymaktan sorumludur.
+3.3	Üretim Mühendisi
+3.3.1	Bu prosedürde yazan talimatlara uyulup uyulmadığını kontrol etmekten ve gerekli durumlarda prosedürü güncellemekten sorumludur.
+4.	Tanımlar ve Kısaltmalar
+-
+5.	Uyarılar; Çevre, İş Sağlığı Güvenliği Önerileri
+5.1	Kimyasallar ile yapılan çalışmalarda “Kimyasal Maddeler İle Yapılan Çalışmalarda Alınacak Sağlık ve Güvenlik Önlemleri” prosedürü dikkate alınacaktır.
+5.2	Çalışma ortamında Kişisel Koruyucu Donanımlar kullanılacaktır. Kullanımda CPS-SOP-013 Kişisel Koruyucuların Kullanım, Bakım ve Temizliği" prosedürü dikkate alınacaktır.
+5.3	Kullanımdan önce aşağıdaki koruyucu önlemleri almak ve koruyucu ekipmanları giymek zorunludur
+                         
+5.4	
+
+5.4	Kuru buz son derece soğuktur, sıcaklığı -78,5 °C’dir. Ciltle doğrudan temas ederse soğuk yanığına neden olabilir, ciltle temas ettirmeyin!
+5.5	Püskürtme tabancasını hiçbir şekilde bir insana doğrultmayın; çalışma alanında insanlar varken özellikle dikkatli olun.
+5.6	Cihaz amacı dışında kullanılmamalıdır.
+5.7	Eğitimsiz personelin kuru buz makinesini çalıştırması kesinlikle yasaktır.
+5.8	Enjeksiyon borusunu çıkarmadan önce, mutlaka ana güç kaynağını kapatın ve kablo bağlantısını çıkarın.
+5.9	Hava besleme basıncı, maksimum sınır değeri olan 10 kg/cm²’yi aşmamalıdır.
+5.10	Cihaz yanıcı ve patlayıcı gaz ortamlarda, korozif ortamlarda, suya maruz kalan yerlerde veya yanıcı maddelerin yakınında kesinlikle kullanılmamalıdır. Aksi takdirde, yangın, elektrik çarpması ve yaralanma riski oluşabilir.
+5.11	Kurulum, kablolama, çalıştırma, muayene, arıza analizi ve diğer işlemler sadece profesyonel teknik personel tarafından yapılmalıdır; aksi takdirde yangın, elektrik çarpması ve yaralanma riski vardır.
+5.12	Cihazın enerjisi açıkken taşıma, kurma, kablolama veya başka işlemler yapılmamalıdır.
+5.13	Cihaz topraklama işaretli 220V güç kaynağına bağlanmalı ve güç giriş voltajı aralığına uyulmalıdır.
+5.14	Bağlantı kabloları zorla bükülmemeli, çekilmemeli ve kliplenmemelidir.
+5.15	Elektriksel veya pnömatik bileşenler yetkisiz kişiler tarafından sökmemeli, değiştirilmemeli ve modifiye edilmemelidir.
+5.16	Makinenin özel topraklama kablosu kullanılarak hem çalışma alanı hem de makine topraklanmalıdır.
+5.17	Kuru buz yüklemeden önce, makine her açıldığında sistem mutlaka sıkıştırılmış hava ile boşaltılmalıdır.
+5.18	Makine iç haznesine yabancı cisimlerin düşmesini önlemek için kapağı sürekli kapalı tutulmalıdır.
+5.19	Makine uzun süreli (15 dakikadan fazla) kapatıldığında, sistem mutlaka boşaltılmalıdır; aksi takdirde buz besleme sistemi veya püskürtme ucunun donması kolaylaşır.
+5.20	Cihaz çalışırken hareketli veya dönen parçalara el-parmak veya yabancı cisimler sokulmamalıdır; aksi takdirde yaralanma ve cihazın zarar görme riski vardır.
+6.	Prosedür
+6.1	Kullanım
+6.1.1	Bu kısım istif makinesi kullanılırken dikkat edilmesi gereken maddeleri kapsar.
+6.1.2	Çatalları kaldırmadan önce yükün çatallara tamamen ve dengeli bir şekilde oturduğuna emin olunmalıdır.
+6.1.3	Çatallar kullanım dışındayken yere yakın durumda bırakılmalıdır. 
+6.1.4	İstif Makinesini durdurmak için asla dümen kolu sağa veya sola çevrilmemelidir.
+6.1.5	Uygun olmayan yüklerin veya aşırı ağırlıkların taşınması için kullanılmamalıdır.
+6.1.6	Yalnızca düz ve sert zeminlerde kullanılmalıdır.
+6.1.7	İstif Makinesi insanların taşınması için kullanılmamalıdır.
+6.1.8	İstif Makinesinin hareketi sırasında kontrol zorluğu yaşanması halinde kullanım dışı olarak etiketlenerek emniyetli bir alana çekilmelidir. Emniyetli alana çekildikten sonra vardiya sorumlusuna bilgi verilmelidir.
+6.1.9	Yükler uzun süreli olarak istif makinesi üzerinde bırakılmamalıdır.
+6.1.10	İstif Makinesi ile taşınacak yükler çatalların üzerine aniden bırakılmamalıdır.
+6.1.11	İstif Makinesi üzerinde yük varken yükün altından insan geçişi kesinlikle olmamalıdır.
+6.1.12	İstif Makinesinin çatalları üzerine kesinlikle oturulmamalıdır.
+6.1.13	Deneyimi olmayan ve eğitim almamış kişiler istif makinesini kullanmamalıdır.
+6.1.14	Yükün istif makinesi için belirlenen ağırlık sınırları içerisinde olduğundan emin olunmalıdır.
+6.1.15	Herhangi bir yükü kaldırmak için çatalların teki yalnız başına kullanılmamalıdır, belirtilen sınır değerlerin dışında yükleme yapılmamalıdır. Sınır değerler istif makinesinin asansör kısmından bulunduğundan, yükleme bu değerler göz önünde bulundurularak yapılmalıdır.
+6.1.16	İyi aydınlatılmamış alanlarda istif makinesi kullanılmamalıdır.
+6.1.17	Kullanım esnasında personel, kumanda paneli dışında makinenin asansörüne, asansör zincirlerine vb. yaralanma riski barındıran mekanik aksamlarına kesinlikle dokunmamalıdır.
+6.1.18	Paletlerde kırık olmadığından ve yükün çatallara dengeli olarak yüklendiğinden emin olunmalıdır.
+6.1.19	Kullanım sonunda istif makinesi belirtilen emniyetli alana bırakılmalıdır. 
+6.1.20	Kontroller tamamlandığında istif makinesi kullanım şekli için aşağıdaki adımlar izlenmelidir:
+6.1.20.1	Kontrol paneli üzerindeki Acil Durum Butonunu kendinize doğru yavaşça çekiniz.
+6.1.20.2	Buton yerine oturduktan sonra İstif Makinesinin kontrol paneli üzerindeki anahtarı ON konumuna getirerek istif makinesini çalıştırınız.
+6.1.20.3	İstif makinesinin çatallarını paletin altında yükü dengeleyecek şekilde yerleştiriniz. 
+6.1.20.4	Çatalların yükü mümkün olduğunca ortalamasına dikkat ediniz.
+6.1.20.5	Yükü kaldırmadan önce tekerleklerdeki tekerlek kilidine basarak makinenin hareket etmediğinden emin olunuz.
+6.1.20.6	Yükü kaldırmak için kumanda kolunu yavaşça ileriye(UP) doğru itiniz.
+6.1.20.7	Yükün yeterli miktarda yerden yüksekliği ulaştığını gördüğünüzde tekrar tekerlek kilidine basarak istif makinesini hareket ettiriniz.
+6.1.20.8	Yükü kaldırırken istif makinesinin asansör kısmının tavana değmediğinden emin olunuz.
+6.1.20.9	İstif makinesini yükünüzü bırakacağınız yere doğru itiniz veya çekiniz, yolunuzun üzerinde herhangi bir engel olmadığından emin olunuz.
+6.1.20.10	Yükü yere indirmeden önce istif makinesinin olduğu alanda hiçbir tehlike olmadığından emin olunuz.
+6.1.20.11	Palet altının uygun ve düz olduğundan ayrıca güvenlik açısından herhangi bir personelin ayağının paletin altında olmadığından emin olunuz.
+6.1.20.12	Yükü indirmeden önce tekerleklerdeki tekerlek kilidine basarak makinenin hareket etmediğinden emin olunuz.
+6.1.20.13	Yükü indirmek için kumanda kolunu yavaşça geriye(DOWN) doğru çekiniz.
+6.1.20.14	Yük indirildikten sonra istif makinesi emniyetli alana götürülmelidir.
+6.1.20.15	İstif makinesini durdurduktan sonra kontrol paneli üzerinde bulunan Acil Durum Butonuna basınız.
+6.1.20.16	Kontrol paneli üzerindeki anahtarı OFF konumuna getirerek istif makinesini kapatınız.
+6.1.20.17	İstif makinesini kapattıktan sonra tekerlek kilidine basılarak makineyi sabit konuma getiriniz.
+6.1.20.18	İstif makinesinin çalışmadığından ve hareket etmediğinden emin olunuz.
+6.1.20.19	İstif makinesinin çatalları yere yakın durumda bırakılmalıdır.
+6.1.20.20	İstif makinesi yükleme ve indirme yapılmadan önce mutlaka tekerlek kilidi ile sabitlenmelidir.
+ 
+İstif Makinesi
+       
+Acil Durum Butonu       Anahtar Kontağı                Kumanda Kolu		   Şarj Göstergesi
+ 
+     					        Kontrol Paneli 			Şarj Fişi
+6.2	Şarj Etme 
+6.2.1	Bu kısım İstif Makinesinin şarj edilmesi sırasında yapılması gereken maddeleri kapsar.
+6.2.2	İstif Makinesinin şarj göstergesi kullanımdan önce kontrol edilmelidir.
+6.2.3	İstif Makinesinin şarj göstergesinde yeşil lamba dışında sadece kırmızı lamba yanıyorsa istif makinesi en kısa sürede şarj edilmelidir.
+6.2.4	Şarj edilmesi amacıyla en yakın ve uygun priz yanına getirilmelidir.
+6.2.5	Şarj göstergesinin bütün lambaları yeşil yanana kadar şarj edilmelidir. Bütün lambaları yeşil yanmadan kesinlikle şarj işlemi sonlandırılmamalıdır. İstif Makinesi en az 6 saat şarj edilmelidir. Şarj işlemi tek seferde yapılmalıdır. Şarjın tamamen dolduğundan emin olunduktan sonra kullanılmalıdır.
+6.2.6	Şarj göstergesinin bütün lambaları yeşil yanıyorsa şarj işlemi tamamlanmıştır ve şarj fişi prizden çıkarılmalıdır.
+6.2.7	İstif Makinesi şarj edilirken kesinlikle kullanılmamalıdır.
+6.2.8	İstif Makinesi uzun süreli kullanılmayacaksa her hafta en az 2 saat şarj edilmelidir.
+6.3      Bakım 
+6.3.1	İstif Makinesinin bakımı aşağıda yazılan belirli periyodlarda yapılıp, CPS-FORM-069 İstif Makinesi Bakım Formunda kayıt altına alınmalıdır.
+6.3.2	Sağlıklı ve uzun süreli kullanım için periyodik bakımlarını yönetmelikte belirtilen sürede yılda en az bir defa düzenli olarak yapınız/yaptırınız.
+6.3.3	İstif Makinesini kullanacak vardiyada, vardiya sorumlusu makinenin yağlı parçalarını elle ve gözle kontrol etmelidir.
+6.3.4	Yağ seviyesi altı ayda bir kontrol edilmeli ve her yıl değiştirilmelidir.
+6.3.5	İstif Makinesinin tekerlekleri, rulmanları ve zincirleri gibi hareketli parçaları aylık olarak veya kullanım sıklığında bağlı olarak en az 2 ayda bir olacak şekilde gres ile yağlanmalıdır. 
+6.3.6	Batarya her kullanım öncesinde kontrol edilmeli, içerisindeki sıvı yetersizse ilave yapılmalıdır.
+
+
+7.	Bağlı Dokümanlar
+Doküman Adı	Doküman No
+İstif Makinesi Bakım Formu	CPS-FORM-069
+
+8.	Revizyon Tarihçesi
+Versiyon No
+Versiyon No	İlgili Madde	Yazar
+Modified By	Kontrol Eden/Onaylayan / Approving Authority Controller	Değişiklik Tanımı
+Modification Description	Düzenleme Tarihi
+Modification Date
+1.0	-	İbrahim Talha Kepceler	Kaan Talu	Yeni oluşturulmuştur.	03.07.2024
+2.0	-	Kaan Talu	Ayşen Akar	Format değişikliği yapılmıştır.	01.12.2024
+

@@ -1,0 +1,5 @@
+[12.05.2026] Birisi sana makine ile ilgili soru sorduğunda ekstrüzyon makinesinden bahsediyordur.
+[12.05.2026] EPE üretirken makine gövde sıcaklıkları EVA tarafı için 68-72 derece aralığında, POE tarafı için ise 77-82 derece aralığında olmalıdır.
+[12.05.2026] EVA üretirken makine gövde sıcaklıkları 68-72 derece aralığında olmalıdır.
+[12.05.2026] POE üretirken makine gövde sıcaklıkları 77-82 derece aralığında olmalıdır.
+[13.05.2026] normal yazı yazdığım zaman rapor menüsünü çalıştırma

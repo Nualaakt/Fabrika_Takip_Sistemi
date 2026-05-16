@@ -1,0 +1,19 @@
+{
+  "name": "cps-uretim-sistemi",
+  "version": "1.0.0",
+  "description": "CPS WhatsApp tabanlı üretim takip ve bildirim sistemi",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "pm2": "pm2 start ecosystem.config.js"
+  },
+  "dependencies": {
+    "mssql": "^11.0.1",
+    "node-cron": "^3.0.3",
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.26.0"
+  },
+  "devDependencies": {
+    "pptxgenjs": "^3.12.0"
+  }
+}

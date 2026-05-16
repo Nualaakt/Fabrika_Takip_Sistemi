@@ -1,0 +1,173 @@
+
+
+
+
+ÜRETİM BÖLÜMÜ KONTROL VE TEST PROSEDÜRÜ
+
+
+
+VERSİYON 3.0
+
+
+
+
+DOKÜMAN NO: CPS-SOP-046
+
+
+
+
+
+
+
+
+İçindekiler
+1.	Amaç	3
+2.	Kapsam	3
+3.	Sorumluluklar	3
+4.	Tanımlar ve Kısaltmalar	3
+5.	Uyarılar; Çevre, İş Sağlığı Güvenliği Önerileri	3
+6.	Prosedür	4
+6.1	Silo/Besleme Kontrolü	4
+6.2	Ürün Kontrol	5
+6.3	Sarım Ünitesi Kontrolleri	7
+6.4	Ürün Numune Kontrolleri	8
+6.5	Uygunsuz Ürün Kontrolü ve İşlemleri	9
+7.	Bağlı Dokümanlar	10
+8.	Revizyon Tarihçesi	10
+
+
+
+
+
+
+
+
+
+
+
+
+
+	Amaç 
+Bu prosedür üretim alanında yapılan kontrol ve testlerin detaylarını açıklamaktadır.
+	Kapsam
+Bu prosedür üretim hattına giren veya üretim hattından (mikser ve ekstrüder) çıkan her türlü yarı mamul ve mamulün kontrol ve test aşamalarını kapsamaktadır.
+	Sorumluluklar
+	Üretim Personeli
+	Bu prosedürde yer alan tüm talimatlara uygun şekilde çalışmakla yükümlüdür.
+	Tartım ve test ekipmanlarını dikkatli ve talimatlara uygun şekilde kullanmakla sorumludur.
+	Uygunsuzluk ya da arıza durumlarını derhal vardiya sorumlusuna bildirmekle yükümlüdür.
+	Gerçekleştirdiği kontrol, tartım ve test işlemlerine ait kayıtları eksiksiz ve zamanında doldurmakla sorumludur.
+	Vardiya Sorumlusu (Operatör/Operatör Yardımcısı)
+	Üretim personelinin prosedüre uygun şekilde çalışmasını sağlamakla ve denetlemekle sorumludur.
+	Prosedüre aykırı davranış sergileyen personeli uyarmak ve tekrarında üretim yöneticisine raporlamakla yükümlüdür.
+	Tartım ve test işlemlerinin doğru yapıldığını kontrol etmekle ve bu işlemlere ait kayıtların tutulduğunu denetlemekle sorumludur.
+	Vardiyası süresince yapılan kontrol ve test faaliyetlerine ait formları eksiksiz olarak doldurmak, üretim personelleri tarafından doldurulan formların kontrolünü sağlamak ve bir üst amire iletmekle sorumludur.
+	Üretim Yöneticisi
+	Prosedürün uygulama bütünlüğünü sağlamakla ve gerektiğinde iç denetim yapmakla yükümlüdür.
+	Tespit edilen uygunsuzluklarda vardiya sorumlusuna gerekli uyarı ve yönlendirmeleri yapmakla sorumludur.
+	Tartım, test ve ölçüm ekipmanlarının kalibrasyon ve periyodik bakım zamanlarını takip ederek, kalite birimine bildirmekle sorumludur.
+	Prosedürün güncellenmesi gerektiğinde revize çalışmalarını başlatmak ve ilgili personele eğitim verilmesini sağlamakla yükümlüdür.
+	Tüm kayıtların düzenli tutulmasını sağlamak, doğruluğunu denetlemek ve arşivlenmesini koordine etmekle sorumludur. 
+	Tanımlar ve Kısaltmalar
+Tanım ve kısaltma bulunmamaktadır.
+	Uyarılar; Çevre, İş Sağlığı Güvenliği Önerileri
+	Tartım işlemleri sırasında ürünler, terazinin üzerine yüksekten bırakılmamalıdır. Ürünler dikkatli, yavaş ve kontrollü şekilde terazinin üzerine alınmalıdır.
+	Teraziler yalnızca üretimde kullanılan ürünlerin tartımı için kullanılmalıdır. İnsan, ekipman veya cihaz gibi üretim dışı ağırlıkların ölçümü kesinlikle yasaktır.
+	Terazi ekranı ve tuş takımı korunmalıdır. Tuşlara sert ve darbeli şekilde basılmamalı, ekranın zarar görmemesi için dikkatli olunmalıdır.
+	Teraziler düz ve sabit bir zemine yerleştirilmelidir. Vibrasyona maruz kalan zeminlerde yapılan tartımlar geçersiz sayılmalıdır.
+	Hassas teraziler hava akımından etkilenmeyecek bir ortamda kullanılmalıdır. Fan, klima, açık pencere gibi hava akımı kaynaklarından uzak tutulmalıdır.
+	Hassas terazilerin yeri sabit tutulmalıdır. Yer değişikliği yapılması gerektiğinde kalibrasyon tekrar edilmelidir.
+	Hiçbir teraziye taşıma kapasitesinin üzerinde yük konulmamalıdır. Aksi takdirde cihazın kalibrasyonu bozulur veya cihaz zarar görebilir.
+	Prosedür
+	Silo/Besleme Kontrolü
+	Bu kısımda Silo/Besleme kısmında yapılacak kontrol adımları ve dikkat edilmesi gereken bölümler ele alınmıştır.
+	Ürün bidondan çektirilmeden önce bidonun içi mutlaka kontrol edilmelidir. 
+	 Bidon içerisinde yabancı madde veya cisim görüldüğünde, bu cisim eldiven veya metal aparat yardımıyla alınmalıdır.
+	 Alınan yabancı madde uygun şekilde muhafaza edildikten sonra vardiya sorumlusuna bilgi verilmelidir.
+	Makinenin besleme kısmında alarm çaldığında silo bölgesinde görevli personel besleme haznesindeki kritik ürün kontrol noktasını gözlemlemelidir.
+	Ürün seviyesi kritik noktanın altına düştüğünde, durum derhal vardiya amirine bildirilmelidir.
+ 
+Resim 7. Besleme haznesi kritik ürün kontrol noktası
+	Ürün Kontrol
+	Ayırma bıçaklarından önce, ürün üzerinde oluşabilecek uygunsuzlukları tespit etmek amacıyla bir hata tespit cihazı bulunmaktadır. Bu cihaz, ürünün üzerinde veya içinde meydana gelen kusurları algıladığında ikaz alarmı vererek çalışanları uygunsuzlukla ilgili bilgilendirir.
+	Kalite Birimi tarafından tanımlanan kalite kusurlarına ait örnek görseller aşağıda sunulmuştur.      
+       
+Resim 1. Erimemiş Parça Görselleri
+        
+Resim 2. Delik Görselleri
+
+
+       
+       
+Resim 3. Yabancı Madde Görselleri
+       
+Resim 4. Baskı Hatası Görselleri
+       
+Resim 5. Ürün Damlaması Görselleri
+
+   
+ 
+Resim 6. Üründe İz ve Leke Görselleri
+	Üretimde kusur tespit edildiğinde, kusurlu kısım kesilmeli ve üzerine kusurun tespit edildiği saat, üretim hattı ve tarih açıkça yazılmalıdır.
+	Alınan kesitin fotoğrafı çekilmeli ve WhatsApp “Üretim Kalite Onay” grubunda paylaşarak ilgili kişilere bilgilendirme yapılmalıdır.
+	Sarım Ünitesi Kontrolleri
+	Bu bölümde ekstrüder hattı sarım (winder) ünitesinde yapılacak kontrol adımları ve dikkat edilmesi gereken hususlar açıklanmıştır.
+	Ekstrüder hattının sarım ünitesinde, rulonun plastik veya karton masurasının mil üzerinde ortalandığından emin olunmalıdır. 
+	Masuranın ortalandığı doğrulandıktan sonra silindire hava basılmalı ve kayma olup olmadığı gözle kontrol edilmelidir. Kayma tespit edilirse silindirin havası aparat yardımıyla boşaltılmalı ve masura yeniden ortalanmalıdır.
+	Sarımın gevşek veya sıkı olup olmadığı düzenli aralıklarla kontrol edilmelidir. Gevşek veya sıkı sarım durumunda vardiya sorumlusu sarım ekranı üzerinden gerekli ayarlamayı yapmalıdır.
+	Rulonun yan yüzeylerinde dalgalı veya orantısız bir görüntü olmamalıdır. Dalgalı veya orantısız bir görüntü saptandığı takdirde vardiya sorumlusu tarafından ayarlama yapılmalıdır.
+	Sarım ünitesi kontrolleri üretim personeli tarafından yapılmalı, vardiya sorumlusu ise prosedüre uygun şekilde hareket edilip edilmediğini kontrol etmelidir.
+	Ürün Numune Kontrolleri
+	Bu kısımda üründen numune alındığı sırada ve sonrasında yapılacak kontrol adımları ve dikkat edilmesi gereken bölümler ele alınmıştır.
+	Üretim personeli, üretimi tamamlanan her rulonun son 1–1,5 metresinden maket bıçağı yardımıyla kontrol ve test amacıyla film numunesi alır.
+	Alınan film numunesinin test ve kontroller için yeterli uzunlukta olduğundan emin olunmalıdır. 
+	Numunenin sol ve sağ üst köşelerine, hangi hattan alındığına dair ilgili hattın harfi ve köşesi yazılır (ör. A3 ve A4, B1 ve B2).
+	Çelik cetvel yardımıyla numunenin genişliği ölçülür. Ölçüm sırasında ürünün genişliği tam olarak okunmalı ve değer CSP-SOP-024 Vardiya Üretim Tutanağına not edilmelidir.
+	Ölçüm yapılacak masanın yüzeyi düz olmalı ve ölçüm sırasında yüzeyde herhangi bir engel bulunmamalıdır.
+	Ürünün genişliğinde uygunsuzluk tespit edilirse, ayırma bıçaklarından müdahale edilerek ürün istenilen genişliğe ayarlanır.
+	Genişlik ölçümü tamamlandıktan sonra numunenin üst kısmına, üretilen ürünün seri numarası, hattan çıkış saati ve ölçülen genişlik yazılmalıdır. 
+	Seri numarası aşağıdaki şekilde atanmalıdır:
+	Birinci makine için: ggaayyxh101’den başlayarak sırasıyla atanır. “x” yerine ürünün üretildiği hat yazılır (ör. 020925AH109).
+	İkinci makine için: ggaayyxh201’den başlayarak sırasıyla atanır. “x” yerine ürünün üretildiği hat yazılır (ör. 020925DH205).
+	Numune üzerine gerekli bilgiler yazıldıktan sonra gramaj kontrolü için numune kesme işlemine geçilir.
+	Numune, yatay yönde olacak şekilde, mümkün olan en fazla sayıda parça olacak biçimde gramaj kesme aleti yardımıyla paralel olarak kesilmelidir. 
+	Kesilen parçaların ve filmin üzerine soldan sağa olacak şekilde numaralar yazılır. 
+	Parçalar hassas terazide tartılır ve her parçanın ağırlık değeri kesildiği alanın üstüne veya altına not edilir. 
+	Ağırlık değerleri ondalıklı olarak yazılmalı, yuvarlama veya atlama yapılmamalıdır (ör. 5,15 veya 4,95).
+	Ürünün gramajı istenen değerlerde değilse, uygun olmayan noktaların altından gramaj kesme aleti yardımıyla tekrar parça alınır. 
+	Alınan parçanın ağırlığı tekrar hassas terazide ölçülür. Ölçülen değer istenen aralıkta değilse, mikron cihazı ile ilgili bölge kontrol edilir ve kalıp cıvataları kullanılarak gramajı artıracak veya azaltacak aksiyon alınır. 
+	Yapılan ölçüm ve kontroller sonucunda numune katlanarak Kalite Birimine teslim edilir. 
+	Ürün numune kontrolleri üretim personeli tarafından yapılır; vardiya sorumlusu ise prosedüre uygun şekilde hareket edilip edilmediğini kontrol etmelidir. 
+	Uygunsuz Ürün Kontrolü ve İşlemleri
+	Üretim hattından çıkan ve Kalite Birimi tarafından kalitesiz veya uygunsuz olarak nitelendirilen ürünlerin bildirimi, WhatsApp üzerinden “Üretim Kalite Onay” grubunda yapılmalıdır.
+	Ürünün ölçülen genişlik değerinin ürün etiketinde belirtilen limit değerin dışında olması durumunda ürün recycle olarak ayrılmalıdır.
+	Numune üzerinde yapılan inceleme sonucunda:
+	Gramaj değeri yan yana iki düşük nokta dahil kabul edilir,
+	Toplam ürün üzerinde üçten fazla düşük nokta bulunması durumunda ürün kabul edilmez.
+	Gramaj ortalamasında ±0,05 g’dan fazla sapma olması durumunda ürün kabul kriteri dışında kalır.
+	Gramaj ortalaması istenilen değerin dışında ise rulo ağırlığından ikinci kontrol yapılmalıdır.
+	Rulo ağırlığından ortalama gramaj hesaplaması aşağıdaki şekilde yapılmalıdır:
+(Rulo Ağırlığı)/(Genişlik* Gramaj)* 10
+	Rulo ağırlığı hesaplamasında sonuç istenilen aralıkta ise ürün uygun olarak kabul edilir.
+	Rulo ağırlığı limitlerin dışında ise, ürünün sevki veya recycle süreci, üretim ve kalite birimi sorumlularının kararıyla belirlenir.
+	Kalite birimi tarafından yapılan büzülme testi sonucunda, kalite ve üretim birim sorumluları test sonuçlarının uygun olmadığını belirlediği takdirde, test sonuçlarına ait ürün recycle olarak alınmalıdır.
+	Uygunsuzluğu teyit edilen ürün, streç filmle kaplandıktan sonra üstüne rulo ağırlığı ve ürün adı girilerek recycle etiketi yapıştırılır ve depo birimine teslim edilir.
+	Uygunsuz ürün CPS-SOP-024 Vardiya Üretim Tutanağına recycle olarak not düşülür.
+	Bağlı Dokümanlar
+-
+	Revizyon Tarihçesi 
+Versiyon No
+Version No	İlgili Madde	Yazar
+Modified By	Kontrol Eden/Onaylayan
+Approving Authority/
+Controller	Değişiklik Tanımı
+Modification Description	Düzenleme Tarihi
+Modification Date
+1.0	-	İbrahim Talha Kepceler	Ayşen Akar	Yeni oluşturulmuştur.	09.09.2024
+2.0	6.1.5.	İbrahim Talha Kepceler	Ayşen Akar	6.1.5. maddesi eklenmiştir.	18.09.2024
+3.0	3.1
+3.2
+3.3	Kaan Talu	Ayşen Akar	Sorumluluklar bölümü güncellenmiştir.	17.11.2025
+	6			Prosedür en baştan ele alınmış, tüm adımlar detaylandırılmıştır.	
+
+

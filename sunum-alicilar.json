@@ -1,0 +1,6 @@
+{
+  "_aciklama": "Sunum günü buraya katılımcıların WhatsApp numaralarını ekle. Format: ülke kodu dahil, başında + YOK. Örnek: 905321234567",
+  "alicilar": [
+    { "isim": "", "tel": "" }
+  ]
+}

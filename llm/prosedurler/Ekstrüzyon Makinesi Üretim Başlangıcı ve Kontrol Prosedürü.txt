@@ -1,0 +1,171 @@
+
+
+
+ÜRETİM BAŞLANGIÇ VE KONTROL PROSEDÜRÜ
+
+
+VERSİYON 1.0
+
+
+
+DOKÜMAN NO: CPS-SOP-065
+
+
+
+İçindekiler
+1.	Amaç	3
+2.	Kapsam	3
+3.	Sorumluluklar	3
+4.	Tanımlar ve Kısaltmalar	4
+5.	Uyarılar; Çevre, İş Sağlığı Güvenliği Önerileri	4
+6.	Prosedür	4
+7.	Bağlı Dokümanlar	9
+8.	Revizyon Tarihçesi	9
+
+
+
+
+
+
+
+
+
+
+
+1.	Amaç 
+Bu prosedürün amacı, makinenin açılışından başlayarak ısıtma, ilk ürün alma, stabilizasyon ve temiz ürüne geçiş sürecine kadar tüm adımların standart ve kontrol edilebilir şekilde tanımlanmasıdır.
+2.	Kapsam
+Bu prosedür üretim hattında makine açılışı, mekanik ve güvenlik kontrolleri, ısıtma süreci, hammadde besleme, gramaj ayarı, kalite doğrulama ve temiz sarıma geçiş adımlarını kapsar.
+3.	Sorumluluklar
+3.1	Üretim Personeli
+3.1.1	Bu prosedürde tanımlanan fiziksel kontrolleri ve operasyonel hazırlık adımlarını talimatlara uygun şekilde yerine getirmekle yükümlüdür.
+3.1.2	Makine çevresinin düzenini ve temizliğini sağlamak, dökülen hammadde ve fireleri temizlemekle sorumludur.
+3.1.3	Gramaj ve genişlik ölçümleri için numune kesimini yapmak ve ölçüm sonuçlarını vardiya amirine bildirmekle yükümlüdür.
+3.1.4	Üretim sırasında fark ettiği kalite uygunsuzluğu, mekanik problem veya güvenlik riskini derhal vardiya amirine bildirmekle sorumludur.
+3.1.5	Kendi yetki alanı dışında bulunan makine parametrelerine (sıcaklık, basınç, hız ayarı vb.) müdahale etmemekle yükümlüdür.
+3.2	Vardiya Sorumlusu (Operatör/Operatör Yardımcısı)
+3.2.1	Makinenin ısıtması, devreye alınması ve süreç parametrelerinin ayarlanmasından sorumludur.
+3.2.2	Sıcaklık, basınç, merdane hızı ve benzeri tüm kritik parametreleri ayarlamak ve takip etmekle yükümlüdür.
+3.2.3	Makinenin ısıtılmasından çalıştırılmasına kadar geçen süreçte tüm proses geçişlerini kontrol etmekle sorumludur.
+3.2.4	Gramaj ve genişlik ölçüm sonuçlarını değerlendirmek, gerekli parametre düzeltmelerini yapmakla yükümlüdür.
+3.2.5	Limit dışı shrinkage, basınç artışı veya kalite sapması durumunda gerekli aksiyonları başlatmakla sorumludur.
+3.3	Üretim Yöneticisi (Üretim Müdürü/Üretim Mühendisi)
+3.3.1	Prosedürün uygulama bütünlüğünü sağlamakla ve gerektiğinde iç denetim yapmakla yükümlüdür.
+3.3.2	Proses parametre aralıklarını ve kritik kontrol limitlerini belirlemek ve güncellemekle yükümlüdür.
+3.3.3	Tespit edilen uygunsuzluklarda vardiya sorumlusuna gerekli uyarı ve yönlendirmeleri yapmakla sorumludur.
+3.3.4	Tekrarlayan kalite problemlerinde kök neden analizi başlatmak ve iyileştirme faaliyetlerini planlamakla sorumludur.
+3.3.5	Prosedürün güncellenmesi gerektiğinde revize çalışmalarını başlatmak ve ilgili personele eğitim verilmesini sağlamakla yükümlüdür.
+4.	Tanımlar ve Kısaltmalar[SS1.1]
+4.1	Kalıp cıvataları: Kalıp üstünde gramaj ayarlaması için bulunan ayar cıvatalarıdır.
+4.2	Kapalı devre: Eritme pompası öncesi basınç değeri sabit alınarak vida değerinin otomatik olarak ayarlanmasıdır.
+4.3	Temiz ürün: Gramaj, genişlik, shrinkage ve yüzey kalite kriterlerini sağlayan ve stabil koşullarda üretilen üründür.
+5.	Uyarılar; Çevre, İş Sağlığı Güvenliği Önerileri
+5.1	Makine üzerinde işlem yapacak tüm personel CPS-PLAN-059 Kişisel Koruyucu Donanım (KKD) Kullanım Talimatında yer alan tanımlı KKD’leri kullanmalıdır.
+5.2	Makine çalışır durumdayken döner aksam, vida, merdane ve sarım millerine elle müdahale edilmemelidir. 
+5.3	Kalıp, gövde, dağıtıcı, bağlantı parçaları ve eritme pompası bölgeleri yüksek sıcaklık içerdiğinden çıplak elle temas edilmemelidir. Bu bölgelere yapılacak müdahaleler esnasında koruyucu eldiven giyilmelidir.
+5.4	Su bağlantıları kontrol edilirken elektrik panoları ve açık kablo bağlantılarından uzak durulmalıdır
+5.5	Makine çevresine dökülen hammadde granülleri kayma riski oluşturur. Çalışma alanı temiz tutulmalı, dökülen malzeme derhal temizlenmelidir.
+5.6	Duman, yanık kokusu, ani basınç artışı, olağan dışı titreşim veya ses durumunda makine kontrollü şekilde durdurulmalı ve teknik birime bilgi verilmelidir.
+5.7	Makine yeterli ısınma süresi tamamlanmadan devreye alınmamalıdır. Soğuk bölgelerde malzeme birikmesi basınç artışına ve ekipman hasarına neden olabilir.
+5.8	Vida ve eritme pompası hız artışları kademeli yapılmalıdır. Ani hız artışı basınç şokuna, filtre hasarına ve ekipman zorlanmasına yol açabilir.
+5.9	Eritme pompası sıcaklığı belirlenen limitlerin üzerine çıktığında sistem stabilize edilmeden hız artırımı yapılmamalıdır.
+5.10	Gramaj ve genişlik ayarları yapılırken merdane hız değişimleri kontrollü ve kademeli uygulanmalıdır.
+5.11	Saf hammadde ve yarı mamul geçişleri dikkatli yapılmalı, malzeme karışımı önlenmelidir. Yanlış besleme ürün kaybına ve gereksiz atık oluşumuna neden olur.
+5.12	Yağ, su veya diğer sıvı sızıntıları yayılmadan kontrol altına alınmalı ve bakım birimine bildirilmelidir.
+5.13	Atık filtre telleri ve kontamine olmuş malzemeler belirlenen atık alanlarına bırakılmalıdır.
+5.14	Enerji verimliliği açısından makine gereksiz yere boşta çalıştırılmamalı, üretim dışı durumlarda kullanılmayan ısıtma bölgeleri kapatılmalıdır.
+5.15	İlk yardım gerektiren durumlarda işyeri acil durum prosedürü uygulanmalı ve ilgili amire bilgi verilmelidir.
+6.	Prosedür
+6.1	Başlatma Öncesi Kontrolleri
+6.1.1	Makinenin enerjisinin açık olduğu kontrol edilir.
+6.1.2	Bağlantı ekipmanlarının cıvata sıkılığı kontrol edilir. Gevşeklik tespit edilirse sıkma işlemi uygulanır.
+6.1.3	Kalıp cıvatalarının sıkılığı kontrol edilir, eğer sıkıysa gevşetilir.
+6.1.4	Sensör ve termokuplların yerlerine düzgün takılı olduğu teyit edilir. Gevşek olanlar sabitlenir.
+6.1.5	Sensörlerin çalışma durumu ekrandaki değerlerden kontrol edilir. Makine çalışmıyorken sensörlerin anlamlı sayısal değer göstermemesi beklenir.
+6.1.6	Beyaz ve çelik merdanelerin su vanaları açılarak bağlantı noktalarında kaçak kontrolü yapılır.
+6.1.7	Eriyik pompası ve kalıp ısıtıcılarına ait su vanaları açılarak kaçak kontrolü yapılır.
+6.1.8	Radyant hortum bağlantıları kontrol edilir, vanalar açılarak sistemde su kaçağı olup olmadığı gözlemlenir.
+6.1.9	Hat boyunca merdanelerin görsel olarak temizliği kontrol edilir, merdanelerde kirlilik tespit edilirse ıslak bez yardımıyla temizlenir.
+6.1.10	 Sistem içindeki birikmiş havayı tahliye etmek amacıyla sarım hattı milleri hat sonuna alınır ve otomatik kesme işlemi uygulanır.
+6.1.11	 Otomatik kesim sırasında sistemin sorunsuz çalıştığı doğrulanır.
+6.1.12	 Sarım milini tutan kolların paralel ve hizalı olduğu kontrol edilir. Hizasızlık varsa zincir mekanizmasından ince ayar yapılır.
+6.1.13	 Sarım kol konumu en uzak noktaya alınır ve sarım ekranından sıfırlama işlemi uygulanır.
+6.2	Makine Isıtmaya Alınırken Yapılacaklar
+6.2.1	Gövde ısıtmaları 180A–180B ekranlarından Gövde 1–10 arası aktif edilir.
+6.2.2	Gövde ile dağıtıcı arasındaki parçaların ısıtmaları aktif edilir.
+6.2.3	Dağıtıcı ısıtması açılır.
+6.2.4	Kalıp ısıtması ilgili ekran üzerinden aktif edilir.
+6.2.5	Silindir ısıtmaları makine ekranından açılır.
+6.2.6	Kalıp, eritme pompası ve çelik merdaneye ait ısıtıcı pompalar çalıştırılır.
+6.2.7	Yan besleme sıcaklıkları aktif edilir.
+6.2.8	Sıcaklık girişleri Tablo 1’de belirtilen referans değerlere göre yapılır.
+ 
+Tablo 1: Isıtma Sıcaklık Referans Değerleri
+6.2.9	Isıtma başlatıldığında WhatsApp “Üretim Kalite Onay” grubuna bilgilendirme yapılır.
+6.2.10	Isıtma süresince tüm bölgelerin sıcaklıkları takip edilir. Aşırı ısınma veya ısınmama durumunda teknik birim ile iletişime geçilir ve WhatsApp “Capssun Teknik Operasyon” grubuna bilgi verilir.
+6.2.11	Yaklaşık 1,5 saat sonunda tüm bölgelerin stabil ve hedef sıcaklıkta olduğu doğrulanır. Makine çalışmaya hazır hale getirilir.
+6.3	Makine Çalıştırma Öncesi Yapılacaklar
+6.3.1	Hat başına 75 kg, yan besleme için 25 kg olmak üzere üretilecek ürünle aynı tür saf hammadde, depo biriminden teslim tutanağı ile teslim alınır.
+6.3.2	Hammaddeler boş yarı mamul bidonlarına boşaltılarak beslemeye hazır hale getirilir.
+6.3.3	Vida ağzında kalan katı malzemeyi temizlemek için elek değiştirme işlemi yapılır.
+6.3.4	Elek boşluğundan çıkan katı malzeme temizlenir. Malzeme çıkışı durana kadar işlem tekrarlanır.
+6.3.5	İçerisinde en az bir filtre teli bulunan temiz elek takılarak son kez değişim yapılır.
+6.3.6	Beyaz ve çelik merdane üzerindeki koruyucu streç film çıkarılır.[SS2.1][KT2.2]
+6.4	Makine Açılırken Yapılacaklar
+6.4.1	Yağ pompası, vida redüktörü, eritme pompası ve vida güçleri ana ekrandan aktif edilir.
+6.4.2	Önce eritme pompası 3 RPM, ardından vida 3 RPM hızda çalıştırılır.
+6.4.3	Vakumlu besleme pompaları çalıştırılarak saf hammadde beslemesi başlatılır.
+6.4.4	Su depoları devreye alınır, gövde ve vida içi soğutma başlatılır.
+6.4.5	Yan besleme makinesi çalıştırılır.
+6.4.6	Merdaneler 3 m/dk hızda çalıştırılır.
+6.4.7	Ürün kalıptan akana kadar;
+a.	Elek değiştirici öncesi basınç
+b.	Eritme pompası öncesi basınç
+c.	Eritme pompası basıncı değerleri takip edilir.
+6.4.8	Eritme pompası öncesi basınç 5 MPa değerine yaklaştığında sistem kapalı devreye alınır.
+6.4.9	Ürün kalıptan çıkmaya başladığında merdaneler arasından geçirilerek hatta sarılır.
+6.4.10	Ürün yüzeyi sürekli kontrol edilir. Film içerisinde erimemiş parça/delik/yabancı madde gibi uygunsuzluklar geliyorsa eğer 25 kg’lık partiler halinde saf hammadde ilavesi yapılır.
+6.4.11	Besleme haznesi takip edilir. Hammadde azaldığında, aksi belirtilmedikçe yarı mamul beslemeye geçilir.
+6.4.12	A hattında yarı mamule geçildiğinde yan besleme kısmında da yarı mamul granül kullanılır.
+6.4.13	Radyant sıcaklıkları açılır.[SS3.1][KT3.2][KT3.3]
+6.4.14	Yarı mamule geçiş sonrası gövde sıcaklıkları aksi belirtilmediği durumda Tablo 2 referansına göre düşürülür, bağlantı parça ısıtmaları kapatılır.
+ 
+Tablo 2: Çalışma Sıcaklık Referans Değerleri
+6.4.15	Eritme pompası sıcaklığı 80°C üzerine çıktığında ısıtıcı pompalar üzerinden düşürülür.
+6.4.16	Vida hızı her adımda maksimum 1 RPM artırılır. Basınç 5 MPa’ya yaklaştığında kapalı devreye geçilir.
+6.4.17	Kalıp cıvataları boşluk alınacak şekilde doğru sıra ile sıkılır.
+6.4.18	Kenar ayırma bıçakları devreye alınır, kenar fireleri yan beslemeye yönlendirilir. Manuel yan besleme durdurulur.
+6.4.19	Eritme pompası hızı her adımda maksimum 1 RPM artırılarak hedeflenen üretim parametresine ulaşılır.
+6.4.20	Merdane hızları kademeli olarak artırılır.
+6.4.21	Mikron ölçüm cihazı devreye alınır ve üretilecek ürünün gramajı girilerek ölçüm yapılmaya başlanır.
+6.4.22	Hata tespit cihazı aktif edilerek film üstündeki uygunsuzluk durumu incelenmeye başlanır.
+
+6.5	Makine Açıldıktan Sonra Yapılacaklar
+6.5.1	Gramaj Ayarı
+6.5.1.1	Reçete değerleri sağlandığında kalıp cıvataları üzerinden gramaj ayarına başlanır.
+6.5.1.2	Her iki hattan gramaj kesme aleti ile toplam 16 adet parça kesilir.
+6.5.1.3	16 adet parçanın toplam gramajı 16'ya bölünerek filmin ortalama gramajı bulunur.
+6.5.1.4	Ortalama gramaj istenilen gramajdan düşükse eğer merdaneler yavaşlatılarak yükseltilir, istenilen gramajdan büyükse eğer merdaneler hızlandırılarak düşürülür.
+6.5.1.5	5 dakika beklenilerek tekrar ortalama gramaj alma işlemi uygulanır, istenilen gramaja ulaşana kadar ortalama gramaj alma işlemi tekrarlanır.
+6.5.2	Genişlik Ayarı
+6.5.2.1	Filmden numune kesilerek genişlik ölçümü yapılır ve istenilen genişliği ayarlamak için kenar ayırma bıçaklarından ayarlama yapılır.
+6.5.2.2	Ayarlama sonrasında film üstüne işaret konulur ve tekrar filmin genişlik ölçümü gerçekleştirilir,
+6.5.2.3	İstenilen genişliğe ulaşana kadar bu işlem tekrarlanır.
+6.5.2.4	Gramaj ±10 gr seviyesine geldiğinde shrinkage testi için numune laboratuvara gönderilir.
+6.5.3	Son Kontroller
+6.5.3.1	Ürün gerginliği, mikron ölçüm cihazı çıkışından itibaren hat boyunca kontrol edilir. Gergin veya gevşek bölge tespit edilmesi halinde, söz konusu bölgeden sonraki silindir hızları kademeli olarak artırılarak veya azaltılarak ayarlanır.
+6.5.3.2	Merdane ayarları, mikron ölçüm cihazı sonrası noktadan başlanarak sarım hattına doğru kademeli ve kontrollü şekilde yapılır.
+6.5.3.3	Shrinkage testi sonucu olumsuz geldiği durumda radyant sıcaklık değeri 5 derece artırılarak 5 dakika geçtikten sonra tekrar test için numune verilir.
+6.5.3.4	Shrinkage sonucu limit içi olduğunda ve gramaj tamamlandığında son genişlik kontrolü yapılır ve temiz sarıma geçilir.
+6.5.3.5	WhatsApp “Üretim Kalite Onay” grubundan ürünün temize geçtiği bilgisi verilir.[SS4.1]
+7.	Bağlı Dokümanlar
+-
+8.	Revizyon Tarihçesi 
+Revizyon No
+Revision No	İlgili Madde/ Relevant Clause	Yazar
+Prepared By	Kontrol Eden/Onaylayan
+Approved By	Değişiklik Tanımı
+Modification Description	Düzenleme Tarihi
+Modification Date
+1.0	-	Kaan Talu	Sevgi Servi	Yeni oluşturulmuştur.	13.01.2026
+

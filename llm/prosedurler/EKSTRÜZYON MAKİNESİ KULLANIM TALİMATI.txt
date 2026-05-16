@@ -1,0 +1,285 @@
+
+
+
+
+
+EKSTRÜZYON MAKİNESİ KULLANIM TALİMATI
+
+
+VERSİYON 5.0
+
+
+
+
+DOKÜMAN NO: CPS-SOP-024
+
+
+
+
+
+
+İçindekiler
+1.	Amaç	3
+2.	Kapsam	3
+3.	Sorumluluklar	3
+4.	Tanımlar ve Kısaltmalar	3
+5.	Uyarılar; Çevre, İş Sağlığı Güvenliği Önerileri	3
+6.	Prosedür	4
+6.1.   	Besleme Alanı Talimatları	4
+6.1.1.	Silo Besleme Alanı Talimatları	4
+6.1.2.	Fire Besleme Alanı Talimatları	6
+6.2.   	Makine Ekranı Talimatları	6
+6.3 	 Baskı ve Şekillendirme Bölümü Talimatları	7
+6.3.1.	Genel Bilgiler	7
+6.3.2.	Ürün Kopması ve Kalıp Ağzı Temizliği	8
+6.4	Sarım Bölümü Talimatları	9
+6.5	Fire Ürün Talimatları	12
+7.	Bağlı Dokümanlar	12
+8.	Revizyon Tarihçesi	13
+
+
+
+
+
+
+
+
+
+1.	Amaç
+Bu prosedür, POE, EPE ve EVA enkapsülant film üretiminde kullanılan ekstrüzyon makinelerinin doğru, güvenli ve verimli bir şekilde kullanılmasını sağlamak amacıyla; makine kullanımı sırasında dikkat edilmesi gereken kurallar, operasyonel kontroller ve kritik güvenlik önlemlerini standart hale getirmek için hazırlanmıştır.
+2.	Kapsam
+Bu prosedür, üretim tesisinde kullanılan tüm ekstrüzyon makinelerinde gerçekleştirilen enkapsülant film üretim süreçlerini kapsar. Yardımcı ekipmanlar, çevresel kontrol sistemleri ve kalite kontrol cihazları da kapsam içerisindedir.
+3.	Sorumluluklar
+3.1.	Üretim Personeli
+3.1.1.	Tüm üretim süreçlerinde bu prosedürde tanımlanan talimatlara eksiksiz uymakla yükümlüdür.
+3.1.2.	Makine, ekipman ve çalışma alanının temizliğini, düzenini ve güvenliğini sağlamakla sorumludur.
+3.1.3.	Vardiya amirinin veya yönetimin bildirdiği özel durumlara göre hareket etmelidir.
+3.1.4.	Kişisel Koruyucu Donanımların (KKD) doğru şekilde kullanımından ve İş Sağlığı ve Güvenliği (İSG) kurallarına eksiksiz uymaktan sorumludur. 
+3.2.	Vardiya Amirleri
+3.2.1	Üretim personelinin prosedürlere uygun çalışmasını sağlamak ve denetlemekle sorumludur.
+3.2.2	Gerekli durumlarda diğer birimlerle iletişim kurup, riskli durumlarda müdahale eder.
+3.2.3	Vardiya boyunca prosedürde yer alan kayıt ve takip formlarının doğru şekilde doldurulmasını temin eder.
+3.2.4	Üretim personelinin Kişisel Koruyucu Donanımları (KKD) eksiksiz ve uygun şekilde kullandığını sürekli olarak takip eder; üretim faaliyetlerinin İş Sağlığı ve Güvenliği (İSG) kurallarına tam uyum içinde gerçekleşmesini temin eder.
+3.3.	Üretim Sorumlusu
+3.3.1	Süreçlerin teknik doğruluğunu sağlamak ve üretim verimliliğini artırmakla sorumludur.
+3.3.2	Prosedürlerde iyileştirme, güncelleme veya revizyon ihtiyacı doğduğunda bu değişiklikleri hazırlamak ve personele prosedür eğitimi vermekle sorumludur.
+3.3.3	Gerekli durumlarda sahada gözlem yaparak prosedür dışı uygulamaları tespit eder ve düzeltici önlemler alır.
+4.	Tanımlar ve Kısaltmalar
+-
+5.	Uyarılar; Çevre, İş Sağlığı Güvenliği Önerileri
+5.1	Kimyasallar ile yapılan çalışmalarda “CPS-SOP-012 Kimyasal Maddeler İle Yapılan Çalışmalarda Alınacak Sağlık ve Güvenlik Önlemleri” prosedürü dikkate alınacaktır. 
+5.2	Kişisel koruyucu donanımlar (KKD), tüm üretim ve temizlik işlemlerinde kullanılmalıdır.
+5.3	Alanlarda kullanılması gereken KKD’ler CPS-PLAN-059 Kişisel Koruyucu Donanım (KKD) Kullanım Talimatı’nda yer aldığı doğrultuda uygulanmalıdır.
+5.4	Kullanım, bakım ve temizlik süreçlerinde “CPS-SOP-013 Kişisel Koruyucuların Kullanımı” prosedürü esas alınmalıdır.
+5.5	Yüzük, kolye, saat ve benzeri takılarla üretim alanına giriş kesinlikle yasaktır. 
+5.6	Üretim sahası içerisinde iş süreçleri dışında cep telefonu kullanmak, müzik dinlemek ve kulaklık takmak yasaktır.
+5.7	Hiçbir makine parçasının üzerine basılmamalıdır. Bu bölgelere çıkış ve inişlerde mutlaka sabit merdiven kullanılmalıdır.
+5.8	Taşıma ve kaldırma ekipmanları kullanılmadan önce ayaklarının yere tam oturduğundan ve kilit sistemlerinin kapalı olduğundan emin olunmalıdır.
+5.9	Üretimde kullanılan kesici aletlerin (maket bıçağı vb.) kullanım esnasında uçlarının çok açık olmadığına dikkat edilmeli, tehlike oluşturabilecek her davranıştan kaçınılmalıdır. Kesici aletler kullanılmadıkları esnada kapatılıp ilgili yerlere konulmalıdır.
+5.10	Tüm el aletleri kullanıldıktan sonra yerine geri konulmalıdır. Hassas cihazlar yere atılmamalı, sert zemine bırakılmamalı ve uygun raflara dikkatli şekilde yerleştirilmelidir.
+5.11	Beyaz merdane veya gri merdane ile yapılan işlerde beyaz merdane ile gri merdane arasında bulunan hava baskısı merdaneler altındaki pnömatik vanadan kesilmeden kesinlikle hiçbir çalışmaya başlanmamalıdır.
+5.12	Ekstrüzyon hattı kalıp, paketleme ve sarım bölgesinde yürütülen tüm faaliyetlerde; döner aksam, sıcak yüzeyler ve sıkışma noktalarına karşı gerekli koruyucular devrede olmadan çalışılmaması, uygun kişisel koruyucu donanımların kullanılması, ürün sarımı ve paketleme sırasında güvenli mesafenin korunması, herhangi bir arıza, uygunsuzluk veya tehlike durumunda derhal gerekli düzeltici ve önleyici aksiyonların alınması, amire bildirilmesi ve çalışan sağlığını riske atacak hiçbir işlemin sürdürülmemesi zorunludur.
+6.	Prosedür
+6.1.   	Besleme Alanı Talimatları
+6.1.1.	Silo Besleme Alanı Talimatları
+6.1.1.1	Silo kısmında görevli olan çalışanların bone ve kolluk takmaları zorunludur.
+6.1.1.2	Besleme haznesindeki malzeme seviyesi kontrol edilmeli, malzeme eksik alarmı verildiği noktada müdahale edilmelidir.
+6.1.1.3	Müdahale esnasında ve sonrasında malzeme miktarı aşağıda gösterilen kısımdan kontrol edilip, hazne içerisinde makinenin sorunsuz bir şekilde çalışmasına yetecek miktarda yarı mamul olduğu teyit edilmelidir.
+ 
+Resim 1: Kritik malzeme miktarı kontrol noktası
+
+6.1.1.4	Besleme hortumunun kullanımı esnasında hasar görmemesi için üzerinden herhangi bir kaldırma veya taşıma amacıyla kullanılan araçlar ile geçilmemeli, besleme hortumlarının üzerine basılmamalıdır.
+6.1.1.5	Besleme hortumunda vakum performansını düşürecek herhangi bir delinme veya hasar mevcutsa değişimi yapılmalıdır.
+6.1.1.6	Silo beslerken çalışanların üzerine çıktığı platformun üzerine başka herhangi bir şey konulmamalıdır (sandalye, vb.)
+6.1.1.7	Yarı mamul beslenirken oluşabilecek herhangi bir topaklanmayı önlemek için silo çalışanları gerekli ekipmanlarla (kürek, karıştırıcı mikser) müdahale etmelidir.
+6.1.1.8	Kürekle müdahale halinde, kürekle silonun iç yüzeyine temas edilmemeli, yüzey aşındırılmamalıdır.
+6.1.1.9	Yarı mamul, besleme öncesi ve sırasında silo kısmında çalışan görevli personel tarafından görsel olarak kontrol edilmelidir.
+6.1.1.10	Yarı mamulün içerisinde yabancı madde tespit edilirse besleme derhal durdurulmalı, ilgili malzeme inceleme için ayrılmalı ve vardiya amiri bilgilendirilmelidir.
+6.1.1.11	Tespit edilen yabancı madde, vardiya amiri tarafından WhatsApp “Üretim Kalite Onay” grubuna fotoğrafı ile paylaşılmalıdır.
+6.1.1.12	Yarı mamul siloları kullanıma başlandığında ve bittiğinde CPS-PLAN-016 Yarı Mamul Silo Kayıt Defteri’ne silo numarası, ağırlığı ve lot numarası okunaklı bir şekilde yazılarak kaydı tutulmalıdır.
+6.1.1.13	Filtre temizliği, her vardiya sonunda düzenli olarak yapılmalıdır.
+6.1.1.14	Filtre temizliği, aşağıdaki adımlar takip edilerek yapılmalıdır:
+6.1.1.14.1.	Temizliği yapacak görevli personel, temizliğe başlamadan önce koruyucu gözlük takmalıdır.
+6.1.1.14.2.	Makinenin vakumlu besleme ünitesi ekranda bulunan start/stop tuşuna basılarak kapatılmalıdır.
+6.1.1.14.3.	Filtrenin içinde bulunduğu hazne, vakumlu besleme ünitesinin yanlarındaki kelepçeler sökülerek çıkarılır.
+6.1.1.14.4.	Filtre çıkarılıp besleme bölgesinde bulunan “POE TOZU” yazılı atık kutusu içerisinde hava tutularak temizlenir.
+6.1.1.14.5.	Temizlenen filtre hazne içerisine tekrar yerleştirilir.
+6.1.1.14.6.	Hazne, vakumlu besleme ünitesi içerisine tekrar yerleştirilip kelepçeler takılır.
+6.1.1.14.7.	Makinenin vakumlu besleme ünitesi ekranda bulunan start/stop tuşuna basılarak besleme tekrar aktif hale getirilir.
+6.1.1.15	Filtre temizliği, besleme alanında bulunan “POE TOZU” yazılı atık kutusunun içerisinde yapılacak olup başka yerde yapılmamalıdır.
+6.1.1.16	Besleme alanını kapsayan, makinenin iç platform temizliği her vardiya sonunda yapılmalıdır.
+6.1.1.17	Besleme alanı kullanılırken alanın kapsadığı yerlerde herhangi bir atık, çöp bulunmamalıdır, alan temiz kullanılmalıdır.
+6.1.1.18	Besleme yapılacak siloların yerleştirileceği paletler ve çalışanların besleme kısmında kullandıkları platform alanda işaretli yerlerine çekilmelidir.
+6.1.2.	Fire Besleme Alanı Talimatları
+6.1.2.1	Fire besleme bölümünde, aksi belirtilmediği sürece silo alanında görevli personel çalışmalıdır.
+6.1.2.2	Ürün sıkışması veya benzeri bir durumda, silindirlerin arası hava pistonu ile açılmadan fire besleme makinesine kesinlikle müdahale edilmemelidir. Müdahale yalnızca silindirler güvenli şekilde açıldıktan sonra yapılmalıdır.
+6.1.2.3	Ek ürün fire beslemesi yapılırken, ürün doğrudan hazne kısmından makineye verilmelidir. Silindirden geçirme işlemi yapılmamalıdır.
+6.1.2.4	Fire besleme yapılırken, beslenen filmin temiz olduğundan emin olunmalıdır. Film üzerinde herhangi bir kirlilik varsa, ilgili kısım kesilerek ayrılmalıdır.
+6.1.2.5	Besleme yapılan üründe kirlilik sürekli tekrar ediyorsa, ilgili ürün (kutu, çuval vb.) doğrudan kenara ayrılmalıdır. Ağırlığı tartılarak hurda etiketi yapıştırılmalı ve depo birimine teslim edilmelidir.
+6.2.   	Makine Ekranı Talimatları
+6.2.1	Bu bölümde müdahale yalnızca üretim operatörleri ve operatör yardımcıları tarafından yapılabilir. Başka personelin müdahalesi kesinlikle yasaktır.
+6.2.2	Makinenin parametre ekranına yalnızca operatörler erişebilir ve işlem yapabilir. Yetkisiz müdahale, sistemde hatalara ve üretim kayıplarına yol açabilir.
+6.2.3	Makine parametre ekranları, ısıtıcı pompaların ekranları ve fire besleme makinesinin ekranları, üretim operatörleri tarafından düzenli olarak kontrol edilmelidir. 
+6.2.4	Makine parametre ekranında sıcaklık veya basınç değerlerinde herhangi bir uygunsuzluk tespit edilmesi halinde, ilgili ekranın fotoğrafı çekilerek WhatsApp “Capssun Üretim” grubunda bildirim yapılmalı ve gerekli müdahale gerçekleştirilmelidir.
+6.2.5	Makine parametre ekranları, ısıtıcı pompaların ekranları ve fire besleme makinesinin ekran fotoğrafları her saat başı çekilip WhatsApp “Capssun Üretim” grubuna zamanında ve eksiksiz gönderilmelidir.
+6.2.6	Makinenin parametrelerinde yapılan sıcaklık değişimleri, eriyik pompa değerinin değiştirilmesi ve merdane hız değerlerinin değiştirilmesi CPS-PLAN-025 Vardiya Teslim Tutanağına eklenmelidir.
+6.2.7	Ekstrüderin kovan bölümüne koruyucu ekipman olmadan kesinlikle temas edilmemelidir.
+6.2.8	Elek öncesi basınç değeri 24 MPa üzerine çıktığında elek değişimi aşağıdaki gibi yapılmalıdır:
+6.2.8.1.	Elek değişimi için uygun, hasar görmemiş bir elek hazırlanıp içerisine metal tel filtre takılır.
+6.2.8.2.	İçerisine filtre yerleştirilen elek, elek değiştirici içerisindeki boş elek kısmına takılır.
+6.2.8.3.	Elek değişimi yapılırken kapalı devre sistemi, devre dışı bırakıldıktan sonra vida ve eriyik pompa hızı kademeli olarak azaltılmalı, son olarak vida hızı sıfıra alındıktan sonra elek değişimi yapılmalıdır.
+6.2.8.4.	Elek değişimi tamamlandıktan sonra kumanda panelinin kapalı olduğundan emin olunmalı ve acil durum butonu basılı (engellenmiş) pozisyonda bırakılmalıdır.
+6.2.8.5.	Elek çıkarılma işlemi esnasında makinenin sensör ve fiş kablolarının güvenceye alındığından ve hasar almadığından emin olunmalıdır. 
+6.2.8.6.	Elek değişimi sonrası eleğin çıkarılma işlemi, iki personel tarafından aşağıdaki adımlara uygun şekilde yapılmalıdır:
+6.2.8.7.	Eleği çıkaracak personel, makinenin gövde kısmına geçmeli ve mutlaka sıcaklığa dayanıklı eldiven giymelidir.
+6.2.8.8.	Diğer personel, eleğin karşısında konumlanarak bakır malzeme ile eleğe kontrollü darbeler uygular.
+6.2.8.9.	Gövde kısmındaki personel, eleği arka tarafından dikkatlice tutup çıkartır.
+6.2.8.10.	Eleğin çıkarıldığı alan bakır aletler, keçe ve parafin ile temizlenmelidir.
+6.2.8.11.	Eleğin üst ve alt yüzeylerinin fotoğrafları çekilip, tarih ve makine bilgileriyle birlikte WhatsApp Üretim Kalite Onay grubuna gönderilmelidir.
+6.2.8.12.	Eleğin filtresi sökülüp, geri dönüşemeyen atık kutusuna atılmalıdır.
+6.3 	 Baskı ve Şekillendirme Bölümü Talimatları
+6.3.1.	Genel Bilgiler
+6.3.1.1	Merdanelere kirli ellerle veya temiz eldiven olmadan kesinlikle dokunulmamalıdır.
+6.3.1.2	Beyaz merdanede kenar yapışması gerçekleşiyorsa kenar yapışması tespit edilen bölgeye ıslak bir bez konmalı ve o bölgeden gelen malzemenin kalitesi düzenli olarak kontrol edilmelidir.
+6.3.1.3	Gri merdane hiçbir koşulda su veya herhangi bir malzeme ile temizlenmeye çalışılmamalı, kesinlikle ıslatılmamalıdır.
+6.3.1.4	Mikron cihazı ölçümleri ana operatör tarafından vardiya boyunca düzenli ve sık aralıklarla kontrol edilmeli, çıkan sonuçlara göre makinenin gramaj ayarı hassas biçimde yapılmalıdır.
+6.3.1.5	Topraklama ipleri, makine çalışma süresi boyunca her 15 günde bir bakım ekibi tarafından değiştirilmelidir.
+6.3.1.6	Topraklama iplerinin, hat boyunca makinenin iletkenlik sağladığı bölgelerde doğru ve sağlam şekilde konumlandığından emin olunmalıdır.
+6.3.2.	Ürün Kopması ve Kalıp Ağzı Temizliği
+6.3.2.1	Ürün koptuğunda veya beyaz/gri merdaneye sardığında merdanelerin arası açılmalıdır.
+6.3.2.2	Ürün merdanelere sardıysa eğer aşağıdaki adımlar uygulanmalıdır:
+6.3.2.2.1	Ürün beyaz merdaneye sardıysa eğer merdanelerin arası açıldıktan sonra kalıptan akan ürün kesilerek beyaz merdanenin üstünde kalan ürün merdaneye hasar vermeyecek şekilde el ile koparılarak veya maket bıçağı yardımı ile kesilerek alınır.
+6.3.2.2.2	Ürün gri merdaneye sardıysa eğer, makine ekranından gri merdane durdurulur, gri merdane altına giren bir çalışan ürünü merdaneye hasar vermeyecek şekilde maket bıçağı ile keserek alır.
+6.3.2.3	Makine ekranından radyant sıcaklıkları kapatılır.
+6.3.2.4	Mikron cihazı, herhangi bir ürün sıkışmasına önlem olarak kapatılıp sıfır konumuna alınmalıdır.
+6.3.2.5	Ayırma bıçaklarının hava bağlantıları çıkarılmalı veya hava basıncı kapatılmalıdır.
+6.3.2.6	Fire besleme kısmı kopacağı için besleme bölümünde bulunan çalışan silodan beslenen ürünün içerisinde bulunduğu kazandan manuel olarak fire besleme bölümüne besleme yapmalıdır.
+6.3.2.7	Bir personel sıcaklığa dayanıklı eldiven taktıktan sonra dikkatli bir şekilde gri merdanenin altına girip kalıptan akan ürünü gri merdaneye yapıştırmalıdır.
+6.3.2.8	Ürün yapıştıktan sonra merdanelerin arası kapatılır ve ürün hat boyunca tekrar sarılır.
+6.3.2.9	Ürünün hatta tekrar sarımı esnasında merdanelerin altında çalışan elemanlar merdanelere kesinlikle çok yaklaşmamalı, çok dar alanlara girmemeli ve mümkün olduğunca birden fazla çalışan koordineli olarak çalışmalıdır.
+6.3.2.10	Merdaneler arasında veya konveyörlerin bulunduğu noktada çalışan varken merdanelerin veya makinenin iler-geri hareketi kesinlikle yapılmamalıdır, merdanelerin bulunduğu bölge, içerisinde kimsenin olmadığından emin olunduktan sonra hareket ettirilmelidir.
+6.3.2.11	Ayırma bölümüne gelindiğinde ayırma bıçakları aktif hale getirilerek malzemenin ortadan ve kenarlardan kesimi yapılır.
+6.3.2.12	Kenardan kesilen malzeme kontrollü olarak makaralardan geçirilip fire besleme alanındaki silindire verilir
+6.3.2.13	Malzemenin boyutu ölçülerek ayırma bıçakları ayarlanır ve sarıma tekrar başlanır.
+6.3.2.14	Kalıp ağzı temizliği, kalıptan akan malzemenin kalıp ağzına yapışması ve birikmesi durumunda yapılmalıdır.
+6.3.2.15	Kalıp ağzı temizlenmeden önce, hatta sarımı yapılan ürünlerin sarımının bitmesi beklenmelidir, ürünlerin sarımı aynı anda bitmiyorsa sarımı en yakın sürede biten üründen sonra kalıp ağzı temizliği yapılmalıdır.
+6.3.2.16	Kalıp ağzı temizliği yapılırken aşağıdaki adımlar izlenmelidir:
+6.3.2.16.1	Makine ekranından radyant sıcaklıkları kapatılır.
+6.3.2.16.2	İş eldiveni giyilir
+6.3.2.16.3	Kalıp ağzındaki yapışan ürün, hat boyunca akan ürünün kopmasına izin verilmeden düzenli ve dikkatli bir şekilde kademe kademe maket bıçağı yardımıyla temizlenir.
+6.3.2.16.4	Temizlik tamamlandıktan sonra son bir kontrol sağlanır ve kirlilik varsa tekrar kirli bölgelerin temizliği gerçekleştirilir.
+6.3.2.16.5	Radyant ve mikron cihazı tekrar çalıştırılır ve üretime başlanır.
+6.3.2.16.6	Kalıp ağzı temizliği yapıldığına dair WhatsApp “Üretim Kalite Onay” grubundan bilgilendirme yapılarak CPS-PLAN-025 Vardiya Teslim Tutanağı’na temizlik saatiyle birlikte not alınır.
+6.4	Sarım Bölümü Talimatları
+6.4.1	Bu kısım makinenin hata tespit cihazının bulunduğu bölümden başlar ve üretimin sonuna kadar olan kısmı kapsar.
+6.4.2	Ürün ruloya sarılırken kirli ellerle veya temiz eldiven olmadan kesinlikle dokunulmamalıdır.
+6.4.3	Üretim sırasında ürün üzerinde oluşan uygunsuzluklar, ayırma bıçakları öncesine konumlandırılmış olan hata tespit cihazı tarafından otomatik olarak algılanır. Herhangi bir uygunsuzluk tespit edildiğinde cihaz alarm verir.
+6.4.4	Hata tespit cihazının alarm sesi duyulduğunda üretim personelleri cihaz ekranını kontrol ederek hatanın geldiği yeri cihazdan tespit edip hatalı kısmı ürün üzerinde gözle teyit etmelidir.
+6.4.5	Hatalı ürün tespit edildikten sonra, ürünün hangi üretim hattından geldiği belirlenir ve aşağıdaki ek yapma adımları izlenir:
+6.4.5.1	Hatalı kısım tespit edilip ek yapma işlemleri için iki çalışan tarafından gerçekleştirilir.
+6.4.5.2	Bir çalışan hatalı kısmın üründen çıkarılıp ek yapması için sarım bölgesine geçerken diğer çalışan da sarım ünitesini kontrol etmek için sarım ekranı başına geçer.
+6.4.5.3	Hatalı kısım sarım ünitesine gelmeden önce sarım ekranından sarma işlemi durdurulur.
+6.4.5.4	Üretilen ürünün o anki metrajı not alınır.
+6.4.5.5	Hatalı kısım; başlangıç noktasından hemen önce, bittiği noktadan hemen sonra olmak üzere ruloya sarılmadan önce kesici bir alet yardımıyla kesilir.
+6.4.5.6	Ürüne ek yapılır.
+6.4.5.7	Ek yapma işlemi esnasında ürün kenarında çıkıntı ve filmde kıvrılma olmadığı teyit edilmelidir, yoksa ek yapma işlemi tekrarlanmalıdır.
+6.4.5.8	Sarım işlemi devam ettirildikten sonra, ek yapılan bölgenin her iki tarafına mavi ayraç yerleştirilerek ek yeri görsel olarak işaretlenir.
+6.4.5.9	Sarım durdurulduğunda kaydedilen metraj değeri, toplam metrajdan çıkarılır ve hedef metraj üstüne eklenerek ürünün metrajı güncellenir.
+6.4.5.10	Hatalı parçadan bir kesit alınarak üzerine tarih, saat, hata tanımı ve ilgili hat bilgisi yazılır; ardından bu bilgi, WhatsApp Üretim Kalite Onay Grubunda paylaşılır.
+6.4.5.11	Hatalı kısım ayrıca CPS-PLAN-025 Vardiya Teslim Tutanağına hata saati ve hata tanımı ile eksiksiz olarak kaydedilmelidir.
+6.4.5.12	Ek yapma işleminden sonra sarılan malzeme 30 metreyi geçmeden önce tekrar hatalı bir kısım gelirse ek yapılan film açılarak ek yapma işlemi en baştan tekrar uygulanmalıdır.
+6.4.5.13	Ek yapılmış ürünün bulunduğu hattan 30 metreyi geçtikten sonra hatalı bir kısım gelirse otomatik kesim yapılıp üretim yeni bir masuraya sarılarak tekrar başlar.
+6.4.6	Makine otomatik kesme işlemi yaptıktan sonra yeni ürünün başlangıç sarımı incelenmeli, sarımda sıkıntı varsa eğer ürün kesilip el ile işlem yapılmalıdır.
+6.4.6.1	Otomatik kesim işlemi tamamlanıp sarım mili makinede kesim sonrası konumuna gelene kadar mile ve sarım ünitesine herhangi bir el ile müdahalede bulunulmamalıdır.
+6.4.7	Sarımı tamamlanmış ürünün kesimi yapıldıktan sonra paketleme aşaması için aşağıdaki sıra izlenmelidir:
+6.4.7.1	Üründen 1-1.m metre uzunluğunda bir numune alınır.
+6.4.7.2	Ürünün üstü yan tarafları açık kalacak şekilde streç film ile kaplanır.
+6.4.7.3	Streç film ile kaplama işlemi sırasında, film yüzeye aşırı gerilim uygulayacak şekilde sıkı sarılmamalıdır. Streçleme tamamlandığında, film çekilerek koparılmamalı; rulonun kenarındaki film katmanı buruşturulmamalıdır.
+6.4.7.4	Streçlenen ürünün iki tarafına ürünün açılması gereken yönü gösteren etiketler yapıştırılmalıdır.
+6.4.7.5	Milin havası sarım bölümünde bulunan çubuk ile alınmalıdır.
+6.4.7.6	Streçlenen ürün istif makinesi üstündeki rulo taşıma aparatı üstüne, oluklu kısımda oturacak şekilde alınır.
+
+ 
+Resim 2: İstif makinesi rulo taşıma aparatı
+
+6.4.7.7	Ürün, rulo taşıma aparatı üstüne alınırken personelin herhangi bir uzvunun rulo ile taşıma aparatı arasında kalmadığı sözlü olarak ikinci bir personel tarafından teyit edilmelidir.
+6.4.7.8	Rulo değişimi ve istif makinesine aktarım işlemleri sırasında; sıkışma ve ezilme, düşme/devrilme, yük düşmesi, kesilme/sıyrılma, ergonomik zorlanma ve kayma/takılma risklerine karşı yalnızca uygun kaldırma ekipmanları kullanılmalı, yükler güvenli şekilde bağlanarak kontrollü taşınmalı, el ile müdahale minimumda tutulmalı, istifleme dengeli yapılmalı, çalışma alanı temiz ve düzenli tutulmalı, vardiyada bulunan tüm üretim çalışanları arasında sürekli iletişim sağlanmalı ve çalışan sağlığını riske atacak hiçbir işlem güvenli koşullar sağlanmadan gerçekleştirilmemelidir.
+6.4.7.9	Ürünün rulo taşıma aparatına konulması sırasında bir sorun olması durumunda Vardiya amirine bilgi verilir. Sorun çözülmemesi durumunda Üretim sorumlusuna bilgi verilir ve işlem geçici olarak durdurulur. 
+6.4.7.10	İstif makinesi, pedalına basılarak havaya kaldırıldıktan sonra milin sağ tarafından mil içerisine poşet geçirilir.
+6.4.7.11	Poşet geçirildikten sonra bitmiş ürün tekrar sarım ünitesi üstüne yerleştirilip poşet, ürünün üstüne geçirilir.
+6.4.7.12	Poşet, rulonun üstüne tamamen geçirildikten sonra tekrar istif makinesi üstündeki oluğa yerleştirilir ve mil çıkarılır.
+6.4.7.13	Aynı anda iki ürün taşıması yapılacaksa aparat üstündeki rulo iki personel yardımı ile aparatın arka kısmındaki oluğa itilir.
+6.4.7.14	Diğer ürünün alma işlemi esnasında bu adımlar tekrarlanır.
+6.4.7.15	Mili çıkaran çalışanın arkasında kimse olmadığını kontrol etmelidir.
+6.4.7.16	Mil çıkarma işlemi esnasında diğer çalışanlar mile müdahale etmemelidir.
+6.4.7.17	Mil taşınırken en az 2 çalışan tarafından uçlarından tutarak taşınmalıdır.
+6.4.7.18	İstif makinesi çalışma alanından uzaklaştırılmalıdır.
+6.4.7.19	Ürünün paketleme aşamaları esnasında kullanılan transpaletlerin temiz olmasına ve ürünün yer ile hiçbir şekilde temasa geçmemesine dikkat edilmelidir.
+6.4.7.20	Takılacak olan masuranın hasarlı olup olmadığı kontrol edilmelidir.
+6.4.7.21	Mile yeni bir masura takıldıktan sonra iki çalışan yardımı ile makineye yerleştirilir, karşılıklı onay alınarak mil tutucu kapatılmalıdır.
+6.4.7.22	Sarım merdanesi üzerinden akan ürün masurada ortalandıktan sonra milin içerisine hava basılmalıdır.
+6.4.7.23	Hava basma işlemi esnasında çalışanlar sözlü iletişime geçerek kimsenin mil ile temasta bulunmadığını teyit ettikten sonra işlemi gerçekleştirmelidir.
+6.4.7.24	Plastik masura kullanıldığı zaman, masura mile geçirilip hava basıldıktan sonra masuranın kenar kısımları mümkün olduğunca boşluk kalmayacak şekilde bant ile kapatılmalıdır.
+6.4.8	Numune alma veya ek yapma işlemi sırasında kullanılan kesici aletlerin uçları çok açık olmamalıdır.
+6.4.9	Ürünün sarımı esnasında herhangi bir nedenden ötürü eksiz ürün kestirilirse eğer bu ürün daha sonrasında tekrar sarım hattında kullanılmak üzere yarım ürün olarak ayrılır.
+6.4.9.1	Yarım ürün olarak ayrılan ürünler üstüne aşağıdaki etiket yapıştırılarak tüm bilgilerin eksiksiz doldurulduğu emin olunur.
+
+ 
+Resim 2: Yarım kalan ürün etiketi
+
+6.4.9.2	Üretim hattında herhangi bir kalitesizlik (erimemiş parça, delik, vb.) gelmediği durumda yarım ürünün en kısa sürede tekrar bağlanıp tamamlanması gerekir.
+6.4.10	Kesme bölümünün bıçak değişimi; bıçak ürünü düzgün kesmeye başlamadığında veya ürün kenarında dalgalanma yaptığında ana operatör eşliğinde/tarafından aşağıdaki sırada yapılmalıdır.
+6.4.10.1	Ayırma bıçaklarının hava bağlantısı kesilir.
+6.4.10.2	Bıçak değişimi yapılır.
+6.4.10.3	Hava bağlantısı tekrar bağlanır.
+6.4.10.4	Bıçağın konumu üretilecek olan ürünün boyutuna göre ayarlanır.
+6.4.10.5	Çıkarılan bıçaklar bakım birimine teslim edilir.
+6.4.11	Sarım ünitesi bıçak değişimi aşağıdaki şekilde yapılmalıdır.
+6.4.11.1	Bıçağın takılı olduğu bölgedeki cıvatalar gevşetilip eskimiş bıçak çıkarılır.
+6.4.11.2	Yeni bıçak takılır.
+6.4.11.3	Cıvatalar sıkılır.
+6.4.11.4	Eski bıçaklar metal atık kutusuna atılır.
+6.5	Fire Ürün Talimatları
+6.5.1	Üretim sırasında ortaya çıkan tüm atıklar “Hurda” ve “Recycle” olarak ikiye ayrılmalıdır.
+6.5.2	Üretilen rulo veya kesilmiş ürünlerde yoğun kalitesizlik bulunması, ürünlerin yer ile temas etmesi veya kirlenmesi durumunda bu ürünler “Hurda” olarak ayrılmalıdır. Tartımı yapıldıktan sonra ürün üzerine “Hurda” etiketi eksiksiz doldurularak yapıştırılmalıdır.
+6.5.3	Kalitesel açıdan uygunsuzluğu bulunmayan ve temiz olan rulo veya kesilmiş ürünler, yeniden kullanılmak üzere “Recycle” olarak ayrılmalıdır. Tartımı yapıldıktan sonra ürün üzerine “Recycle” etiketi eksiksiz doldurularak yapıştırılmalıdır.
+6.5.4	Üretimden çıkan rulo hurda ve recycle ürünler, ayrıştırıldıktan sonra paketlenmeli ve üretim kapısı önünde bulunan paletlere düzenli şekilde yerleştirilmelidir.
+6.5.5	Üretimden çıkan diğer hurda ve recycle ürünler, ayrıştırılarak big-bag çuvallara konulmalı, paletli bir şekilde Depo Birimi’ne teslim edilmelidir.
+6.5.6	Her vardiya, kendi çalışması sırasında çıkan hurda ve recycle ürünlerin miktarlarını ve sebeplerini kayıt altına almalı; vardiya sonunda bu bilgileri WhatsApp “Capssun Üretim” grubuna detaylı şekilde bildirmelidir.
+7.	Bağlı Dokümanlar
+Doküman Adı	Doküman No
+Vardiya Teslim Tutanağı	CPS-PLAN-025
+Vardiya Üretim Tutanağı	CPS-PLAN-024
+Yarı Mamul Silo Kayıt Defteri	CPS-PLAN-016
+
+
+
+
+
+8.	Revizyon Tarihçesi 
+Revizyon No
+Revision No	İlgili Madde/ Relevant Clause	Yazar
+Prepared By	Kontrol Eden/Onaylayan
+Approved By	Değişiklik Tanımı
+Modification Description	Düzenleme Tarihi
+Modification Date
+1.0	-	Kaan Talu	Ayşen Akar	Yeni oluşturulmuştur.	13.11.2023
+2.0	-	Kaan Talu	Ayşen Akar	İçerik güncellenmiştir.	05.03.2024
+3.0	-	Kaan Talu	Ayşen Akar	6.1.12 ve 6.1.15 nolu maddeler eklenmiştir, format değişikliği yapılmıştır.	01.12.2024
+4.0	3.1
+3.2
+3.3	Kaan Talu	Ayşen Akar	Sorumluluklar bölümü güncellenmiştir.	17.11.2025
+	6			Prosedür en baştan ele alınmış, tüm adımlar detaylandırılmıştır.	
+
+
+5.0	5	
+
+Kaan Talu	
+
+Sevgi Servi	5.12 maddesi eklenmiştir	
+
+21.04.2026
+	
+6.4.7			6.4.7 maddesi detaylandırılarak değişen süreç güncellenmiştir.
+	
+

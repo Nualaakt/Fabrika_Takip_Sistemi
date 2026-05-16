@@ -1,0 +1,231 @@
+
+
+
+
+
+
+EKSTRÜZYON MAKİNESİ SÖKÜM VE MONTAJ TALİMATI
+
+
+
+VERSİYON 3.0
+
+
+
+
+DOKÜMAN NO: CPS-SOP-033
+
+
+
+
+
+İçindekiler
+1.	Amaç	3
+2.	Kapsam	3
+3.	Sorumluluklar	3
+4.	Tanımlar ve Kısaltmalar	3
+5.	Uyarılar; Çevre, İş Sağlığı Güvenliği Önerileri	4
+6.	Prosedür	5
+6.1	Makine Sökümü	5
+6.1.1	Genel Yapılacaklar	5
+6.1.2	Kalıp	6
+6.1.3	Bağlantı Parçaları	7
+6.1.4	Eriyik Pompası	7
+6.1.5	Ekran Değiştirici	8
+6.1.6	Beyaz Merdane	8
+6.2	Makine Montajı	9
+7.	Bağlı Dökümanlar	11
+8.	Revizyon Tarihçesi	11
+
+
+
+
+
+
+
+
+
+
+
+1.	Amaç
+Bu prosedür POE, EPE ve EVA enkapsülant film üretiminde kullanılan ekstrüzyon makinesinin söküm adımlarını, temizlik aşamalarını, montaj aşamalarını, dikkat edilmesi gereken kuralları ve uyarıcı bilgileri detaylandırmayı amaçlamaktadır.
+2.	Kapsam
+Bu prosedür üretimde kullanılan ekstrüzyon makinelerinin tamamını kapsamaktadır.
+3.	Sorumluluklar
+3.1	Üretim Personelleri
+3.1.1	İş güvenliği kurallarına eksiksiz uyar ve gerekli kişisel koruyucu donanımı kullanır.
+3.1.2	Makine söküm ve montajında vardiya amiri ve bakım ekibinin yönlendirmelerine uygun şekilde çalışır.
+3.1.3	Montaj sonrası makinenin üretime hazır olup olmadığının ilk kontrolünde destek sağlar.
+3.1.4	Parça taşıma, etiketleme ve muhafaza işlemlerinde aktif rol alır.
+3.2	Vardiya Amirleri
+3.2.1	İş güvenliği kurallarına eksiksiz uyar ve gerekli kişisel koruyucu donanımı kullanır.
+3.2.2	Söküm ve montaj sürecinde ilgili personele görev dağılımını yapar.
+3.2.3	İşin prosedürlere, güvenlik kurallarına ve zaman planına uygun ilerlemesini takip eder.
+3.2.4	Süreçte karşılaşılan uygunsuzluk veya riskleri üretim yöneticisine raporlar.
+3.2.5	Makinenin tekrar devreye alınmadan önce gerekli kontrollerinin yapılmasını koordine eder.
+3.2.6	Üretim personelinin görevlerini prosedüre uygun şekilde yerine getirdiğini denetler.
+3.3	Bakım Personeli
+3.3.1	İş güvenliği kurallarına eksiksiz uyar ve gerekli kişisel koruyucu donanımı kullanır.
+3.3.2	Makinenin mekanik, elektrik ve hidrolik bağlantılarının sökülmesi ve yeniden monte edilmesinden sorumludur.
+3.3.3	Sökülen parçaların hasarsız şekilde ayrılması ve doğru ekipmanlarla montajının yapılmasını sağlar.
+3.3.4	Söküm ve montaj sırasında kullanılan ekipmanların uygunluğunu ve emniyetini kontrol eder.
+3.4	Üretim Yöneticisi
+3.4.1	Söküm ve montaj işlemlerinin tamamının prosedüre uygun olarak yürütülmesinden nihai olarak sorumludur.
+3.4.2	Personelin görev dağılımını ve süreç planlamasını üst düzeyde denetler.
+3.4.3	İş güvenliği risklerini değerlendirir ve gerekli önlemleri aldırır.
+3.4.4	Süreçle ilgili raporların hazırlanmasını ve kayıt altına alınmasını sağlar.
+3.4.5	Montaj sonrası makinenin üretime alınmasına onay verir.
+4.	Tanımlar ve Kısaltmalar
+-
+5.	Uyarılar; Çevre, İş Sağlığı Güvenliği Önerileri
+5.1	Kimyasallar ile yapılan çalışmalarda “CPS-SOP-012 Kimyasal Maddeler İle Yapılan Çalışmalarda Alınacak Sağlık ve Güvenlik Önlemleri” prosedürü dikkate alınacaktır. Malzeme Güvenlik Bilgi Form’larının (SDS) EHS klasörü alanından ulaşılabilirliği rutin olarak kontrol edilmelidir.
+5.2	Kişisel Koruyucu Donanımlar kullanılacaktır. Kullanımda CPS-SOP-013 Kişisel Koruyucuların Kullanım, Bakım ve Temizliği" prosedürü dikkate alınacaktır.
+5.3	Makinenin sökme-takma işlemi esnasında alanda bulunan tüm çalışanlar baret ve iş eldiveni takmak zorundadır.
+5.4	Sıcak su ile gerçekleştirilen tüm işlemlerde, çalışanların yüksek sıcaklığa dayanıklı koruyucu eldiven kullanması zorunludur.
+5.5	Makine parçalarının bakımı veya temizliği sırasında kimyasal kullanımı varsa, bu alanda bulunan tüm personel maske, eldiven ve gözlük kullanmalıdır.
+5.6	 Parçaların temizliği esnasında hiçbir elektrik bağlantısı aktif olmamalıdır. Isıtılması gereken parçalar önce gerekli sıcaklığa kadar ısıtılır, ardından elektrik bağlantısı kesilerek temizlik yapılır.
+5.7	Üretimde bulunan hiçbir makine parçasının üzerine basılmamalıdır. Yükseklikli alanlara çıkış ve inişlerde merdiven kullanılmalıdır.
+5.8	Üretimde kullanılan tüm taşıma ve kaldırma araçları, işlem öncesinde ayaklarının sabit ve kilitlerinin kapalı olduğundan emin olunarak kullanılmalıdır.
+5.9	Kesici aletler (maket bıçağı vb.) kullanılırken uçlarının çok açık olmamasına dikkat edilmeli, tehlike oluşturabilecek davranışlardan kaçınılmalıdır. Kullanılmadıkları zamanlarda kapalı ve ilgili yerlere yerleştirilmelidir.
+5.10	Kullanılan tüm aletler işlem sonrası ilgili yerlere geri konulmalı; yere atma veya hassas aletleri uygunsuz şekilde yerleştirme gibi davranışlardan kaçınılmalıdır.
+5.11	Elektrik panosu ile yapılacak işlemlerde ve kontrollerde mutlaka plastik yalıtkan eldiven kullanılmalıdır.
+5.12	Beyaz merdane veya gri merdane ile yapılan işlerde beyaz merdane ile gri merdane arasında bulunan hava baskısı merdaneler altındaki pnömatik vanadan kesilmeden kesinlikle hiçbir çalışmaya başlanmamalıdır.
+5.13	Kimyasallarla yapılan çalışmalarda İlk Yardım:
+5.13.1.	Soluduğunda; açık havaya çıkın. Nefes alınamıyorsa suni solunum uygulayın, nefes almakta güçlük çekiyorsa uzman kişi tarafından oksijen takviyesi yapılmalıdır. Sağlık Birimi 112’yi arayın.
+5.13.2.	Deriye temasında; kimyasalın temas ettiği giysilerinizi, takılarınızı ve ayakkabılarınızı çıkarıp kimyasalın tamamen temizlendiğinden emin olana dek (15-20 dakika) bol miktarda su ve sabun işe yıkayın. Yanıkların oluşması durumunda bölgeyi temiz, kuru ve sıkı olmayan biz bezle kapayın. Sağlık Birimi 112’yi arayın.
+5.13.3.	Göz ile temasında; gözü 15-20 dakika boyunca su ile yıkayın. Sağlık Birimi 112’yi arayın.
+5.13.4.	Yutulduğunda; yutan kişiyi zorla kusturmaya çalışmayın. Bilinç kaybı varsa ağızdan bir şey vermeyin. Sağlık Birimi 112’yi arayın.
+6.	Prosedür
+6.1	Makine Sökümü
+ 
+Şekil 1: Makine Elemanları Çizimi
+6.1.1	Genel Yapılacaklar
+6.1.1.1	Bakım sürecinde rol alan ekip üyeleri, söküm işlemi süresince gerekli kişisel koruyucu donanımları (KKD) eksiksiz olarak kullanmak zorundadır.
+6.1.1.2	Söküm için gerekli tüm araç, gereç ve ekipman hazır hale getirilmelidir.
+6.1.1.3	İşleme başlanmadan önce sökülecek parçalara ait tüm elektrik bağlantıları kesilmelidir.
+6.1.1.4	Gri ve beyaz merdane, darbe veya kirlilik riskine karşı streç film ile sarılarak koruma altına alınmalıdır.
+6.1.1.5	Söküm işlemine geçmeden önce merdaneler, kontrol ekranı üzerinden en geri pozisyona getirilmelidir. Ardından hareketi sağlayan raylar sökülmelidir.
+6.1.1.6	Sökülen parçalar, transpalet yardımıyla üretim alanı dışındaki uygun bölgeye taşınmalı ve altına karton serilerek bakım süreci tamamlanana kadar güvenli bir şekilde muhafaza edilmelidir. 
+6.1.1.7	Bakım alanı dubalar ile çevrilerek güvenlik sahası oluşturulmalı, bu alana yalnızca görevli üretim ve bakım personeli giriş yapmalıdır.
+6.1.1.8	Temizliği yapılan makinelerin ve parçalar CPS-FORM-127 Ekstrüzyon Makinesi Periyodik Bakım Kontrolleri formunda temizlik tarihi ile birlikte kayıt altına alınmalıdır.
+6.1.2	Kalıp
+6.1.2.1	Kalıp sökümü sırasında alanda bulunan tüm personel baret takmalı, söküm işlemini gerçekleştiren personel ayrıca iş eldiveni kullanmalıdır.
+6.1.2.2	Kalıp temizliği sıklığı, aşağıdaki etkenlere bağlı olarak 15 ila 25 gün arasında belirlenmiştir. Olağandışı durumlarda temizlik daha erken veya daha geç yapılabilir:
+6.1.2.2.1	Kalıp ağzı temizliğinin günde 5’ten fazla yapılmaya başlanması,
+6.1.2.2.2	Üründe kalıptan kaynaklı iz/lekelerin görülmesi,
+6.1.2.2.3	Kalıpta meydana gelen ve giderilemeyen tıkanma veya arızalar.
+6.1.2.3	Kalıp sıcaklıkları makine ekranında 90-100°C arasına ısıtılır ve kalıp ısıtıcı pompası da aynı sıcaklıkta çalıştırılır.
+6.1.2.4	Kalıp sökülmeden önce ısıtıcı pompasının su vanaları kontrollü olarak kapatılır. Ardından kalıba bağlı su tesisat bağlantıları sökülür ve bağlantı elemanlarının tamamen ayrıldığından emin olunur.
+6.1.2.5	Kalıpla dağıtıcının bağlantı cıvataları gevşetilerek sökülür.
+6.1.2.6	Makine üst iskelesine, kalıbı dengeli şekilde kaldıracak biçimde sağ ve sol tarafa iki adet caraskal kurulur.
+6.1.2.7	Caraskallar bir halat yardımıyla kalıba bağlanır, boşluğu alınarak kalıp askıya alınır.
+6.1.2.8	Kalıbın bağlı olduğu ayakların somunları gevşetilir ve kalıp profilden ayrılır.
+6.1.2.9	Kalıp arabası dikey pozisyonda kalıbın altına sabitlenir, kalıp kontrollü bir şekilde arabanın üstüne indirilir ve üretim alanı dışına çıkarılır.
+6.1.2.10	Kalıp üzerindeki dağıtıcının tüm cıvataları gevşetilir, taşıma için denge sağlamak amacıyla boşluklara iki adet mapa takılır.
+6.1.2.11	Mapalara geçirilen halatlar forklift bıçaklarına sabitlenir, dağıtıcı forklift yardımıyla yere indirilir.
+6.1.2.12	Dağıtıcının cıvataları sökülerek parçalara ayrılır, parçalar temizlenmek üzere ayrılır.
+6.1.2.13	Üretim alanı dışına çıkarılan kalıp, forklift yardımıyla kalıp arabasından temizlik alanına taşınır. Sökülmemiş cıvata varsa bu alanda sökülür ve kontrol edilir.
+6.1.2.14	Kalıbın üst kısmına mapalar takılır, halatlar geçirilir.
+6.1.2.15	Forklift yardımıyla kalıp ikiye ayrılır, kenar uçlarına bakır parçalar yerleştirilir.
+6.1.2.16	Kalıp ağzı hiçbir yüzeye doğrudan temas etmemeli, riskli durumlarda temas noktalarına mutlaka bakır parça konulmalıdır.
+6.1.2.17	Personel tarafından uygun ekipman (bakır parça, yeşil ve kırmızı keçe) ile kalıp temizliği yapılır.
+6.1.2.18	Kalıp cıvataları dıştan içe doğru yerleştirilerek hafifçe sıkılır. Kalıp ağzı, kirlenmeyi önlemek için kâğıt bantla korunur.
+6.1.2.19	EXT-2 numaralı makinede kalıp temizliği, kalıbın makine üzerinde ikiye ayrılması yöntemiyle gerçekleştirilir.
+6.1.2.20	Dağıtıcı–kalıp arasındaki cıvatalar sökülür, kalıp somunları gevşetilir.
+6.1.2.21	Kalıp cıvataları alyan anahtarı ve/veya hava tabancası ile sökülerek kalıp ikiye ayrılır.
+6.1.2.22	Kalıp temizliği bu alanda yapıldıktan sonra cıvatalar söküldüğü sıra ile tekrar sıkılır.
+6.1.3	Bağlantı Parçaları
+6.1.3.1	Bağlantı ara parçaları (No:7-6-5-4-3) yılda en az bir kez olacak şekilde düzenli olarak temizlenmelidir.
+6.1.3.2	3 ve 7 No’lu bağlantı parçaları yaklaşık 75 °C sıcaklığa kadar ısıtılır. Ardından üzerlerinde bulunan rezistans fişi ve termokupllar çıkarılır.
+6.1.3.3	Parçaların bağlı bulunduğu bölümlerle arasındaki cıvata bağlantıları gevşetilir. Sonrasında kırmızı istif makinesine takılı olan paletin üzerine alınarak kontrollü şekilde yere indirilir.
+6.1.3.4	Palet üzerine alınan bağlantı parçaları yerde yaklaşık 15 dakika süreyle ısıtıldıktan sonra ara cıvataları sökülür ve temizlik öncesinde tüm parçalar ayrı hale getirilir.
+6.1.3.5	Parçaların temizliği bakır ekipmanlar kullanılarak gerçekleştirilir.
+6.1.3.6	Temizliği tamamlanan parçalar, montaj için hazır hale getirilerek temiz parçaların bulunduğu palet üzerine alınır ve düzenli şekilde muhafaza edilir.
+6.1.4	Eriyik Pompası
+6.1.4.1	Eriyik pompasının temizliği, olağandışı bir durum olmadığı sürece 6 ayda bir yapılmalıdır.
+6.1.4.2	Temizlik işlemine başlamadan önce pompa 75 °C sıcaklığa kadar ısıtılır, ardından elektrik bağlantıları kesilir ve su tesisat bağlantıları kontrollü şekilde kapatılır.
+6.1.4.3	Pompa üzerindeki sensör, bakım ekibinden yetkin bir elektrik teknisyeni tarafından sökülür.
+6.1.4.4	Sensör söküldükten sonra su tesisat bağlantıları ayrılır.
+6.1.4.5	Temizlik için gerekli hazırlıklar tamamlanarak alan güvenli hale getirilir.
+6.1.4.6	1. Makine için uygulanacak özel işlem adımları: 
+6.1.4.6.1	Eriyik pompasının şaftı halat ile güvenli şekilde bağlanır.
+6.1.4.6.2	Pompa üzerindeki cıvatalar uygun el aletleri kullanılarak sökülür.
+6.1.4.6.3	Pompa, kırmızı istif makinesi yardımıyla 2 No’lu bağlantı parçasından ayrılır ve kontrollü biçimde yere indirilir.
+6.1.4.7	Pompa parçalarına ayrılarak bakır ekipmanlarla temizliği yapılır.
+6.1.4.8	Temizlik sonrası pompa parçalarının montajı yapılır ve bağlantıların doğru şekilde tamamlandığından emin olunur.
+6.1.5	Ekran Değiştirici
+6.1.5.1	Ekran değiştirici temizliği 6 ayda en az bir kez olacak şekilde düzenli olarak yapılmalıdır.
+6.1.5.2	Caraskallar makinenin üst bölümüne, ekran değiştiricinin üst kısmına uygun ölçülerle bağlanır. Makine kontrol ekranından Barrel 9 – Gövde 9 sıcaklığı 85–95 °C aralığına kadar ısıtılır.
+6.1.5.3	İstenilen sıcaklığa ulaşıldığında ekran değiştiricinin içinde elek olup olmadığı kontrol edilir; varsa çıkarılır.
+6.1.5.4	Hidrolik yağ pompasının vanaları kapatılır ve pompanın bağlantı elemanları sökülür.
+6.1.5.5	Makinenin gövde kısmı ile ekran değiştirici arasındaki cıvatalar kontrollü şekilde gevşetilir. Ekran değiştirici, kırmızı istif makinesi yardımıyla dikkatli biçimde palet üzerine indirilir.
+6.1.5.6	Palet üzerine indirilen ekran değiştirici, transpalet yardımıyla temizlik alanına taşınır.
+6.1.5.7	Ekran değiştiricinin flanşları, cıvata deliklerine mapa bağlanıp halat geçirilerek forklift yardımıyla dikkatli şekilde çıkarılır.
+6.1.5.8	Parçaların temizliği, bakır araç ve keçe kullanılarak gerçekleştirilir.
+6.1.6	Beyaz Merdane
+6.1.6.1	Merdaneye bağlı olan su vanaları kapatılır.
+6.1.6.2	Radyanta bağlı olan su tesisat vanaları kapatılır ve bağlantı hortumları sökülür.
+6.1.6.3	Radyantların fişleri prizden çıkarılır.
+6.1.6.4	Radyant bulunduğu yerden sökülerek hasar görmeyeceği güvenli bir alana alınır.
+6.1.6.5	Merdanenin önündeki siperlik ve makinenin ön basamağı sökülür.
+6.1.6.6	Merdane, olası hasarlardan korunması için streç film ile özenle kaplanır.
+6.1.6.7	Merdane içindeki su, dirsek bölgesindeki tahliye vanasından boşaltılır. Ardından su bağlantılarının olduğu dirsek kısmı sökülür.
+6.1.6.8	Merdane içinde kalan pullar çıkarılır.
+6.1.6.9	Merdanenin yanlarında bulunan yataklama elemanları sökülerek merdane makineden ayrılmaya hazır hale getirilir.
+6.1.6.10	Merdanenin üst kısmına denk gelecek şekilde çelik iskelete iki taraftan caraskal takılır.
+6.1.6.11	Caraskallar, merdaneyi kaldıracak şekilde ayarlanır ve merdanenin kolları halat yardımıyla caraskala bağlanır. 
+6.1.6.12	Merdane tilt edilerek (bir taraftaki caraskal daha fazla kaldırılır) içinde kalan su bir kovaya boşaltılır. İşlem tamamlandıktan sonra merdane tekrar yatay konuma getirilir.
+6.1.6.13	Yatay konumdaki merdane, makine üzerindeki yataklardan caraskal ile bir miktar kaldırılarak askıda tutulur. Bu sırada merdaneler en geri pozisyonuna alınır.
+6.1.6.14	Makine rayı çıkarılır ve taşıma arabası merdanenin altına yerleştirilir.
+6.1.6.15	Caraskallar yardımıyla merdane, taşıma arabasının üzerine kontrollü bir şekilde indirilir ve depo kısmına götürülür.
+6.1.6.16	Kalite onayından geçmiş yedek merdane, tavan vinci yardımıyla başka bir merdane taşıma arabasına dikkatlice yerleştirilir.
+6.1.6.17	Yedek merdane taşıma arabasıyla üretim alanına getirilir.
+6.1.6.18	Yedek merdane caraskallar yardımıyla taşıma arabasından alınır ve askıda bekletilir. Bu sırada makine rayları takılır ve merdaneler en ileri pozisyonuna alınır.
+6.1.6.19	Merdane rulmanlarının yağlanması her makine duraklamasında yapılmalıdır.
+6.1.6.20	Makine en ileri pozisyona getirildikten sonra merdane kontrollü bir şekilde indirilerek yerine yerleştirilir.
+6.1.6.21	Merdanenin iki yanındaki yataklama elemanları monte edilerek merdanenin düzgün şekilde yerleştiği kontrol edilir.
+6.1.6.22	Yataklama işlemi tamamlandıktan sonra sökülen parçalar sırasıyla yerine takılır, merdane içine pullar yerleştirilir ve su bağlantı dirsekleri monte edilir.
+6.1.6.23	Makineden çıkarılan eski merdane, tavan vinci yardımıyla taşıma arabasından alınarak boş merdane kutusuna konulur. Kutunun kapağı kapatılır ve üzerine etiket yapıştırılır.
+6.1.6.24	Etiket üzerinde merdanenin seri numarası, söküm tarihi ve bakıma gideceği bilgileri yer almalıdır.
+6.2	Makine Montajı
+6.2.1	Sökülen parçalar, ekran değiştiriciden başlamak üzere söküm sırasının tam tersi izlenerek sırayla birleştirilir.
+6.2.2	Ekran değiştiricinin temizlenen parçaları forklift yardımıyla üst üste konumlandırılır ve kendi içerisinde sırayla birleştirilir.
+6.2.3	Ekran değiştiricinin cıvataları, parça bütünlüğünü sağlayacak şekilde sıkılır.
+6.2.4	Ekran değiştirici dik konuma getirildikten sonra transpalet yardımıyla makinedeki konumunun altına yerleştirilir.
+6.2.5	İstif makinesi kullanılarak kontrollü şekilde yukarı kaldırılır ve cıvataları sıkılarak yerine sabitlenir.
+6.2.6	Yerine oturtma işlemi sırasında su terazisi kullanılarak parçanın doğru konumlandığı teyit edilir ve dengesi sağlanır.
+6.2.7	2 No’lu bağlantı parçası (flanş) ekran değiştiriciye kontrollü şekilde monte edilir ve cıvataları sıkılır.
+6.2.8	Eriyik pompasının parçaları birleştirildikten sonra transpalet yardımıyla makine alanındaki yerine getirilir.
+6.2.9	İstif makinesi ile kaldırılır, su terazisiyle konumu kontrol edilir ve 2 No’lu bağlantıya (flanş) cıvatalar sıkılarak bağlanır.
+6.2.10	Eriyik pompasının şaft bağlantısı yeniden yapılır.
+6.2.11	Eriyik pompası askı aparatına bağlanır.
+6.2.12	3-7 No’lu Bağlantı parçaları istif makinesi kullanılarak kaldırılır.
+6.2.13	Parçalar terazilenip cıvata bağlantıları yapılır.
+6.2.14	Temizliği tamamlanan kalıp, forklift yardımıyla kaldırılır. Kaldırma sırasında kalıp ağzının zarar görmemesi için altına bakır parça yerleştirilir ve kalıbın yere temas etmemesine dikkat edilir.
+6.2.15	Kalıp, dikkatli bir şekilde kalıp arabasına yerleştirilir.
+6.2.16	Temizliği tamamlanan dağıtıcı parçaları yerine konulur ve cıvataları sıkılır.
+6.2.17	Cıvataları sıkılan dağıtıcı, forklift yardımıyla kaldırılır ve kalıp arabasındaki kalıbın üzerine monte edilir.
+6.2.18	Kalıp arabası üretim alanına getirilir, caraskallar kalıbın askı kollarına geçirilir.
+6.2.19	Kalıp ve dağıtıcı yukarı kaldırılır, dağıtıcı 7 No’lu bağlantıya (flanşa) vidalarla monte edilir.
+6.2.20	Kalıp, makine profiline cıvatalarla sabitlenir ve su terazisi kullanılarak dengesi sağlanır.
+6.2.21	Tüm sistemin dengede olduğundan emin olunduktan sonra kalıp ve dağıtıcının montajı, vidalar iyice sıkılarak tamamlanır.
+6.2.22	Montaj işlemi bittikten sonra makinenin elektrik bağlantıları, bakım ekibinden bir elektrik teknisyeni tarafından yapılır.
+7.	Bağlı Dökümanlar
+ Doküman Adı	 Doküman No
+Ekstrüzyon Makinesi Söküm ve Montaj Formu	CPS-FORM-052
+Ekstrüzyon Makinesi Periyodik Bakım Kontrolleri	CPS-FORM-127
+8.	Revizyon Tarihçesi 
+Versiyon No
+Version No	İlgili Madde	Yazar
+Modified By	Kontrol Eden/Onaylayan
+/ Approving Authority Controller	Değişiklik Tanımı
+Modification Description	Düzenleme Tarihi
+Modification Date
+1.0	-	Kaan Talu	Ayşen Akar	Yeni oluşturulmuştur.	13.05.2024
+2.0	-	Kaan Talu	Ayşen Akar	Format değişikliği yapılmıştır.	01.12.2024
+3.0	3.1
+3.2
+3.3
+3.4	Kaan Talu	Ayşen Akar	Sorumluluklar bölümü güncellenmiştir.	17.11.2025
+	6			Prosedür baştan ele alınmış, tüm adımlar detaylandırılmıştır.	
+
