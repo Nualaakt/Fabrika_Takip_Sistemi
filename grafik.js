@@ -1,41 +1,50 @@
-// ══════════════════════════════════════════════════════════════
-//  grafik.js  –  Günlük üretim görsel kartı (PNG)
-// ══════════════════════════════════════════════════════════════
+// grafik.js — Günlük üretim görsel kartı (PNG)
 
 const { createCanvas } = require('@napi-rs/canvas');
 const { uretimOzetle, hurdaOzetle } = require('./rapor');
 
+// ── Renk paleti (açık tema) ────────────────────────────────────
 const C = {
-  bg:       '#060912',
-  card:     '#0c1120',
-  cardLift: '#101828',
-  border:   '#1e2d45',
-  shine:    '#243350',
-  ext1:     '#00b4d8',
-  ext1glow: '#0077a8',
-  ext2:     '#ff6d00',
-  ext2glow: '#c44d00',
-  label:    '#4a6080',
-  labelHi:  '#6a85a8',
-  val:      '#dde6f0',
-  valBright:'#ffffff',
-  dim:      '#2a3d55',
-  fireGood: '#00e676',
-  fireWarn: '#ffab40',
-  fireBad:  '#ff4444',
-  recycleC: '#48cae4',
-  hurdaC:   '#ff6b6b',
-  ekliC:    '#ffab40',
-  eksikBad: '#ff4444',
-  eksikOk:  '#00e676',
-  evaC:     '#69f0ae',
-  poeC:     '#ff9e40',
-  hizC:     '#b388ff',
-  chrome:   '#8899bb',
+  bg:        '#edf0f5',
+  card:      '#ffffff',
+  cardBdr:   '#d8dfe8',
+
+  ext1:      '#0277bd',   // EXT-1 mavi
+  ext1lt:    '#e1f0fa',
+  ext2:      '#d84315',   // EXT-2 turuncu
+  ext2lt:    '#fde8e3',
+
+  label:     '#8fa3b4',
+  val:       '#1c2b3a',
+  valDim:    '#c0cdd6',
+  hdrTxt:    '#ffffff',
+  chrome:    '#546e7a',
+
+  uretimBg:  '#f2faf4',
+  fireBg:    '#fff5f5',
+  uretimHdr: '#2e7d52',
+  fireHdr:   '#c0392b',
+
+  rowBase:   '#ffffff',
+  rowAlt:    '#f7f9fc',
+  divider:   '#e4eaf1',
+
+  fireGood:  '#27ae60',
+  fireWarn:  '#e67e22',
+  fireBad:   '#e74c3c',
+  recycleC:  '#1976d2',
+  hurdaC:    '#e74c3c',
+  ekliC:     '#e67e22',
+  eksikBad:  '#e74c3c',
+  eksikOk:   '#c0cdd6',
+  hizC:      '#7b1fa2',
+  evaC:      '#2e7d32',
+  poeC:      '#bf360c',
+  beslBg:    '#f5f7fb',
 };
 
-const pad2 = n => String(n).padStart(2, '0');
-const fmtN = (n, d = 0) => Number(n || 0).toLocaleString('tr-TR', {
+const pad2  = n => String(n).padStart(2, '0');
+const fmtN  = (n, d = 0) => Number(n || 0).toLocaleString('tr-TR', {
   minimumFractionDigits: d, maximumFractionDigits: d,
 });
 const tarihStr = d =>
@@ -46,22 +55,19 @@ function fill(ctx, x, y, w, h, color) {
   ctx.fillRect(x, y, w, h);
 }
 
-function txt(ctx, s, x, y, font, color, align = 'left') {
-  ctx.font = font; ctx.fillStyle = color; ctx.textAlign = align;
-  ctx.fillText(String(s), x, y); ctx.textAlign = 'left';
+// Metin — textBaseline her çağrıda sıfırlanır
+function txt(ctx, s, x, y, font, color, align = 'left', baseline = 'alphabetic') {
+  ctx.font        = font;
+  ctx.fillStyle   = color;
+  ctx.textAlign   = align;
+  ctx.textBaseline = baseline;
+  ctx.fillText(String(s), x, y);
+  ctx.textAlign    = 'left';
+  ctx.textBaseline = 'alphabetic';
 }
 
-// Metalik yatay çizgi — ince + parlak merkez
-function metalLine(ctx, x, y, w, bright = C.shine) {
-  fill(ctx, x, y,     w, 1, C.border);
-  fill(ctx, x, y + 1, w, 1, bright + '55');
-}
-
-// Dikey metalik ayırıcı
-function metalVLine(ctx, x, y, h) {
-  fill(ctx, x,     y, 1, h, C.border);
-  fill(ctx, x + 1, y, 1, h, C.shine + '66');
-}
+function divH(ctx, x, y, w) { fill(ctx, x, y, w, 1, C.divider); }
+function divV(ctx, x, y, h) { fill(ctx, x, y, 1, h, C.divider); }
 
 // ── Anlık ürün bilgisi (mod gramaj + genişlik) ─────────────────
 function urunBilgisiHesapla(uretimKayitlari) {
@@ -76,7 +82,8 @@ function urunBilgisiHesapla(uretimKayitlari) {
   }
   const mod = arr => {
     if (!arr.length) return null;
-    const f = {}; arr.forEach(v => f[v] = (f[v] || 0) + 1);
+    const f = {};
+    arr.forEach(v => f[v] = (f[v] || 0) + 1);
     return Number(Object.entries(f).sort((a, b) => b[1] - a[1])[0][0]);
   };
   const res = {};
@@ -110,95 +117,90 @@ function hatHizlariniHesapla(uretimKayitlari) {
 }
 
 // ══════════════════════════════════════════════════════════════
+//  KART YÜKSEKLİĞİ (sabit — hatKartiCiz ile senkron)
+// ══════════════════════════════════════════════════════════════
+// HDR=56 | INFO=52 | URN=30 | SEC=28 | 5×RH=200 | BAR=8  →  374
+const HDR_K = 56;
+const INFO_K = 52;
+const URN_K  = 30;
+const SEC_K  = 28;
+const RH     = 40;
+const BAR_K  = 8;
+const KART_H = HDR_K + INFO_K + URN_K + SEC_K + 5 * RH + BAR_K;  // 374
+
+// ══════════════════════════════════════════════════════════════
 //  HAT KARTI
 // ══════════════════════════════════════════════════════════════
-function hatKartiCiz(ctx, x, y, w, hatAdi, accent, glow,
-                     u, hd, hiz, basInfo, urunB) {
-  const PAD = 16;
+function hatKartiCiz(ctx, x, y, w, hatAdi, accent, accentLt, u, hd,
+                     hiz, basInfo, urunB) {
+  const PAD = 18;
 
-  // ── Kart zemini ──────────────────────────────────────────────
-  fill(ctx, x, y, w, KART_H, C.card);
+  // ── Kart zemini + kenarlık ───────────────────────────────────
+  fill(ctx, x,     y,     w,     KART_H, C.cardBdr);
+  fill(ctx, x + 1, y + 1, w - 2, KART_H - 2, C.card);
 
-  // Sol accent şerit (4px)
-  fill(ctx, x, y, 4, KART_H, accent);
-
-  // Üst kenar parlak çizgi
-  fill(ctx, x, y, w, 1, accent + 'cc');
-
-  let cy = y;
+  let cy = y + 1;
 
   // ── Başlık ───────────────────────────────────────────────────
-  const HDR = 52;
-  fill(ctx, x + 4, cy, w - 4, HDR, C.cardLift);
-  // İnce alt gölge
-  fill(ctx, x + 4, cy + HDR - 1, w - 4, 1, C.border);
-
-  txt(ctx, hatAdi, x + w / 2, cy + 34,
-    'bold 26px "Segoe UI",Arial', accent, 'center');
-  cy += HDR;
+  fill(ctx, x + 1, cy, w - 2, HDR_K, accent);
+  txt(ctx, hatAdi, x + w / 2, cy + HDR_K / 2,
+    'bold 28px "Segoe UI",Arial', C.hdrTxt, 'center', 'middle');
+  cy += HDR_K;
 
   // ── Bilgi bandı: başlangıç | gün | hız ───────────────────────
-  const INFO = 50;
-  fill(ctx, x + 4, cy, w - 4, INFO, '#090e1a');
-  metalLine(ctx, x + 4, cy + INFO - 1, w - 4);
+  fill(ctx, x + 1, cy, w - 2, INFO_K, C.rowAlt);
+  divH(ctx, x + 1, cy + INFO_K - 1, w - 2);
 
-  const c = Math.floor((w - 4) / 3);
-  const ix = x + 4;
+  const col = Math.floor((w - 2) / 3);
+  const ix  = x + 1;
+  const ly  = cy + Math.round(INFO_K * 0.32);   // etiket: üst 1/3
+  const vy  = cy + Math.round(INFO_K * 0.68);   // değer:  alt 2/3
 
-  // col 1 — başlangıç
   const basTar = basInfo?.baslangicTarihi
     ? tarihStr(new Date(basInfo.baslangicTarihi)) : '—';
-  txt(ctx, 'BAŞLANGIÇ', ix + c / 2, cy + 17,
-    '9px "Segoe UI",Arial', C.label, 'center');
-  txt(ctx, basTar, ix + c / 2, cy + 38,
-    'bold 14px "Segoe UI",Arial', C.chrome, 'center');
-
-  // col 2 — gün
-  metalVLine(ctx, ix + c, cy + 10, INFO - 20);
-  const gun = basInfo?.gunSayisi != null ? `${basInfo.gunSayisi} GÜN` : '—';
-  txt(ctx, 'ÇALIŞILAN', ix + c + c / 2, cy + 17,
-    '9px "Segoe UI",Arial', C.label, 'center');
-  txt(ctx, gun, ix + c + c / 2, cy + 38,
-    'bold 16px "Segoe UI",Arial', C.valBright, 'center');
-
-  // col 3 — hız
-  metalVLine(ctx, ix + c * 2, cy + 10, INFO - 20);
+  const gun    = basInfo?.gunSayisi != null ? `${basInfo.gunSayisi} gün` : '—';
   const hizStr = hiz != null ? `${hiz.toFixed(1)} m/dk` : '—';
-  txt(ctx, 'ORT. SİLİNDİR HIZI', ix + c * 2 + c / 2, cy + 17,
-    '9px "Segoe UI",Arial', C.label, 'center');
-  txt(ctx, hizStr, ix + c * 2 + c / 2, cy + 38,
-    'bold 14px "Segoe UI",Arial', C.hizC, 'center');
-  cy += INFO;
+
+  // sütun 1
+  txt(ctx, 'BAŞLANGIÇ',           ix + col / 2,             ly, '9px "Segoe UI",Arial',  C.label,  'center', 'middle');
+  txt(ctx, basTar,                ix + col / 2,             vy, 'bold 13px "Segoe UI",Arial', C.chrome, 'center', 'middle');
+  // sütun 2
+  divV(ctx, ix + col,             cy + 10, INFO_K - 20);
+  txt(ctx, 'ÇALIŞILAN',           ix + col + col / 2,       ly, '9px "Segoe UI",Arial',  C.label,  'center', 'middle');
+  txt(ctx, gun,                   ix + col + col / 2,       vy, 'bold 15px "Segoe UI",Arial', C.val,    'center', 'middle');
+  // sütun 3
+  divV(ctx, ix + col * 2,         cy + 10, INFO_K - 20);
+  txt(ctx, 'ORT. SİLİNDİR HIZI',  ix + col * 2 + col / 2,  ly, '9px "Segoe UI",Arial',  C.label,  'center', 'middle');
+  txt(ctx, hizStr,                ix + col * 2 + col / 2,  vy, 'bold 14px "Segoe UI",Arial', C.hizC,   'center', 'middle');
+  cy += INFO_K;
 
   // ── Ürün bilgisi bandı ───────────────────────────────────────
-  const URN = 32;
-  fill(ctx, x + 4, cy, w - 4, URN, '#07090f');
+  fill(ctx, x + 1, cy, w - 2, URN_K, accentLt);
+  divH(ctx, x + 1, cy + URN_K - 1, w - 2);
   const gram = urunB?.gram ? `${urunB.gram} g/m²` : null;
   const gen  = urunB?.genislik ? `${urunB.genislik} mm` : null;
   const ad   = urunB?.urunAdi || null;
   const uStr = [ad, gram, gen].filter(Boolean).join('   ·   ');
-  txt(ctx, uStr || '—', x + w / 2, cy + 21,
-    '11px "Segoe UI",Arial', C.labelHi, 'center');
-  metalLine(ctx, x + 4, cy + URN - 1, w - 4);
-  cy += URN;
+  txt(ctx, uStr || '—', x + w / 2, cy + URN_K / 2,
+    '11px "Segoe UI",Arial', C.chrome, 'center', 'middle');
+  cy += URN_K;
 
   // ── Bölüm başlıkları ÜRETİM | FİRE ─────────────────────────
-  const SEC = 30;
-  const hw  = Math.floor((w - 4) / 2);
-  fill(ctx, x + 4,      cy, hw,     SEC, '#0a1a10');
-  fill(ctx, x + 4 + hw, cy, w-4-hw, SEC, '#1a0808');
-  txt(ctx, 'ÜRETİM', x + 4 + hw / 2, cy + 20,
-    'bold 11px "Segoe UI",Arial', C.fireGood, 'center');
-  txt(ctx, 'FİRE',   x + 4 + hw + (w-4-hw) / 2, cy + 20,
-    'bold 11px "Segoe UI",Arial', C.fireBad, 'center');
-  metalVLine(ctx, x + 4 + hw, cy, SEC);
-  metalLine(ctx, x + 4, cy + SEC - 1, w - 4);
-  cy += SEC;
+  const hw = Math.floor((w - 2) / 2);
+  fill(ctx, x + 1,        cy, hw,       SEC_K, C.uretimBg);
+  fill(ctx, x + 1 + hw,   cy, w - 2 - hw, SEC_K, C.fireBg);
+  txt(ctx, 'ÜRETİM', x + 1 + hw / 2,           cy + SEC_K / 2,
+    'bold 10px "Segoe UI",Arial', C.uretimHdr, 'center', 'middle');
+  txt(ctx, 'FİRE',   x + 1 + hw + (w-2-hw) / 2, cy + SEC_K / 2,
+    'bold 10px "Segoe UI",Arial', C.fireHdr,   'center', 'middle');
+  divV(ctx, x + 1 + hw, cy, SEC_K);
+  divH(ctx, x + 1, cy + SEC_K - 1, w - 2);
+  cy += SEC_K;
 
   // ── Veri hesabı ──────────────────────────────────────────────
-  const tamUrun   = u?.tamUrun   || 0;
-  const ekliUrun  = u?.ekliUrun  || 0;
-  const eksikUrun = u?.eksikUrun || 0;
+  const tamUrun   = u?.tamUrun        || 0;
+  const ekliUrun  = u?.ekliUrun       || 0;
+  const eksikUrun = u?.eksikUrun      || 0;
   const toplam    = tamUrun + ekliUrun + eksikUrun;
   const toplamM2  = u?.toplamM2       || 0;
   const uretimKg  = u?.toplamUretimKg || 0;
@@ -211,77 +213,68 @@ function hatKartiCiz(ctx, x, y, w, hatAdi, accent, glow,
   const fireRenk  = fireOrani > 5 ? C.fireBad : fireOrani > 2.5 ? C.fireWarn : C.fireGood;
 
   const sol = [
-    { lbl: 'TAM ÜRÜN',    val: `${fmtN(tamUrun)} adet`,    r: C.val },
-    { lbl: 'EKLİ ÜRÜN',   val: `${fmtN(ekliUrun)} adet`,   r: ekliUrun  > 0 ? C.ekliC   : C.dim },
-    { lbl: 'EKSİK ÜRÜN',  val: `${fmtN(eksikUrun)} adet`,  r: eksikUrun > 0 ? C.eksikBad : C.eksikOk },
-    { lbl: 'TOPLAM SAYI', val: `${fmtN(toplam)} adet`,     r: C.valBright },
-    { lbl: 'TOPLAM m²',   val: `${fmtN(toplamM2, 1)} m²`,  r: C.valBright },
+    { lbl: 'Tam Ürün',    val: `${fmtN(tamUrun)} adet`,    r: C.val },
+    { lbl: 'Ekli Ürün',   val: `${fmtN(ekliUrun)} adet`,   r: ekliUrun  > 0 ? C.ekliC  : C.valDim },
+    { lbl: 'Eksik Ürün',  val: `${fmtN(eksikUrun)} adet`,  r: eksikUrun > 0 ? C.eksikBad : C.eksikOk },
+    { lbl: 'Toplam Sayı', val: `${fmtN(toplam)} adet`,     r: C.val },
+    { lbl: 'Toplam m²',   val: `${fmtN(toplamM2, 1)} m²`,  r: C.val },
   ];
   const sag = [
-    { lbl: 'RECYCLE',      val: `${fmtN(recycleKg, 0)} kg`, r: C.recycleC },
-    { lbl: 'HURDA',        val: `${fmtN(hurdaKg,   0)} kg`, r: hurdaKg > 0 ? C.hurdaC : C.dim },
-    { lbl: 'TOPLAM FİRE',  val: `${fmtN(topFire,   0)} kg`, r: C.val },
-    { lbl: 'FİRE ORANI',   val: `%${fireOrani.toFixed(2)}`,  r: fireRenk },
+    { lbl: 'Recycle',      val: `${fmtN(recycleKg, 0)} kg`, r: C.recycleC },
+    { lbl: 'Hurda',        val: `${fmtN(hurdaKg,   0)} kg`, r: hurdaKg > 0 ? C.hurdaC : C.valDim },
+    { lbl: 'Toplam Fire',  val: `${fmtN(topFire,   0)} kg`, r: C.val },
+    { lbl: 'Fire Oranı',   val: `%${fireOrani.toFixed(2)}`,  r: fireRenk },
     { lbl: '',             val: '',                           r: C.val },
   ];
 
-  const RH = 40;
   for (let i = 0; i < 5; i++) {
     const ry = cy + i * RH;
-    const bg = i % 2 === 0 ? C.card : '#0a101e';
-    fill(ctx, x + 4,      ry, hw,     RH, bg);
-    fill(ctx, x + 4 + hw, ry, w-4-hw, RH, bg);
-    metalVLine(ctx, x + 4 + hw, ry, RH);
-    metalLine(ctx, x + 4, ry + RH - 1, w - 4);
+    const bg = i % 2 === 0 ? C.rowBase : C.rowAlt;
+    fill(ctx, x + 1,        ry, hw,       RH, bg);
+    fill(ctx, x + 1 + hw,   ry, w-2-hw,   RH, bg);
+    divV(ctx, x + 1 + hw, ry, RH);
+    divH(ctx, x + 1, ry + RH - 1, w - 2);
 
-    txt(ctx, sol[i].lbl, x + 4 + PAD,      ry + 16, '9px "Segoe UI",Arial', C.label);
-    txt(ctx, sol[i].val, x + 4 + hw - PAD, ry + 33, 'bold 15px "Segoe UI",Arial', sol[i].r, 'right');
-    txt(ctx, sag[i].lbl, x + 4 + hw + PAD,  ry + 16, '9px "Segoe UI",Arial', C.label);
-    txt(ctx, sag[i].val, x + 4 + w - PAD,   ry + 33, 'bold 15px "Segoe UI",Arial', sag[i].r, 'right');
+    const rly = ry + Math.round(RH * 0.32);  // etiket merkezi
+    const rvy = ry + Math.round(RH * 0.70);  // değer merkezi
+
+    txt(ctx, sol[i].lbl, x + 1 + PAD,         rly, '9px "Segoe UI",Arial',       C.label,    'left',  'middle');
+    txt(ctx, sol[i].val, x + 1 + hw - PAD,    rvy, 'bold 15px "Segoe UI",Arial', sol[i].r,   'right', 'middle');
+    txt(ctx, sag[i].lbl, x + 1 + hw + PAD,    rly, '9px "Segoe UI",Arial',       C.label,    'left',  'middle');
+    txt(ctx, sag[i].val, x + 1 + w - 2 - PAD, rvy, 'bold 15px "Segoe UI",Arial', sag[i].r,   'right', 'middle');
   }
   cy += 5 * RH;
 
   // ── Fire oranı çubuğu ────────────────────────────────────────
-  const BH = 12;
-  fill(ctx, x + 4, cy, w - 4, BH, '#050810');
-  const bw = Math.min(1, fireOrani / 15) * (w - 8);
-  fill(ctx, x + 6, cy + 3, bw, BH - 6, fireRenk);
-  // parlak kenar
-  fill(ctx, x + 6, cy + 3, bw, 1, fireRenk + 'cc');
-  cy += BH;
-
-  // Alt kenar
-  fill(ctx, x, cy, w, 1, glow + '55');
+  fill(ctx, x + 1, cy, w - 2, BAR_K, C.rowAlt);
+  const bw = Math.min(1, fireOrani / 15) * (w - 6);
+  if (bw > 0) fill(ctx, x + 3, cy + 2, bw, BAR_K - 4, fireRenk + 'cc');
 }
-
-// ── Toplam kart yüksekliği (sabit — hatKartiCiz ile senkron) ──
-const KART_H = 52 + 50 + 32 + 30 + 5 * 40 + 12;  // = 376
 
 // ══════════════════════════════════════════════════════════════
 //  BESLEME KARTI
 // ══════════════════════════════════════════════════════════════
 function beslemeKartiCiz(ctx, x, y, w, hammaddeler) {
-  const H  = 64;
+  const H  = 62;
   const cw = Math.floor(w / 2);
-  fill(ctx, x, y, w, H, C.card);
-  fill(ctx, x, y, w, 1, '#1a4030');
 
-  fill(ctx, x, y, 4, H, C.evaC + 'aa');
+  fill(ctx, x,     y,     w,     H, C.cardBdr);
+  fill(ctx, x + 1, y + 1, w - 2, H - 2, C.beslBg);
 
-  // Başlık
-  fill(ctx, x + 4, y, w - 4, 24, '#091a10');
-  txt(ctx, 'BESLEME', x + w / 2, y + 16,
-    'bold 10px "Segoe UI",Arial', C.evaC + 'cc', 'center');
-  metalLine(ctx, x + 4, y + 23, w - 4);
+  // Başlık şeridi
+  fill(ctx, x + 1, y + 1, w - 2, 24, C.evaC + '18' || '#e8f5e9');
+  fill(ctx, x + 1, y + 1, 3, H - 2, C.evaC || '#27ae60');
+  txt(ctx, 'BESLEME — KULLANILAN HAMMADDE', x + w / 2, y + 13,
+    'bold 9px "Segoe UI",Arial', C.label, 'center', 'middle');
+  divH(ctx, x + 1, y + 24, w - 2);
 
-  metalVLine(ctx, x + cw, y + 24, H - 24);
+  divV(ctx, x + cw, y + 24, H - 24);
 
-  txt(ctx, 'KULLANILAN EVA HAMMADDESİ', x + cw / 2,      y + 36, '9px "Segoe UI",Arial', C.label, 'center');
-  txt(ctx, hammaddeler?.eva || '—',      x + cw / 2,      y + 54, 'bold 15px "Segoe UI",Arial', C.evaC, 'center');
-  txt(ctx, 'KULLANILAN POE HAMMADDESİ', x + cw + cw / 2, y + 36, '9px "Segoe UI",Arial', C.label, 'center');
-  txt(ctx, hammaddeler?.poe || '—',      x + cw + cw / 2, y + 54, 'bold 15px "Segoe UI",Arial', C.poeC, 'center');
+  txt(ctx, 'EVA',                          x + cw / 2,      y + 36, '9px "Segoe UI",Arial',       C.label, 'center', 'middle');
+  txt(ctx, hammaddeler?.eva || '—',        x + cw / 2,      y + 52, 'bold 15px "Segoe UI",Arial', C.evaC,  'center', 'middle');
+  txt(ctx, 'POE',                          x + cw + cw / 2, y + 36, '9px "Segoe UI",Arial',       C.label, 'center', 'middle');
+  txt(ctx, hammaddeler?.poe || '—',        x + cw + cw / 2, y + 52, 'bold 15px "Segoe UI",Arial', C.poeC,  'center', 'middle');
 
-  fill(ctx, x, y + H - 1, w, 1, C.border);
   return H;
 }
 
@@ -293,9 +286,9 @@ function gunlukGrafikOlustur(uretimKayitlari, hurdaKayitlari, tarih,
   const W      = 960;
   const PAD    = 14;
   const GAP    = 10;
-  const HDR_H  = 60;
-  const FTR_H  = 34;
-  const BESL_H = hammaddeler ? 64 + GAP : 0;
+  const HDR_H  = 58;
+  const FTR_H  = 32;
+  const BESL_H = hammaddeler ? 62 + GAP : 0;
 
   const uretim    = uretimOzetle(uretimKayitlari);
   const hurda     = hurdaOzetle(hurdaKayitlari);
@@ -312,35 +305,27 @@ function gunlukGrafikOlustur(uretimKayitlari, hurdaKayitlari, tarih,
   // ── Arka plan ────────────────────────────────────────────────
   fill(ctx, 0, 0, W, H, C.bg);
 
-  // Hafif doku: yatay çizgi deseni
-  for (let i = 0; i < H; i += 4)
-    fill(ctx, 0, i, W, 1, 'rgba(255,255,255,0.012)');
-
   // ── Üst başlık ───────────────────────────────────────────────
-  fill(ctx, 0, 0, W, HDR_H, '#070c18');
-  // Sol dikey accent bar
-  fill(ctx, 0, 0, 3, HDR_H, C.ext1);
-  fill(ctx, 3, 0, 3, HDR_H, C.ext1 + '44');
+  fill(ctx, 0, 0, W, HDR_H, C.card);
+  fill(ctx, 0, 0, 4, HDR_H, C.ext1);
+  fill(ctx, 0, HDR_H - 1, W, 1, C.cardBdr);
 
-  txt(ctx, 'GÜNLÜK ÜRETİM RAPORU', PAD + 12, 38,
-    'bold 24px "Segoe UI",Arial', C.valBright);
-  txt(ctx, tarihStr(tarih), W - PAD, 42,
-    '14px "Segoe UI",Arial', C.chrome, 'right');
-
-  // Alt metalik çizgi
-  metalLine(ctx, 0, HDR_H - 2, W, C.ext1 + '66');
+  txt(ctx, 'Günlük Üretim Raporu', PAD + 12, HDR_H / 2,
+    'bold 22px "Segoe UI",Arial', C.val, 'left', 'middle');
+  txt(ctx, tarihStr(tarih), W - PAD, HDR_H / 2,
+    '13px "Segoe UI",Arial', C.chrome, 'right', 'middle');
 
   // ── Hat kartları ─────────────────────────────────────────────
   const acc = {
-    'EXT-1': { accent: C.ext1, glow: C.ext1glow },
-    'EXT-2': { accent: C.ext2, glow: C.ext2glow },
+    'EXT-1': { accent: C.ext1, accentLt: C.ext1lt },
+    'EXT-2': { accent: C.ext2, accentLt: C.ext2lt },
   };
   const cy0 = HDR_H + PAD;
 
   hatlar.forEach((hat, i) => {
     const bx = PAD + i * (kartiW + GAP);
-    const a  = acc[hat] || { accent: '#607080', glow: '#304050' };
-    hatKartiCiz(ctx, bx, cy0, kartiW, hat, a.accent, a.glow,
+    const a  = acc[hat] || { accent: '#607d8b', accentLt: '#eceff1' };
+    hatKartiCiz(ctx, bx, cy0, kartiW, hat, a.accent, a.accentLt,
       uretim[hat], hurda[hat], hizlar[hat] ?? null,
       baslangicBilgileri[hat] ?? null, urunBilgi[hat] ?? null);
   });
@@ -351,10 +336,10 @@ function gunlukGrafikOlustur(uretimKayitlari, hurdaKayitlari, tarih,
 
   // ── Alt bilgi ────────────────────────────────────────────────
   const fy = H - FTR_H;
-  fill(ctx, 0, fy, W, FTR_H, '#070c18');
-  metalLine(ctx, 0, fy, W);
-  txt(ctx, 'CPS Üretim Takip Sistemi  ·  Capssun', W / 2, fy + 23,
-    '11px "Segoe UI",Arial', C.label, 'center');
+  fill(ctx, 0, fy, W, FTR_H, C.card);
+  fill(ctx, 0, fy, W, 1, C.cardBdr);
+  txt(ctx, 'CPS Üretim Takip Sistemi  ·  Capssun', W / 2, fy + FTR_H / 2,
+    '10px "Segoe UI",Arial', C.label, 'center', 'middle');
 
   return canvas.toBuffer('image/png');
 }
