@@ -66,18 +66,52 @@ function text(ctx, str, x, y, font, color, align = 'left') {
   ctx.textAlign = 'left';
 }
 
+// ── Son 10 kayıttan hat hızı hesapla (m/dk) ──────────────────
+function hatHizlariniHesapla(uretimKayitlari) {
+  const config = require('./config');
+  const hatGruplari = {};
+
+  for (const r of uretimKayitlari) {
+    const hat = config.hatlar[r.UretimHatti] || r.UretimHatti;
+    if (!hatGruplari[hat]) hatGruplari[hat] = [];
+    hatGruplari[hat].push(r);
+  }
+
+  const hizlar = {};
+  for (const [hat, kayitlar] of Object.entries(hatGruplari)) {
+    const son10 = kayitlar.slice(-10);
+    const hizDegerleri = son10.map(r => {
+      const bas = new Date(r.BaslangicSaati);
+      const bit = new Date(r.BitisSaati);
+      const dk  = (bit - bas) / 60000;
+      if (dk <= 0 || dk > 120) return null;  // 0 veya 2 saatten uzunsa durmuş demek
+      return (r.MetreKg || 280) / dk;
+    }).filter(Boolean);
+
+    if (hizDegerleri.length === 0) { hizlar[hat] = null; continue; }
+
+    // Ortalamanın %50'sinin altındakiler duruş kalıntısı — filtrele
+    const ort = hizDegerleri.reduce((a, b) => a + b, 0) / hizDegerleri.length;
+    const filtreli = hizDegerleri.filter(h => h >= ort * 0.5);
+    hizlar[hat] = filtreli.reduce((a, b) => a + b, 0) / filtreli.length;
+  }
+  return hizlar;
+}
+
 // ── Hat bloğunu çiz ───────────────────────────────────────────
 //  x, y : sol üst köşe
 //  w     : toplam genişlik (ÜRETİM + FİRE yan yana)
 //  u, hd : uretimOzetle[hat], hurdaOzetle[hat]
 //  hatAdi: 'EXT-1' | 'EXT-2'
 //  hatRenk: başlık arka plan rengi
+//  hiz   : ortalama hız m/dk (veya null)
 //
-function hatBloguCiz(ctx, x, y, w, hatAdi, u, hd, hatRenk) {
+function hatBloguCiz(ctx, x, y, w, hatAdi, u, hd, hatRenk, hiz) {
   const HAT_H   = 40;  // hat başlık yüksekliği
   const SEC_H   = 32;  // ÜRETİM / FİRE bölüm başlık
   const ROW_H   = 38;  // her veri satırı
   const ROWS    = 5;   // 5 satır (her iki bölümde de)
+  const HIZ_H   = 36;  // hat hızı satırı
   const colW    = Math.floor(w / 2);  // sol = ÜRETİM, sağ = FİRE
 
   // ── Hat başlık ───────────────────────────────────────────────
@@ -148,7 +182,19 @@ function hatBloguCiz(ctx, x, y, w, hatAdi, u, hd, hatRenk) {
     hLine(ctx, x, ry + ROW_H, w);
   }
 
-  const blokH = HAT_H + SEC_H + ROWS * ROW_H;
+  // ── Hat hızı satırı (tam genişlik) ──────────────────────────
+  const hizY = cy + ROWS * ROW_H;
+  fillRect(ctx, x, hizY, w, HIZ_H, '#f1f5f9');
+  if (hiz != null) {
+    text(ctx, 'Son 10 Ürün Ort. Hat Hızı', x + 12, hizY + HIZ_H / 2 + 5, '12px "Segoe UI",Arial', C.rowLabel);
+    text(ctx, `${hiz.toFixed(2)} m/dk`, x + w - 12, hizY + HIZ_H / 2 + 6, 'bold 16px "Segoe UI",Arial', '#1e40af', 'right');
+  } else {
+    text(ctx, 'Hat Hızı: veri yok', x + w / 2, hizY + HIZ_H / 2 + 5, '12px "Segoe UI",Arial', C.footer, 'center');
+  }
+  hLine(ctx, x, hizY, w);
+  hLine(ctx, x, hizY + HIZ_H, w);
+
+  const blokH = HAT_H + SEC_H + ROWS * ROW_H + HIZ_H;
 
   // Blok çerçevesi
   ctx.strokeStyle = C.border;
@@ -228,14 +274,15 @@ function gunlukGrafikOlustur(uretimKayitlari, hurdaKayitlari, tarih, beslemeKayi
 
   const uretim = uretimOzetle(uretimKayitlari);
   const hurda  = hurdaOzetle(hurdaKayitlari);
+  const hizlar = hatHizlariniHesapla(uretimKayitlari);
   const hatlar = Object.keys(uretim).sort();
 
   // Hat blok genişliği
   const sutunSayisi = hatlar.length || 1;
   const bloW = Math.floor((W - PAD * 2 - GAP * (sutunSayisi - 1)) / sutunSayisi);
 
-  // Hat bloğu yüksekliği: HAT_H(40) + SEC_H(32) + ROWS*ROW_H(5*38)
-  const BLO_H = 40 + 32 + 5 * 38;  // = 262
+  // Hat bloğu yüksekliği: HAT_H(40) + SEC_H(32) + ROWS*ROW_H(5*38) + HIZ_H(36)
+  const BLO_H = 40 + 32 + 5 * 38 + 36;  // = 298
 
   // BESLEME verisi şu an hatalı — gösterme
   const beslemeVar = false;
@@ -264,7 +311,7 @@ function gunlukGrafikOlustur(uretimKayitlari, hurdaKayitlari, tarih, beslemeKayi
     hatlar.forEach((hat, i) => {
       const bx = PAD + i * (bloW + GAP);
       hatBloguCiz(ctx, bx, cy0, bloW, hat, uretim[hat], hurda[hat],
-        hatRenkler[hat] || '#555555');
+        hatRenkler[hat] || '#555555', hizlar[hat] ?? null);
     });
   }
 
