@@ -886,7 +886,7 @@ async function aylikOtomatikRaporGonder() {
 
 // ── WhatsApp hazır ────────────────────────────────────────────
 client.on('ready', async () => {
-  console.log('✅ WhatsApp bağlandı!\n');
+  console.log('✅ WhatsApp bağlandı! [v2]\n');
 
   try {
     if (MOD === '--son-vardiya') {
