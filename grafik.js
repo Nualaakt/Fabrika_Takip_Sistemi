@@ -237,9 +237,9 @@ function gunlukGrafikOlustur(uretimKayitlari, hurdaKayitlari, tarih, beslemeKayi
   // Hat bloğu yüksekliği: HAT_H(40) + SEC_H(32) + ROWS*ROW_H(5*38)
   const BLO_H = 40 + 32 + 5 * 38;  // = 262
 
-  // Kaç satır BESLEME?
-  const beslemeVar = beslemeKayitlari.length > 0;
-  const BESL_H     = beslemeVar ? (34 + 40 + GAP) : 0;
+  // BESLEME verisi şu an hatalı — gösterme
+  const beslemeVar = false;
+  const BESL_H     = 0;
 
   const H = HEADER_H + PAD + BLO_H + PAD + BESL_H + FOOTER_H;
 
