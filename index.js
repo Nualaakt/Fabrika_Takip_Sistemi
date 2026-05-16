@@ -683,7 +683,19 @@ const [uretimKayitlari, beslemeKayitlari, aktifMikserler, bekleyenMikserler] =
 
   // ── Görsel kart ────────────────────────────────────────────
   try {
-    const pngBuf = gunlukGrafikOlustur(uretimKayitlari, hurdaKayitlari, new Date(tarih), beslemeKayitlari);
+    const config = require('./config');
+    const [hammaddeler, ...baslangicArr] = await Promise.all([
+      db.gunlukHammaddeMarkalariGetir(tarih),
+      ...Object.values(config.hatlar).map(hat => db.makineBaslangicBilgisiGetir(
+        Object.keys(config.hatlar).find(k => config.hatlar[k] === hat)
+      ).then(b => [hat, b])),
+    ]);
+    const baslangicBilgileri = Object.fromEntries(baslangicArr);
+
+    const pngBuf = gunlukGrafikOlustur(
+      uretimKayitlari, hurdaKayitlari, new Date(tarih),
+      baslangicBilgileri, hammaddeler
+    );
     await mesajGonderGorsel(pngBuf, ['admin', 'uretim']);
     console.log('🖼️  Günlük görsel kart gönderildi.');
   } catch (err) {

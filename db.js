@@ -191,6 +191,8 @@ module.exports = {
   bekleyenMikserSilolariGetir,
   lotSilolariGetir,
   gunlukMikserGetir,
+  makineBaslangicBilgisiGetir,
+  gunlukHammaddeMarkalariGetir,
 };
 
 // ── 5. GÜNLÜK ÜRETİM (tüm gün) ───────────────────────────────
@@ -530,6 +532,81 @@ async function gunlukMikserGetir(tarih) {
 
   const sonuc = await istek.query(sorgu);
   return sonuc.recordset;
+}
+
+// ── 19. MAKİNE BAŞLANGIÇ BİLGİSİ (8 saatlik boşluk mantığı) ──
+async function makineBaslangicBilgisiGetir(hat) {
+  const istek = (await baglan()).request();
+  istek.input('hat', sql.NVarChar, hat);
+
+  const sorgu = `
+    SELECT TOP 500 UretimTarihi, BaslangicSaati, BitisSaati
+    FROM Production
+    WHERE UretimHatti = @hat AND BitisSaati IS NOT NULL
+    ORDER BY UretimTarihi DESC, BitisSaati DESC
+  `;
+  const sonuc = await istek.query(sorgu);
+  const kayitlar = sonuc.recordset;
+  if (kayitlar.length === 0) return null;
+
+  // Geriye doğru yürü, ilk 8+ saatlik boşluğu bul
+  let baslangicTarihi = new Date(kayitlar[kayitlar.length - 1].UretimTarihi);
+  for (let i = 0; i < kayitlar.length - 1; i++) {
+    const suankiBas  = new Date(kayitlar[i].UretimTarihi);
+    const oncekiBit  = new Date(kayitlar[i + 1].UretimTarihi);
+    const suankiBasH = new Date(kayitlar[i].BaslangicSaati);
+    const oncekiBitH = new Date(kayitlar[i + 1].BitisSaati);
+    suankiBas.setUTCHours(suankiBasH.getUTCHours(), suankiBasH.getUTCMinutes(), 0, 0);
+    oncekiBit.setUTCHours(oncekiBitH.getUTCHours(), oncekiBitH.getUTCMinutes(), 0, 0);
+    if ((suankiBas - oncekiBit) / 3600000 >= 8) {
+      baslangicTarihi = new Date(kayitlar[i].UretimTarihi);
+      break;
+    }
+  }
+
+  const bugun = new Date();
+  const gunSayisi = Math.max(1, Math.floor((bugun - baslangicTarihi) / 86400000) + 1);
+  return { baslangicTarihi, gunSayisi };
+}
+
+// ── 20. GÜNLÜK HAMMADDE MARKALARI ────────────────────────────
+async function gunlukHammaddeMarkalariGetir(tarih) {
+  const d = new Date(tarih);
+  const tarihStr = d.getFullYear() + '-' +
+    String(d.getMonth() + 1).padStart(2, '0') + '-' +
+    String(d.getDate()).padStart(2, '0');
+  const istek = (await baglan()).request();
+  istek.input('tarih', sql.NVarChar, tarihStr);
+
+  const sorgu = `
+    SELECT Hammadde1, Hammadde2, Hammadde3, SemiProductType
+    FROM MixerLoading
+    WHERE CONVERT(VARCHAR(10), CreatedAt, 120) = @tarih
+  `;
+  const sonuc = await istek.query(sorgu);
+
+  function markacikar(s) {
+    if (!s || s.toUpperCase() === 'EKLEME') return null;
+    const u = s.toUpperCase();
+    if (u.includes('HANWHA')) return 'Hanwha';
+    if (u.includes('DOW'))    return 'DOW';
+    if (u.includes('LG'))     return 'LG';
+    return null;
+  }
+
+  const evaMarka = new Set(), poeMarka = new Set();
+  for (const r of sonuc.recordset) {
+    const hedef = r.SemiProductType?.toUpperCase().includes('EVA') ? evaMarka : poeMarka;
+    [r.Hammadde1, r.Hammadde2, r.Hammadde3].forEach(h => {
+      const m = markacikar(h);
+      if (m) hedef.add(m);
+    });
+  }
+
+  return {
+    eva: evaMarka.size > 0 ? [...evaMarka].join(' + ') : null,
+    poe: poeMarka.size > 0 ? [...poeMarka].join(' + ') : null,
+  };
 }
 
 // ── BAKIM: Açık arızalar ──────────────────────────────────────
