@@ -683,7 +683,7 @@ const [uretimKayitlari, beslemeKayitlari, aktifMikserler, bekleyenMikserler] =
 
   // ── Görsel kart ────────────────────────────────────────────
   try {
-    const pngBuf = gunlukGrafikOlustur(uretimKayitlari, hurdaKayitlari, new Date(tarih));
+    const pngBuf = gunlukGrafikOlustur(uretimKayitlari, hurdaKayitlari, new Date(tarih), beslemeKayitlari);
     await mesajGonderGorsel(pngBuf, ['admin', 'uretim']);
     console.log('🖼️  Günlük görsel kart gönderildi.');
   } catch (err) {
@@ -1398,6 +1398,35 @@ client.on('message', async (msg) => {
         '_Capssun Takip Sistemi_',
       ].join('\n');
       await mesajGonderAdmin(ornekMesaj);
+      return;
+    }
+
+    // ── //restart — git pull + pm2 restart (yalnızca admin) ────────
+    if (girisTrim === 'restart') {
+      const alici = config.alicilar.find(a => {
+        if (a.gid) return false;
+        const temiz = (a.tel || '').replace(/[^0-9]/g, '');
+        return gonderenId === temiz + '@c.us' || gonderenId === a.lid;
+      });
+      if (alici?.rol !== 'admin') {
+        await client.sendMessage(hedefAdres, '⛔ Bu komut yalnızca admin kullanabilir.');
+        return;
+      }
+      await client.sendMessage(hedefAdres, '🔄 *Güncelleme başlıyor...*\n_git pull çalışıyor_');
+      const { exec } = require('child_process');
+      exec('git pull', { cwd: __dirname }, async (err, stdout, stderr) => {
+        const cikti = (stdout || '').trim() || (stderr || '').trim() || 'Çıktı yok';
+        if (err) {
+          try { await client.sendMessage(hedefAdres, `❌ git pull hatası:\n${cikti}`); } catch (_) {}
+          return;
+        }
+        try {
+          await client.sendMessage(hedefAdres,
+            `✅ *Güncelleme tamamlandı*\n\`\`\`${cikti}\`\`\`\n🔁 Bot yeniden başlatılıyor...`
+          );
+        } catch (_) {}
+        setTimeout(() => process.exit(0), 2000);
+      });
       return;
     }
 
