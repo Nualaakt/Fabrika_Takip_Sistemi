@@ -14,6 +14,7 @@
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode  = require('qrcode-terminal');
 const cron    = require('node-cron');
+const { exec } = require('child_process');
 
 const config  = require('./config');
 const db      = require('./db');
@@ -1354,9 +1355,18 @@ client.on('message', async (msg) => {
         await client.sendMessage(hedefAdres, '⛔ Bu komut yalnızca admin kullanabilir.');
         return;
       }
-      await client.sendMessage(hedefAdres, '🔄 Sistem yeniden başlatılıyor... 5 saniye içinde tekrar aktif olacak.');
-      await bekle(1500);
-      process.exit(1); // run.bat'taki goto BASLA döngüsü devreye girer
+      await client.sendMessage(hedefAdres, '⏳ Güncelleme çekiliyor (git pull)...');
+      await bekle(500);
+      exec('git -C "Z:\\wpsys" pull', async (err, stdout, stderr) => {
+        const cikti = (stdout || '').trim();
+        const hata  = (stderr || '').trim();
+        const ozet  = cikti || hata || '(çıktı yok)';
+        const satir = ozet.split('\n')[0]; // ilk satır yeterli
+        try {
+          await client.sendMessage(hedefAdres, `🔄 ${satir}\nSistem yeniden başlatılıyor...`);
+        } catch (_) {}
+        setTimeout(() => process.exit(1), 1500); // run.bat'taki goto BASLA döngüsü devreye girer
+      });
     }
 
     // ── miksertest komutu — örnek mikser yüklendi mesajı (geçici) ─
