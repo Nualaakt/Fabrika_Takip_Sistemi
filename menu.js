@@ -334,22 +334,22 @@ async function mesajiIsle(tel, metin) {
     }
     if (giris === '2') {
       const liste = sonVardiyalariListele();
-      oturumlar[tel] = { adim: 'vardiya', liste };
+      oturum.adim = 'vardiya'; oturum.liste = liste;
       return altMenuMesaji('⏱️ *VARDİYA SEÇ*', liste);
     }
     if (giris === '3') {
       const liste = sonYediGunListele();
-      oturumlar[tel] = { adim: 'gunluk', liste };
+      oturum.adim = 'gunluk'; oturum.liste = liste;
       return altMenuMesaji('📅 *TARİH SEÇ*', liste);
     }
     if (giris === '4') {
       const liste = sonDortHaftaListele();
-      oturumlar[tel] = { adim: 'haftalik', liste };
+      oturum.adim = 'haftalik'; oturum.liste = liste;
       return altMenuMesaji('📊 *HAFTA SEÇ*', liste);
     }
     if (giris === '5') {
       const liste = sonUcAyListele();
-      oturumlar[tel] = { adim: 'aylik', liste };
+      oturum.adim = 'aylik'; oturum.liste = liste;
       return altMenuMesaji('📆 *AY SEÇ*', liste);
     }
     if (giris === '6') {
