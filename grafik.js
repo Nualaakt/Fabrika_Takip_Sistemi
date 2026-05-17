@@ -349,58 +349,49 @@ function gunlukGrafikOlustur(uretimKayitlari, hurdaKayitlari, tarih,
 }
 
 // ══════════════════════════════════════════════════════════════
-//  FİRE TREND GRAFİĞİ
-//  veri: [{ tarih, gunlukOran, kumulatifOran }]
-//  hatAdi: 'EXT-1' | 'EXT-2'
+//  FİRE GRAFİK — İÇ ÇİZİM FONKSİYONU
+//  ctx üzerine (offX, offY) konumundan itibaren w × h boyutunda çizer
 // ══════════════════════════════════════════════════════════════
-function fireGrafikOlustur(veri, hatAdi) {
-  const accent = hatAdi === 'EXT-2' ? C.ext2 : C.ext1;
+function _fireGrafikCiz(ctx, offX, offY, w, h, veri, accent) {
+  const PAD_L = 58;
+  const PAD_R = 62;
+  const HDR   = 38;   // iç başlık bandı
+  const PAD_B = 40;
 
-  const W      = 960;
-  const H      = 400;
-  const PAD_L  = 58;   // sol Y ekseni
-  const PAD_R  = 62;   // sağ Y ekseni
-  const PAD_T  = 54;   // başlık
-  const PAD_B  = 44;   // X ekseni tarihleri
+  const cX = offX + PAD_L;
+  const cY = offY + HDR;
+  const cW = w - PAD_L - PAD_R;
+  const cH = h - HDR - PAD_B;
 
-  const cX = PAD_L;
-  const cY = PAD_T;
-  const cW = W - PAD_L - PAD_R;
-  const cH = H - PAD_T - PAD_B;
-
-  const canvas = createCanvas(W, H);
-  const ctx    = canvas.getContext('2d');
-
-  // ── Arka plan ────────────────────────────────────────────────
-  fill(ctx, 0, 0, W, H, C.bg);
+  // Grafik zemini
+  fill(ctx, offX, offY, w, h, C.bg);
   fill(ctx, cX, cY, cW, cH, C.rowAlt);
 
-  // ── Başlık ───────────────────────────────────────────────────
-  fill(ctx, 0, 0, W, PAD_T - 2, C.cardLift);
-  fill(ctx, 0, 0, 4, PAD_T - 2, accent);
-  fill(ctx, 0, PAD_T - 2, W, 1, C.cardBdr);
-  txt(ctx, `${hatAdi} — FİRE ORANI`, PAD_L, (PAD_T - 2) / 2,
-    'bold 16px "Segoe UI",Arial', C.valBright, 'left', 'middle');
+  // İç başlık bandı
+  fill(ctx, offX, offY, w, HDR - 2, C.cardLift);
+  fill(ctx, offX, offY, 4, HDR - 2, accent);
+  fill(ctx, offX, offY + HDR - 2, w, 1, C.cardBdr);
+  txt(ctx, 'FİRE ORANI TREND', offX + PAD_L, (offY + HDR - 2) / 2 + offY / 2,
+    'bold 13px "Segoe UI",Arial', C.val, 'left', 'middle');
 
   if (!veri || veri.length === 0) {
-    txt(ctx, 'Veri yok', W / 2, H / 2, '14px "Segoe UI",Arial', C.label, 'center', 'middle');
-    return canvas.toBuffer('image/png');
+    txt(ctx, 'Veri yok', offX + w / 2, offY + h / 2,
+      '14px "Segoe UI",Arial', C.label, 'center', 'middle');
+    return;
   }
 
   const N = veri.length;
 
-  // ── Y ekseni ölçekleri ───────────────────────────────────────
   const maxGunluk    = Math.max(...veri.map(d => d.gunlukOran),    0.1);
   const maxKumulatif = Math.max(...veri.map(d => d.kumulatifOran), 0.1);
-  const yMaxL = Math.ceil(maxGunluk    / 5) * 5 || 5;
-  const yMaxR = Math.ceil(maxKumulatif / 5) * 5 || 5;
+  const yMaxL = Math.ceil(maxGunluk    * 1.4 / 5) * 5 || 10;
+  const yMaxR = Math.ceil(maxKumulatif * 1.4 / 5) * 5 || 10;
 
-  // Yardımcı: veri değerini sol/sağ Y pozisyonuna çevir
-  const yL = v => cY + cH - (v / yMaxL) * cH;
-  const yR = v => cY + cH - (v / yMaxR) * cH;
+  const yL  = v => cY + cH - (v / yMaxL) * cH;
+  const yR  = v => cY + cH - (v / yMaxR) * cH;
   const xOf = i => cX + (i + 0.5) * (cW / N);
 
-  // ── Yatay grid çizgileri (sol eksen adımları) ────────────────
+  // Grid + sol Y ekseni
   const gridStep = yMaxL <= 10 ? 1 : yMaxL <= 20 ? 2 : 5;
   for (let v = 0; v <= yMaxL; v += gridStep) {
     const gy = Math.round(yL(v));
@@ -408,19 +399,14 @@ function fireGrafikOlustur(veri, hatAdi) {
     txt(ctx, `%${v}`, cX - 6, gy, '10px "Segoe UI",Arial', C.label, 'right', 'middle');
   }
 
-  // Sağ Y ekseni etiketleri
+  // Sağ Y ekseni
   const gridStepR = yMaxR <= 10 ? 1 : yMaxR <= 20 ? 2 : 5;
   for (let v = 0; v <= yMaxR; v += gridStepR) {
     const gy = Math.round(yR(v));
     txt(ctx, `%${v}`, cX + cW + 6, gy, '10px "Segoe UI",Arial', C.chrome, 'left', 'middle');
   }
 
-  // Sol eksen başlığı
-  txt(ctx, 'Günlük', 10, cY + cH / 2, '10px "Segoe UI",Arial', C.label, 'center', 'middle');
-  // Sağ eksen başlığı
-  txt(ctx, 'Kümülatif', W - 10, cY + cH / 2, '10px "Segoe UI",Arial', C.chrome, 'center', 'middle');
-
-  // ── Çubuklar (günlük fire %) ─────────────────────────────────
+  // Çubuklar
   const barW = Math.max(4, (cW / N) * 0.65);
   for (let i = 0; i < N; i++) {
     const v  = veri[i].gunlukOran;
@@ -433,7 +419,7 @@ function fireGrafikOlustur(veri, hatAdi) {
     }
   }
 
-  // ── Kümülatif çizgi ─────────────────────────────────────────
+  // Kümülatif çizgi
   ctx.beginPath();
   ctx.strokeStyle = '#ffa726';
   ctx.lineWidth   = 2.5;
@@ -445,56 +431,160 @@ function fireGrafikOlustur(veri, hatAdi) {
   }
   ctx.stroke();
 
-  // Çizgi üzerindeki noktalar
   for (let i = 0; i < N; i++) {
     const px = xOf(i);
     const py = yR(veri[i].kumulatifOran);
     fill(ctx, px - 3, py - 3, 6, 6, '#ffa726');
   }
 
-  // ── Veri etiketleri ─────────────────────────────────────────
-  // Hangi noktalara etiket: ilk, son, yerel zirve (komşulardan büyük)
-  const etiketGoster = i => {
+  // Etiket çakışma önleme
+  const placed = [];
+  const cakisiyor = (px, py, lw) => {
+    const x1 = px - lw / 2 - 2, x2 = px + lw / 2 + 2;
+    const y1 = py - 10,          y2 = py + 10;
+    return placed.some(([bx1, by1, bx2, by2]) =>
+      x1 < bx2 && x2 > bx1 && y1 < by2 && y2 > by1);
+  };
+  const kutu = (px, py, lbl, renk) => {
+    const lw = lbl.length * 6.5 + 10;
+    if (cakisiyor(px, py, lw)) return false;
+    placed.push([px - lw / 2 - 2, py - 10, px + lw / 2 + 2, py + 10]);
+    fill(ctx, px - lw / 2, py - 9, lw, 16, C.cardLift + 'ee');
+    txt(ctx, lbl, px, py, 'bold 10px "Segoe UI",Arial', renk, 'center', 'middle');
+    return true;
+  };
+
+  const barEtiket = i => {
     if (i === 0 || i === N - 1) return true;
+    if (veri[i].gunlukOran >= 5) return true;
     return veri[i].gunlukOran > veri[i-1].gunlukOran &&
            veri[i].gunlukOran > veri[i+1].gunlukOran &&
            veri[i].gunlukOran > 1;
   };
-
   for (let i = 0; i < N; i++) {
-    if (!etiketGoster(i)) continue;
-    const v  = veri[i].gunlukOran;
-    const px = xOf(i);
-    const by = yL(v) - 6;
-    // Etiket kutusu
-    const lbl = `%${v.toFixed(1)}`;
-    fill(ctx, px - 18, by - 14, 36, 16, C.cardLift + 'dd');
-    txt(ctx, lbl, px, by - 5, 'bold 10px "Segoe UI",Arial', C.valBright, 'center', 'middle');
+    if (!barEtiket(i)) continue;
+    kutu(xOf(i), yL(veri[i].gunlukOran) - 14, `%${veri[i].gunlukOran.toFixed(1)}`, C.valBright);
   }
 
-  // ── X ekseni tarihleri ───────────────────────────────────────
+  const cizgiEtiket = i => {
+    if (i === 0 || i === N - 1) return true;
+    const prev = veri[i-1].kumulatifOran, curr = veri[i].kumulatifOran, next = veri[i+1].kumulatifOran;
+    return (curr > prev && curr > next) || (curr < prev && curr < next);
+  };
+  for (let i = 0; i < N; i++) {
+    if (!cizgiEtiket(i)) continue;
+    kutu(xOf(i), yR(veri[i].kumulatifOran) - 16, `%${veri[i].kumulatifOran.toFixed(1)}`, '#ffa726');
+  }
+
+  // X ekseni tarihleri
   const adim = N <= 15 ? 1 : N <= 30 ? 2 : 3;
   for (let i = 0; i < N; i += adim) {
-    const tarih = veri[i].tarih; // 'YYYY-MM-DD'
-    const [yil, ay, gun] = tarih.split('-');
-    const lbl = `${gun}.${ay}`;
-    const px  = xOf(i);
-    txt(ctx, lbl, px, cY + cH + 14, '10px "Segoe UI",Arial', C.label, 'center', 'middle');
+    const [, ay, gun] = veri[i].tarih.split('-');
+    txt(ctx, `${gun}.${ay}`, xOf(i), cY + cH + 14,
+      '10px "Segoe UI",Arial', C.label, 'center', 'middle');
   }
 
-  // ── Eksen çerçevesi ─────────────────────────────────────────
-  fill(ctx, cX, cY + cH, cW, 1, C.divider);   // alt
-  fill(ctx, cX, cY, 1, cH, C.divider);         // sol
-  fill(ctx, cX + cW, cY, 1, cH, C.divider);    // sağ
+  // Eksen çerçevesi
+  fill(ctx, cX, cY + cH, cW, 1, C.divider);
+  fill(ctx, cX, cY, 1, cH, C.divider);
+  fill(ctx, cX + cW, cY, 1, cH, C.divider);
 
-  // ── Legend ───────────────────────────────────────────────────
-  const ly = H - 12;
-  fill(ctx, W / 2 - 100, ly - 6, 14, 10, accent + 'cc');
-  txt(ctx, 'Günlük fire', W / 2 - 82, ly - 1, '10px "Segoe UI",Arial', C.label, 'left', 'middle');
-  fill(ctx, W / 2 + 30, ly - 3, 14, 4, '#ffa726');
-  txt(ctx, 'Kümülatif', W / 2 + 48, ly - 1, '10px "Segoe UI",Arial', C.chrome, 'left', 'middle');
+  // Legend
+  const ly = offY + h - 12;
+  fill(ctx, offX + w / 2 - 100, ly - 6, 14, 10, accent + 'cc');
+  txt(ctx, 'Günlük fire', offX + w / 2 - 82, ly - 1,
+    '10px "Segoe UI",Arial', C.label, 'left', 'middle');
+  fill(ctx, offX + w / 2 + 30, ly - 3, 14, 4, '#ffa726');
+  txt(ctx, 'Kümülatif', offX + w / 2 + 48, ly - 1,
+    '10px "Segoe UI",Arial', C.chrome, 'left', 'middle');
+}
+
+// ══════════════════════════════════════════════════════════════
+//  FİRE TREND GRAFİĞİ (bağımsız görsel — ayrı göndermek için)
+// ══════════════════════════════════════════════════════════════
+function fireGrafikOlustur(veri, hatAdi) {
+  const accent = hatAdi === 'EXT-2' ? C.ext2 : C.ext1;
+  const W = 960, H = 520;
+
+  const canvas = createCanvas(W, H);
+  const ctx    = canvas.getContext('2d');
+
+  fill(ctx, 0, 0, W, H, C.bg);
+
+  // Başlık
+  const HDR_H = 52;
+  fill(ctx, 0, 0, W, HDR_H - 2, C.cardLift);
+  fill(ctx, 0, 0, 4, HDR_H - 2, accent);
+  fill(ctx, 0, HDR_H - 2, W, 1, C.cardBdr);
+  txt(ctx, `${hatAdi} — FİRE ORANI`, 58, (HDR_H - 2) / 2,
+    'bold 16px "Segoe UI",Arial', C.valBright, 'left', 'middle');
+
+  // Grafik içeriği (başlığı kendi çizmeden)
+  _fireGrafikCiz(ctx, 0, HDR_H, W, H - HDR_H, veri, accent);
 
   return canvas.toBuffer('image/png');
 }
 
-module.exports = { gunlukGrafikOlustur, fireGrafikOlustur };
+// ══════════════════════════════════════════════════════════════
+//  MAKİNE KOMBİNE GRAFİĞİ (kart + fire trend — tek görsel)
+// ══════════════════════════════════════════════════════════════
+function makineKombineGrafik(hatAdi, uretimKayitlari, hurdaKayitlari, tarih,
+                              baslangicBilgileri = {}, hammaddeler = null, fireTrend = []) {
+  const accent   = hatAdi === 'EXT-2' ? C.ext2   : C.ext1;
+  const accentDk = hatAdi === 'EXT-2' ? C.ext2dk : C.ext1dk;
+
+  const W        = 960;
+  const PAD      = 14;
+  const HDR_H    = 58;
+  const GAP      = 10;
+  const BESL_H   = hammaddeler ? 90 + GAP : 0;
+  const FIRE_H   = 440;
+  const FTR_H    = 32;
+
+  const H = HDR_H + PAD + KART_H + GAP + BESL_H + FIRE_H + FTR_H;
+
+  const canvas = createCanvas(W, H);
+  const ctx    = canvas.getContext('2d');
+
+  fill(ctx, 0, 0, W, H, C.bg);
+
+  // Üst başlık
+  fill(ctx, 0, 0, W, HDR_H, C.cardLift);
+  fill(ctx, 0, 0, 4, HDR_H, accent);
+  fill(ctx, 0, HDR_H - 1, W, 1, C.cardBdr);
+  txt(ctx, `${hatAdi} — Günlük Üretim Raporu`, PAD + 12, HDR_H / 2,
+    'bold 22px "Segoe UI",Arial', C.valBright, 'left', 'middle');
+  txt(ctx, tarihStr(tarih), W - PAD, HDR_H / 2,
+    '13px "Segoe UI",Arial', C.chrome, 'right', 'middle');
+
+  // Makine kartı
+  const uretim    = uretimOzetle(uretimKayitlari);
+  const hurda     = hurdaOzetle(hurdaKayitlari);
+  const hizlar    = hatHizlariniHesapla(uretimKayitlari);
+  const urunBilgi = urunBilgisiHesapla(uretimKayitlari);
+  const cardW     = W - PAD * 2;
+  const cardY     = HDR_H + PAD;
+
+  hatKartiCiz(ctx, PAD, cardY, cardW, hatAdi, accent, accentDk,
+    uretim[hatAdi], hurda[hatAdi], hizlar[hatAdi] ?? null,
+    baslangicBilgileri[hatAdi] ?? null, urunBilgi[hatAdi] ?? null);
+
+  // BESLEME kartı
+  if (hammaddeler)
+    beslemeKartiCiz(ctx, PAD, cardY + KART_H + GAP, cardW, hammaddeler);
+
+  // Fire trend bölümü
+  const fireY = cardY + KART_H + GAP + BESL_H;
+  _fireGrafikCiz(ctx, PAD, fireY, cardW, FIRE_H, fireTrend, accent);
+
+  // Alt bilgi
+  const fy = H - FTR_H;
+  fill(ctx, 0, fy, W, FTR_H, C.cardLift);
+  fill(ctx, 0, fy, W, 1, C.cardBdr);
+  txt(ctx, 'CPS Üretim Takip Sistemi  ·  Capssun', W / 2, fy + FTR_H / 2,
+    '10px "Segoe UI",Arial', C.label, 'center', 'middle');
+
+  return canvas.toBuffer('image/png');
+}
+
+module.exports = { gunlukGrafikOlustur, fireGrafikOlustur, makineKombineGrafik };

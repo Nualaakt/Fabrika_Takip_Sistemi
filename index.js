@@ -20,7 +20,7 @@ const db      = require('./db');
 const ku      = require('./kullanicilar');
 const { vardiyaRaporuOlustur, gunlukRaporuOlustur, haftalikRaporuOlustur, aylikRaporuOlustur, anlikUretimOzetle } = require('./rapor');
 const { mesajiIsle, anaMenuMesaji, botMesaji } = require('./menu');
-const { gunlukGrafikOlustur, fireGrafikOlustur } = require('./grafik');
+const { gunlukGrafikOlustur, fireGrafikOlustur, makineKombineGrafik } = require('./grafik');
 
 // ── Kayıt oturumları (multi-turn) ─────────────────────────────
 // chatId → { asama: 'isim'|'pozisyon'|'birim', isim, pozisyon }
@@ -681,7 +681,7 @@ const [uretimKayitlari, beslemeKayitlari, aktifMikserler, bekleyenMikserler] =
   await mesajGonder(mesajAdmin,  ['admin']);
   await mesajGonder(mesajNormal, ['uretim']);
 
-  // ── Görsel kart ────────────────────────────────────────────
+  // ── Görsel kartlar (her makine için: kart + fire trend) ────
   try {
     const config = require('./config');
     const [hammaddeler, ...baslangicArr] = await Promise.all([
@@ -692,25 +692,20 @@ const [uretimKayitlari, beslemeKayitlari, aktifMikserler, bekleyenMikserler] =
     ]);
     const baslangicBilgileri = Object.fromEntries(baslangicArr);
 
-    const pngBuf = gunlukGrafikOlustur(
-      uretimKayitlari, hurdaKayitlari, new Date(tarih),
-      baslangicBilgileri, hammaddeler
-    );
-    await mesajGonderGorsel(pngBuf, ['admin', 'uretim']);
-    console.log('🖼️  Günlük görsel kart gönderildi.');
-
-    // Fire trend grafikleri — her hat için ayrı
     for (const [makineDB, hatAdi] of Object.entries(config.hatlar)) {
       const basInfo = baslangicBilgileri[hatAdi];
-      if (!basInfo?.baslangicTarihi) continue;
       try {
-        const fireTrend = await db.gunlukFireTrendGetir(makineDB, makineDB, basInfo.baslangicTarihi);
-        if (fireTrend.length === 0) continue;
-        const firePng = fireGrafikOlustur(fireTrend, hatAdi);
-        await mesajGonderGorsel(firePng, ['admin', 'uretim']);
-        console.log(`📊 Fire trend grafiği gönderildi: ${hatAdi}`);
+        const fireTrend = basInfo?.baslangicTarihi
+          ? await db.gunlukFireTrendGetir(makineDB, makineDB, basInfo.baslangicTarihi)
+          : [];
+        const pngBuf = makineKombineGrafik(
+          hatAdi, uretimKayitlari, hurdaKayitlari, new Date(tarih),
+          baslangicBilgileri, hammaddeler, fireTrend
+        );
+        await mesajGonderGorsel(pngBuf, ['admin', 'uretim']);
+        console.log(`🖼️  Kombine görsel gönderildi: ${hatAdi}`);
       } catch (fe) {
-        console.error(`⚠️  Fire grafik hatası (${hatAdi}):`, fe.message);
+        console.error(`⚠️  Görsel oluşturulamadı (${hatAdi}):`, fe.message);
       }
     }
   } catch (err) {
