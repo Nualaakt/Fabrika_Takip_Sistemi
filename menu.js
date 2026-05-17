@@ -296,38 +296,84 @@ async function mesajiIsle(tel, metin) {
       : '🧠 Henüz kaydedilmiş bilgi yok.';
   }
 
-  // ── MİKSER MENÜSÜ ─────────────────────────────────────────
+  // ── MİKSER MENÜSÜ (birim bazlı) ──────────────────────────
   if (birim === 'mikser') {
     return await mikserRaporuGetir();
   }
 
+  // ── ALT MENÜ SEÇİMLERİ — adim bazlı, admin bloğundan ÖNCE ──
+  // adim='gunluk'/'vardiya'/... iken gelen numara her zaman
+  // o alt menüye ait seçimdir; admin bolum durumundan bağımsız.
+
+  // ── VARDİYA MENÜSÜ ────────────────────────────────────────
+  if (oturum.adim === 'vardiya') {
+    if (giris === '0') { oturumSifirla(tel); return anaMenuMesaji(birim); }
+    const secim = parseInt(giris);
+    if (secim >= 1 && secim <= (oturum.liste || []).length) {
+      const v = oturum.liste[secim - 1];
+      oturumSifirla(tel);
+      return await vardiyaRaporuGetir(v.vardiyaNo, v.tarih, admin);
+    }
+    return `❓ Geçersiz seçim. Listeden bir numara yaz veya *rapor* yaz.`;
+  }
+
+  // ── GÜNLÜK MENÜSÜ ─────────────────────────────────────────
+  if (oturum.adim === 'gunluk') {
+    if (giris === '0') { oturumSifirla(tel); return anaMenuMesaji(birim); }
+    const secim = parseInt(giris);
+    if (secim >= 1 && secim <= (oturum.liste || []).length) {
+      const g = oturum.liste[secim - 1];
+      oturumSifirla(tel);
+      return await gunlukRaporuGetir(g.tarih, admin);
+    }
+    return `❓ Geçersiz seçim. Listeden bir numara yaz veya *rapor* yaz.`;
+  }
+
+  // ── HAFTALIK MENÜSÜ ───────────────────────────────────────
+  if (oturum.adim === 'haftalik') {
+    if (giris === '0') { oturumSifirla(tel); return anaMenuMesaji(birim); }
+    const secim = parseInt(giris);
+    if (secim >= 1 && secim <= (oturum.liste || []).length) {
+      const h = oturum.liste[secim - 1];
+      oturumSifirla(tel);
+      return await haftalikRaporuGetir(h.baslangic, h.bitis, admin);
+    }
+    return `❓ Geçersiz seçim. Listeden bir numara yaz veya *rapor* yaz.`;
+  }
+
+  // ── AYLIK MENÜSÜ ──────────────────────────────────────────
+  if (oturum.adim === 'aylik') {
+    if (giris === '0') { oturumSifirla(tel); return anaMenuMesaji(birim); }
+    const secim = parseInt(giris);
+    if (secim >= 1 && secim <= (oturum.liste || []).length) {
+      const a = oturum.liste[secim - 1];
+      oturumSifirla(tel);
+      return await aylikRaporuGetir(a.yil, a.ay, admin);
+    }
+    return `❓ Geçersiz seçim. Listeden bir numara yaz veya *rapor* yaz.`;
+  }
+
   // ── ADMİN ÜST MENÜ ────────────────────────────────────────
-  // Bölüm seçilmemişse üst menüyü göster
+  // Yalnızca adim='ana' durumunda ulaşılır
   if (admin && !oturum.bolum) {
     if (giris === '1') { oturum.bolum = 'uretim'; return anaMenuMesaji('uretim'); }
     if (giris === '2') { oturum.bolum = 'mikser'; return await mikserRaporuGetir(); }
     if (giris === '3') { oturum.bolum = 'bakim';  return await bakimRaporuGetir(); }
-    // Sayı değilse → LLM'e yönlendir, menü gösterme
     return await llmYanit(tel, metin);
   }
 
-  // Bölüm seçildiyse ilgili alt menüye yönlendir
   if (admin && oturum.bolum === 'mikser') {
     return await mikserRaporuGetir();
   }
   if (admin && oturum.bolum === 'bakim') {
     return await bakimRaporuGetir();
   }
-  // bolum === 'uretim' → aşağıdaki normal üretim akışına devam
 
-  // ── ANA MENÜ ──────────────────────────────────────────────
+  // ── ANA MENÜ (adim='ana', bolum='uretim' veya non-admin) ──
   if (oturum.adim === 'ana') {
-
-    // Üretim raporları: yalnızca admin + uretim birimi
     if (!uretimErisimi && ['1','2','3','4','5','6'].includes(giris)) {
       return `⛔ Bu rapor *${birim}* birimi için mevcut değil.\n_Rapor sistemine erişmek için ilgili birimi yöneticiyle görüşün._`;
     }
-
     if (giris === '1') {
       const { vardiyaNo, referansTarih } = sonVardiyayiBul();
       return await vardiyaRaporuGetir(vardiyaNo, referansTarih, admin);
@@ -355,57 +401,7 @@ async function mesajiIsle(tel, metin) {
     if (giris === '6') {
       return await anlikDurumGetir();
     }
-
-    // Serbest metin → LLM'e yönlendir
     return await llmYanit(tel, metin);
-  }
-
-  // ── VARDİYA MENÜSÜ ────────────────────────────────────────
-  if (oturum.adim === 'vardiya') {
-    if (giris === '0') { oturumSifirla(tel); return anaMenuMesaji(); }
-    const secim = parseInt(giris);
-    if (secim >= 1 && secim <= oturum.liste.length) {
-      const v = oturum.liste[secim - 1];
-      oturumSifirla(tel);
-      return await vardiyaRaporuGetir(v.vardiyaNo, v.tarih, admin);
-    }
-    return `❓ Geçersiz seçim. Listeden bir numara yaz veya *rapor* yaz.`;
-  }
-
-  // ── GÜNLÜK MENÜSÜ ─────────────────────────────────────────
-  if (oturum.adim === 'gunluk') {
-    if (giris === '0') { oturumSifirla(tel); return anaMenuMesaji(); }
-    const secim = parseInt(giris);
-    if (secim >= 1 && secim <= oturum.liste.length) {
-      const g = oturum.liste[secim - 1];
-      oturumSifirla(tel);
-      return await gunlukRaporuGetir(g.tarih, admin);
-    }
-    return `❓ Geçersiz seçim. Listeden bir numara yaz veya *rapor* yaz.`;
-  }
-
-  // ── HAFTALIK MENÜSÜ ───────────────────────────────────────
-  if (oturum.adim === 'haftalik') {
-    if (giris === '0') { oturumSifirla(tel); return anaMenuMesaji(); }
-    const secim = parseInt(giris);
-    if (secim >= 1 && secim <= oturum.liste.length) {
-      const h = oturum.liste[secim - 1];
-      oturumSifirla(tel);
-      return await haftalikRaporuGetir(h.baslangic, h.bitis, admin);
-    }
-    return `❓ Geçersiz seçim. Listeden bir numara yaz veya *rapor* yaz.`;
-  }
-
-  // ── AYLIK MENÜSÜ ──────────────────────────────────────────
-  if (oturum.adim === 'aylik') {
-    if (giris === '0') { oturumSifirla(tel); return anaMenuMesaji(); }
-    const secim = parseInt(giris);
-    if (secim >= 1 && secim <= oturum.liste.length) {
-      const a = oturum.liste[secim - 1];
-      oturumSifirla(tel);
-      return await aylikRaporuGetir(a.yil, a.ay, admin);
-    }
-    return `❓ Geçersiz seçim. Listeden bir numara yaz veya *rapor* yaz.`;
   }
 
   return botMesaji();
