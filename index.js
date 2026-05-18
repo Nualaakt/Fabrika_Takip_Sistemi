@@ -1093,11 +1093,6 @@ client.on('message', async (msg) => {
   const hedefAdres  = msg.from;
   const metin       = msg.body.trim();
 
-  // TANI LOGU — çift mesaj sorununu anlamak için
-  if (metin.startsWith('//')) {
-    console.log(`[TANI] from=${msg.from} | author=${msg.author ?? '-'} | id.id=${msg.id?.id} | id._ser=${msg.id?._serialized} | body=${metin}`);
-  }
-
   // Tekrar koruması: aynı mesaj ID'si iki kez işlenmez
   // (WhatsApp multi-device @lid + @c.us aynı mesajı iki farklı event olarak iletir)
   const msgId = msg.id?.id || msg.id?._serialized || `${gonderenId}|${metin}`;
