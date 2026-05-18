@@ -1093,17 +1093,16 @@ client.on('message', async (msg) => {
   const hedefAdres  = msg.from;
   const metin       = msg.body.trim();
 
-  // Tekrar koruması: aynı mesaj 1 saniye içinde iki kez işlenmez
-  // (WhatsApp multi-device @lid + @c.us çift event sorununa karşı)
-  const tekrarAnahtari = `${gonderenId}|${metin}`;
-  const simdi = Date.now();
-  const oncekiZaman = islenmisMesajlar.get(tekrarAnahtari);
-  if (oncekiZaman && simdi - oncekiZaman < 1000) return;
-  islenmisMesajlar.set(tekrarAnahtari, simdi);
+  // Tekrar koruması: aynı mesaj ID'si iki kez işlenmez
+  // (WhatsApp multi-device @lid + @c.us aynı mesajı iki farklı event olarak iletir)
+  const msgId = msg.id?.id || msg.id?._serialized || `${gonderenId}|${metin}`;
+  if (islenmisMesajlar.has(msgId)) return;
+  islenmisMesajlar.set(msgId, Date.now());
   // Haritayı temiz tut: 60 saniyeden eski girişleri sil
   if (islenmisMesajlar.size > 500) {
+    const sinir = Date.now() - 60000;
     for (const [k, t] of islenmisMesajlar) {
-      if (simdi - t > 60000) islenmisMesajlar.delete(k);
+      if (t < sinir) islenmisMesajlar.delete(k);
     }
   }
 
