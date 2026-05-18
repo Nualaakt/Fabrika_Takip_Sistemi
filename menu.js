@@ -31,13 +31,28 @@ function hafizaOku() {
 // bolum: null | 'uretim' | 'mikser' | 'bakim'  (yalnızca admin)
 const oturumlar = {};
 
+// @lid ↔ @c.us değişimine karşı her zaman aynı oturum anahtarı kullanılır.
+// WhatsApp bazen aynı kullanıcıyı @lid, bazen @c.us olarak iletir;
+// her ikisi de config'den bulunup @c.us biçimine dönüştürülür.
+function telNormalize(tel) {
+  const alici = config.alicilar.find(a => {
+    if (a.gid) return false;
+    const temiz = (a.tel || '').replace(/[^0-9]/g, '');
+    return tel === temiz + '@c.us' || tel === a.lid;
+  });
+  if (!alici) return tel;
+  const temiz = (alici.tel || '').replace(/[^0-9]/g, '');
+  return temiz ? temiz + '@c.us' : (alici.lid || tel);
+}
+
 function oturumAl(tel) {
-  if (!oturumlar[tel]) oturumlar[tel] = { adim: 'ana', bolum: null };
-  return oturumlar[tel];
+  const key = telNormalize(tel);
+  if (!oturumlar[key]) oturumlar[key] = { adim: 'ana', bolum: null };
+  return oturumlar[key];
 }
 
 function oturumSifirla(tel) {
-  oturumlar[tel] = { adim: 'ana', bolum: null };
+  oturumlar[telNormalize(tel)] = { adim: 'ana', bolum: null };
 }
 
 // ── Kullanıcı birimi / rolü ───────────────────────────────────
