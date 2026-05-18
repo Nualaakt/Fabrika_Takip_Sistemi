@@ -30,6 +30,10 @@ const kayitOturumlari = {};
 // adminChatId → { kayitId }
 const onayBekleyen = {};
 
+// Mesaj tekrarını önleme — aynı mesaj 1s içinde iki kez işlenmez
+// "gonderenId|metin" → timestamp
+const islenmisMesajlar = new Map();
+
 // ── Komut satırı parametresi ──────────────────────────────────
 const args = process.argv.slice(2);
 const MOD = args[0] || '--zamanli';
@@ -1088,6 +1092,20 @@ client.on('message', async (msg) => {
   const gonderenId  = msg.from.endsWith('@g.us') ? msg.author : msg.from;
   const hedefAdres  = msg.from;
   const metin       = msg.body.trim();
+
+  // Tekrar koruması: aynı mesaj 1 saniye içinde iki kez işlenmez
+  // (WhatsApp multi-device @lid + @c.us çift event sorununa karşı)
+  const tekrarAnahtari = `${gonderenId}|${metin}`;
+  const simdi = Date.now();
+  const oncekiZaman = islenmisMesajlar.get(tekrarAnahtari);
+  if (oncekiZaman && simdi - oncekiZaman < 1000) return;
+  islenmisMesajlar.set(tekrarAnahtari, simdi);
+  // Haritayı temiz tut: 60 saniyeden eski girişleri sil
+  if (islenmisMesajlar.size > 500) {
+    for (const [k, t] of islenmisMesajlar) {
+      if (simdi - t > 60000) islenmisMesajlar.delete(k);
+    }
+  }
 
   // ── Kayıt oturumu aktifse // olmadan da yanıt ver ────────────
   if (kayitOturumlari[gonderenId]) {
