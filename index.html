@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATLAS OTOMASYON — Fabrikanıza Göre Kurulan Üretim Takip Sistemleri</title>
+<meta name="description" content="Üretim, bakım, kalite ve depo takibi tek sistemde: kablosuz saha sensörlerinden mobil uygulamaya, fabrikanızın takip sistemini ihtiyacınıza göre tasarlayıp kuruyoruz.">
+<meta name="theme-color" content="#14171c">
+<link rel="canonical" href="https://www.atlasotomasyon.com/">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<!-- Open Graph / sosyal medya önizleme -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ATLAS Otomasyon">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="ATLAS OTOMASYON — Tüm Fabrika Tek Sistemde">
+<meta property="og:description" content="Üretim, bakım, kalite ve depo takibi tek sistemde. Fabrikanızın ihtiyacına göre tasarlanıp kurulur.">
+<meta property="og:url" content="https://www.atlasotomasyon.com/">
+<meta property="og:image" content="https://www.atlasotomasyon.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ATLAS OTOMASYON — Tüm Fabrika Tek Sistemde">
+<meta name="twitter:description" content="Üretim, bakım, kalite ve depo takibi tek sistemde. Fabrikanızın ihtiyacına göre tasarlanıp kurulur.">
+<meta name="twitter:image" content="https://www.atlasotomasyon.com/assets/og-image.png">
+
+<!-- Yapılandırılmış veri: kuruluş + site -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.atlasotomasyon.com/#org",
+      "name": "ATLAS Otomasyon",
+      "url": "https://www.atlasotomasyon.com/",
+      "logo": "https://www.atlasotomasyon.com/assets/apple-touch-icon.png",
+      "description": "Fabrikalara özel üretim, bakım, kalite ve depo takip sistemleri: IoT saha sensörleri, ağ-sunucu altyapısı ve özel yazılım kurulumu.",
+      "email": "iletisim@atlasotomasyon.com",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Türkiye"
+      },
+      "knowsAbout": ["Endüstriyel otomasyon", "Üretim takip sistemleri", "IoT sensör ağları", "Fabrika dijitalleşmesi"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.atlasotomasyon.com/#site",
+      "url": "https://www.atlasotomasyon.com/",
+      "name": "ATLAS Otomasyon",
+      "inLanguage": "tr-TR",
+      "publisher": { "@id": "https://www.atlasotomasyon.com/#org" }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/theme.js"></script>
+</head>
+<body>
+
+<!-- Giriş perdesi: fabrika takip sistemi devreye alma sekansı -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro__half intro__half--top"></div>
+  <div class="intro__half intro__half--bottom"></div>
+  <div class="intro__content" id="intro-content">
+    <div class="intro__corner intro__corner--tl">ATLAS® — Endüstriyel Otomasyon</div>
+    <div class="intro__corner intro__corner--tr">Devreye Alma Dizisi / 01</div>
+
+    <div class="intro__center">
+      <div class="intro__title-line"><span class="intro__title" id="intro-title-1">Fabrika Takip</span></div>
+      <div class="intro__title-line"><span class="intro__title intro__title--accent" id="intro-title-2">Sistemi.</span></div>
+      <div class="intro__modules" id="intro-modules">
+        <div class="intro__module"><span>Üretim</span><em>[ OK ]</em></div>
+        <div class="intro__module"><span>Bakım</span><em>[ OK ]</em></div>
+        <div class="intro__module"><span>Kalite</span><em>[ OK ]</em></div>
+        <div class="intro__module"><span>Depo</span><em>[ OK ]</em></div>
+      </div>
+    </div>
+
+    <div class="intro__log" id="intro-log">
+      <div>&gt; Güç verildi <em>[ ok ]</em></div>
+      <div>&gt; Sensör ağı taranıyor <em>[ ok ]</em></div>
+      <div>&gt; Veritabanı bağlandı <em>[ ok ]</em></div>
+      <div>&gt; Bildirim kanalları açık <em>[ ok ]</em></div>
+      <div>&gt; Sistem devrede <em>[ ok ]</em></div>
+    </div>
+
+    <div class="intro__count" id="intro-count">%0</div>
+    <div class="intro__bar"><span id="intro-bar"></span></div>
+  </div>
+</div>
+
+<header class="nav">
+  <a class="nav__brand" href="index.html">
+    <span class="nav__mark">ATLAS®</span>
+    <span class="nav__brand-sub">Endüstriyel Otomasyon</span>
+  </a>
+  <button class="nav__burger" id="nav-burger" type="button" aria-label="Menüyü aç" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav aria-label="Ana menü">
+    <ul class="nav__links">
+      <li><a href="index.html" class="is-active">Ana Sayfa</a></li>
+      <li><a href="hizmetler.html">Hizmetler</a></li>
+      <li><a href="hakkimizda.html">Hakkımızda</a></li>
+      <li><a href="iletisim.html">İletişim</a></li>
+      <li><button class="nav__theme" id="theme-toggle" type="button" aria-pressed="false">◐ Gece</button></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ============================================================
+     SAHNE: çipten fabrikaya kurulum animasyonu
+     ============================================================ -->
+<section class="scene" id="scene" aria-label="Tek çipten tüm fabrikaya — kurulum animasyonu">
+
+  <svg class="scene__svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <defs>
+      <pattern id="bgGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path class="s-gridline" d="M40 0H0V40" fill="none" stroke-width="1"/>
+      </pattern>
+    </defs>
+
+    <rect class="s-grid" width="1200" height="800" fill="url(#bgGrid)"/>
+
+    <!-- köşe artıları -->
+    <g class="s-annot" opacity="0.7">
+      <path d="M60 52v16M52 60h16"/>
+      <path d="M1140 52v16M1132 60h16"/>
+      <path d="M60 732v16M52 740h16"/>
+      <path d="M1140 732v16M1132 740h16"/>
+    </g>
+
+    <!-- ============ FABRİKA (aşama 4'te çizilir) ============ -->
+    <g id="factory" opacity="0">
+      <!-- zemin çizgisi -->
+      <path id="factory-ground" class="s-factory-line" pathLength="1" d="M110 690H1090"/>
+      <!-- baca -->
+      <path id="factory-chimney" class="s-factory-line" pathLength="1" d="M872 470V310h40v160"/>
+      <!-- testere dişli çatı + gövde -->
+      <path id="factory-outline" class="s-factory-line" pathLength="1"
+        d="M250 690V480L425 400V480L600 400V480L775 400V480L950 400V690"/>
+      <!-- kapı -->
+      <path id="factory-door" class="s-factory-line" pathLength="1" d="M560 690V616h80v74"/>
+      <!-- pencereler (finalde sırayla yanar) -->
+      <g id="factory-windows">
+        <rect class="s-win" x="292" y="556" width="38" height="30"/>
+        <rect class="s-win s-win--flicker" x="352" y="556" width="38" height="30"/>
+        <rect class="s-win" x="810" y="556" width="38" height="30"/>
+        <rect class="s-win" x="870" y="556" width="38" height="30"/>
+      </g>
+      <!-- baca dumanı -->
+      <g id="smoke" opacity="0">
+        <circle class="s-smoke" cx="886" cy="292" r="7"/>
+        <circle class="s-smoke" cx="898" cy="286" r="9"/>
+        <circle class="s-smoke" cx="890" cy="280" r="6"/>
+      </g>
+      <text id="factory-label" class="s-label" x="250" y="378" opacity="0">TESİS / 01 — SİSTEM DEVREDE</text>
+    </g>
+
+    <!-- ============ MONTAJ GRUBU (çip + bileşenler + izler) ============ -->
+    <g id="assembly">
+
+      <!-- bakır izler -->
+      <path id="trace-sensor" class="s-trace" pathLength="1" d="M285 250H460V372H538"/>
+      <path id="trace-net"    class="s-trace" pathLength="1" d="M915 250H740V372H662"/>
+      <path id="trace-server" class="s-trace" pathLength="1" d="M262 560H460V428H538"/>
+      <path id="trace-app"    class="s-trace" pathLength="1" d="M938 560H740V428H662"/>
+
+      <!-- izler üzerinde akan veri (bağlantı kurulunca görünür) -->
+      <path id="flow-sensor" class="s-trace-flow" d="M285 250H460V372H538"/>
+      <path id="flow-net"    class="s-trace-flow" d="M915 250H740V372H662"/>
+      <path id="flow-server" class="s-trace-flow" d="M262 560H460V428H538"/>
+      <path id="flow-app"    class="s-trace-flow" d="M938 560H740V428H662"/>
+
+      <!-- iz köşe noktaları (via) -->
+      <g id="vias" opacity="0">
+        <circle class="s-via" cx="460" cy="250" r="5"/>
+        <circle class="s-via" cx="460" cy="372" r="5"/>
+        <circle class="s-via" cx="740" cy="250" r="5"/>
+        <circle class="s-via" cx="740" cy="372" r="5"/>
+        <circle class="s-via" cx="460" cy="560" r="5"/>
+        <circle class="s-via" cx="460" cy="428" r="5"/>
+        <circle class="s-via" cx="740" cy="560" r="5"/>
+        <circle class="s-via" cx="740" cy="428" r="5"/>
+      </g>
+
+      <!-- SENSÖR MODÜLÜ (sol üst) -->
+      <g id="comp-sensor">
+        <rect class="s-board" x="140" y="210" width="145" height="80"/>
+        <line class="s-ink-line" x1="196" y1="228" x2="196" y2="262"/>
+        <circle class="s-fill-ink" cx="196" cy="270" r="8"/>
+        <path class="s-ink-thin s-wave" d="M225 238q8 -8 16 0t16 0M225 256q8 -8 16 0t16 0"/>
+        <text class="s-label s-label--sm" x="140" y="308">SENSÖR / θ·%RH</text>
+      </g>
+
+      <!-- AĞ / KABLOSUZ (sağ üst) -->
+      <g id="comp-net">
+        <rect class="s-board" x="915" y="230" width="145" height="60"/>
+        <circle class="s-led s-blink" cx="940" cy="260" r="5"/>
+        <circle class="s-led s-blink--b s-blink" cx="960" cy="260" r="5"/>
+        <line class="s-ink-line" x1="1000" y1="230" x2="1000" y2="196"/>
+        <line class="s-ink-line" x1="1034" y1="230" x2="1034" y2="196"/>
+        <path class="s-ink-thin s-wifi-arc" d="M998 194q19 -15 38 0"/>
+        <path class="s-ink-thin s-wifi-arc s-wifi-arc--outer" d="M990 184q27 -22 54 0"/>
+        <text class="s-label s-label--sm" x="915" y="308">AĞ / KABLOSUZ</text>
+      </g>
+
+      <!-- SUNUCU (sol alt) -->
+      <g id="comp-server">
+        <rect class="s-board" x="140" y="520" width="122" height="160"/>
+        <line class="s-ink-thin" x1="140" y1="560" x2="262" y2="560"/>
+        <line class="s-ink-thin" x1="140" y1="600" x2="262" y2="600"/>
+        <line class="s-ink-thin" x1="140" y1="640" x2="262" y2="640"/>
+        <circle class="s-led s-blink" cx="158" cy="540" r="4"/>
+        <circle class="s-led s-blink s-blink--b" cx="158" cy="580" r="4"/>
+        <circle class="s-led s-blink s-blink--c" cx="158" cy="620" r="4"/>
+        <line class="s-ink-line" x1="200" y1="536" x2="246" y2="536"/>
+        <line class="s-ink-line" x1="200" y1="576" x2="246" y2="576"/>
+        <line class="s-ink-line" x1="200" y1="616" x2="246" y2="616"/>
+        <text class="s-label s-label--sm" x="140" y="700">SUNUCU / VERİTABANI</text>
+      </g>
+
+      <!-- UYGULAMA / TELEFON (sağ alt) -->
+      <g id="comp-app">
+        <rect class="s-board" x="955" y="515" width="88" height="165"/>
+        <rect class="s-ink-thin" x="967" y="533" width="64" height="112" fill="none"/>
+        <line class="s-ink-thin" x1="975" y1="553" x2="1023" y2="553"/>
+        <line class="s-ink-thin" x1="975" y1="571" x2="1023" y2="571"/>
+        <line class="s-ink-thin" x1="975" y1="589" x2="1011" y2="589"/>
+        <circle class="s-ping-ring" cx="1031" cy="533" r="9"/>
+        <circle class="s-led" cx="1031" cy="533" r="7"/>
+        <line class="s-ink-line" x1="985" y1="662" x2="1013" y2="662"/>
+        <text class="s-label s-label--sm" x="928" y="700">UYGULAMA / BİLDİRİM</text>
+      </g>
+
+      <!-- KONTROL ÇİPİ (merkez) -->
+      <g id="chip">
+        <!-- nabız halkası -->
+        <rect class="s-pulse-ring" x="526" y="326" width="148" height="148"/>
+        <!-- pinler -->
+        <g class="s-fill-ink">
+          <rect x="522" y="352" width="16" height="7"/><rect x="522" y="372" width="16" height="7"/>
+          <rect x="522" y="392" width="16" height="7"/><rect x="522" y="412" width="16" height="7"/>
+          <rect x="522" y="432" width="16" height="7"/>
+          <rect x="662" y="352" width="16" height="7"/><rect x="662" y="372" width="16" height="7"/>
+          <rect x="662" y="392" width="16" height="7"/><rect x="662" y="412" width="16" height="7"/>
+          <rect x="662" y="432" width="16" height="7"/>
+          <rect x="552" y="322" width="7" height="16"/><rect x="572" y="322" width="7" height="16"/>
+          <rect x="592" y="322" width="7" height="16"/><rect x="612" y="322" width="7" height="16"/>
+          <rect x="632" y="322" width="7" height="16"/>
+          <rect x="552" y="462" width="7" height="16"/><rect x="572" y="462" width="7" height="16"/>
+          <rect x="592" y="462" width="7" height="16"/><rect x="612" y="462" width="7" height="16"/>
+          <rect x="632" y="462" width="7" height="16"/>
+        </g>
+        <!-- gövde -->
+        <rect class="s-fill-ink" x="538" y="338" width="124" height="124"/>
+        <!-- anten tarama çizgileri -->
+        <path class="s-chip-hatch" d="M546 346l14 14M546 360l14 14M546 374l14 14"/>
+        <text class="s-chip-text" x="600" y="404" font-size="18" font-weight="600" text-anchor="middle">ATLAS®</text>
+        <text class="s-chip-text" x="600" y="424" font-size="10" text-anchor="middle" opacity="0.7">CORE-01 / U1</text>
+        <circle id="chip-led" class="s-led s-led--pulse" cx="648" cy="352" r="5"/>
+      </g>
+
+      <!-- teknik ölçü notları (yalnızca açılışta) -->
+      <g id="annot">
+        <path class="s-annot" d="M538 496v10M662 496v10M538 501h124"/>
+        <text class="s-label s-label--sm" x="600" y="524" text-anchor="middle">25.4 MM</text>
+        <path class="s-annot" d="M654 348L742 316"/>
+        <text class="s-label s-label--sm" x="748" y="314">DURUM LED</text>
+        <text class="s-label s-label--sm" x="530" y="326" text-anchor="end">REF: U1</text>
+      </g>
+
+    </g>
+  </svg>
+
+  <!-- Açılış metni -->
+  <div class="scene__hero" id="scene-hero">
+    <span class="eyebrow eyebrow--accent">Üretim · Bakım · Kalite · Depo</span>
+    <h1>Tüm fabrika<br><em>tek sistemde.</em></h1>
+    <p>Üretimden bakıma, kaliteden depoya — fabrikanızın takip sistemini sensöründen mobil uygulamasına kadar ihtiyacınıza göre tasarlayıp kuruyoruz.</p>
+  </div>
+
+  <div class="scene__cue" id="scene-cue">Kaydırdıkça sistem kurulur</div>
+
+  <!-- Aşama panelleri -->
+  <aside class="stage-panel stage-panel--left stage-panel--low" id="panel-1">
+    <span class="eyebrow eyebrow--accent">01 / Algıla</span>
+    <h3>Kablosuz saha sensörleri</h3>
+    <p>Sıcaklık, nem, enerji, duruş — üretimin her noktasından veri toplayan cihazlar. Pilli, kablosuz, saha koşullarınıza göre seçilir ve monte edilir.</p>
+  </aside>
+
+  <aside class="stage-panel stage-panel--right stage-panel--low" id="panel-2">
+    <span class="eyebrow eyebrow--accent">02 / Bağla</span>
+    <h3>Ağ ve sunucu altyapısı</h3>
+    <p>Fabrikanın interneti, yerel sunucusu, veritabanı. Gerekirse sıfırdan: kablolama, erişim noktaları, yedekleme ve güvenli uzaktan erişim.</p>
+  </aside>
+
+  <aside class="stage-panel stage-panel--center stage-panel--high" id="panel-3">
+    <span class="eyebrow eyebrow--accent">03 / İzle</span>
+    <h3>Size özel takip uygulaması</h3>
+    <p>Android uygulaması, WhatsApp bildirimleri, vardiya ve günlük raporlar. Ekranlar hazır şablondan değil, sizin süreçlerinize göre çizilir.</p>
+  </aside>
+
+  <aside class="stage-panel stage-panel--right stage-panel--high" id="panel-4">
+    <span class="eyebrow eyebrow--accent">04 / Üret</span>
+    <h3>Sistem fabrikanız olur</h3>
+    <p>Parçalar tek sistemde birleşir: izleyen, haber veren, kayıt tutan bir tesis. Hazır paket değil — sizin fabrikanız.</p>
+  </aside>
+</section>
+
+<!-- ============================================================
+     METRİK BANDI
+     ============================================================ -->
+<section class="section" id="rakamlar">
+  <div class="section__head">
+    <h2>Sahada Çalışıyor</h2>
+    <span class="eyebrow">Canlı Kurulumdan / Rakamlar</span>
+  </div>
+  <div class="stats">
+    <div class="stat" data-reveal>
+      <span class="stat__value">7<em>/</em>24</span>
+      <span class="stat__label">Kesintisiz Saha İzleme</span>
+    </div>
+    <div class="stat" data-reveal>
+      <span class="stat__value">4</span>
+      <span class="stat__label">Otomatik Rapor Türü</span>
+    </div>
+    <div class="stat" data-reveal>
+      <span class="stat__value">5<em>+</em></span>
+      <span class="stat__label">Anlık Uyarı Senaryosu</span>
+    </div>
+    <div class="stat" data-reveal>
+      <span class="stat__value"><em>%</em>100</span>
+      <span class="stat__label">İhtiyaca Göre Tasarım</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HİZMETLER ÖZETİ
+     ============================================================ -->
+<section class="section" id="hizmetler" style="padding-top:0">
+  <div class="section__head">
+    <h2>Hizmetler</h2>
+    <span class="eyebrow">Kapsam / 04 Kalem</span>
+  </div>
+
+  <div class="svc-grid">
+    <a class="svc-card" href="hizmetler.html#s1" data-reveal>
+      <span class="svc-card__id">SRV-01</span>
+      <h3>IoT Saha Sistemleri</h3>
+      <p>Sıcaklık, nem, enerji ve duruş izleme; eşik aşımında anlık uyarı. Sensör ağı fabrikanızın yerleşimine göre kurulur.</p>
+      <span class="svc-card__more">Detay &gt;&gt;</span>
+    </a>
+    <a class="svc-card" href="hizmetler.html#s2" data-reveal>
+      <span class="svc-card__id">SRV-02</span>
+      <h3>Altyapı Kurulumu</h3>
+      <p>Fabrika ağı, yerel sunucu, veritabanı ve yedekleme. İnternetten sunucuya sıfırdan kurulum dahil.</p>
+      <span class="svc-card__more">Detay &gt;&gt;</span>
+    </a>
+    <a class="svc-card" href="hizmetler.html#s3" data-reveal>
+      <span class="svc-card__id">SRV-03</span>
+      <h3>Özel Yazılım</h3>
+      <p>Üretim takip uygulaması, Android istemcisi, WhatsApp bildirimleri ve raporlama — süreçlerinize göre geliştirilir.</p>
+      <span class="svc-card__more">Detay &gt;&gt;</span>
+    </a>
+    <a class="svc-card" href="hizmetler.html#s4" data-reveal>
+      <span class="svc-card__id">SRV-04</span>
+      <h3>Yapay Zeka Desteği</h3>
+      <p>Doğal dille veri sorgulama, otomatik rapor yorumu ve tahminsel uyarılar. Yol haritamızda — altyapınız buna hazır kurulur.</p>
+      <span class="svc-card__more">Detay &gt;&gt;</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============================================================
+     MANİFESTO
+     ============================================================ -->
+<section class="manifesto">
+  <span class="eyebrow eyebrow--accent">Neden Biz</span>
+  <h2>İki fabrika aynı değildir. <em>İki kurulumumuz da aynı olmadı.</em></h2>
+  <p>Hazır paket satmıyoruz. Önce fabrikanızı dinliyoruz: hangi hat, hangi veri, kim, ne zaman görmek istiyor? Sistem bu cevaplara göre tasarlanır — sensör yerleşiminden bildirim metnine kadar her ayrıntı size göre şekillenir.</p>
+  <a class="btn" href="iletisim.html">Projenizi Konuşalım</a>
+</section>
+
+<!-- ============================================================
+     YOL HARİTASI ŞERİDİ
+     ============================================================ -->
+<section class="section" style="padding-bottom:0">
+  <div class="section__head" style="border-bottom:none;margin-bottom:24px">
+    <h2 style="font-size:clamp(1.8rem,3vw,2.6rem)">Yol Haritası</h2>
+  </div>
+</section>
+<div class="roadmap">
+  <div class="roadmap__stripe" aria-hidden="true"></div>
+  <div class="roadmap__body">
+    <span class="eyebrow eyebrow--accent">Yakında / LLM Entegrasyonu</span>
+    <h3>Fabrikanızla konuşun</h3>
+    <p>"Bu ay en çok fire hangi hatta oldu?" — cevabı yazılımdan doğal dille alacaksınız. Büyük dil modeli destekli sorgulama ve otomatik rapor yorumu üzerinde çalışıyoruz; bugün kurduğumuz her sistem bu katmana hazır teslim edilir.</p>
+  </div>
+</div>
+
+<footer class="footer">
+  <span>© 2026 ATLAS OTOMASYON — TÜM HAKLARI SAKLIDIR</span>
+  <nav aria-label="Alt menü">
+    <a href="hizmetler.html">Hizmetler</a>
+    <a href="hakkimizda.html">Hakkımızda</a>
+    <a href="iletisim.html">İletişim</a>
+    <a href="kvkk.html">KVKK</a>
+  </nav>
+  <span>REV 0.1 / TASLAK</span>
+</footer>
+
+<!-- WhatsApp hizli iletisim (telefon numarasi placeholder) -->
+<a class="wa-btn" href="https://wa.me/905000000000" target="_blank" rel="noopener" aria-label="WhatsApp ile yazin">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/scene.js"></script>
+<script src="js/intro.js"></script>
+<script src="js/reveal.js"></script>
+</body>
+</html>

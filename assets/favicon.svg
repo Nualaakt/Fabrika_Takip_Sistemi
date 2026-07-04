@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#14171c"/>
+  <!-- pinler -->
+  <g fill="#edeff1">
+    <rect x="12" y="22" width="6" height="4"/><rect x="12" y="30" width="6" height="4"/><rect x="12" y="38" width="6" height="4"/>
+    <rect x="46" y="22" width="6" height="4"/><rect x="46" y="30" width="6" height="4"/><rect x="46" y="38" width="6" height="4"/>
+    <rect x="22" y="12" width="4" height="6"/><rect x="30" y="12" width="4" height="6"/><rect x="38" y="12" width="4" height="6"/>
+    <rect x="22" y="46" width="4" height="6"/><rect x="30" y="46" width="4" height="6"/><rect x="38" y="46" width="4" height="6"/>
+  </g>
+  <!-- gövde -->
+  <rect x="18" y="18" width="28" height="28" fill="#edeff1"/>
+  <!-- durum LED -->
+  <rect x="38" y="22" width="4" height="4" fill="#f0531c"/>
+</svg>
