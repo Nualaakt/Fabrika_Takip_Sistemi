@@ -1,0 +1,4 @@
+Contact: mailto:iletisim@atlasotomasyon.com
+Expires: 2027-07-04T00:00:00.000Z
+Preferred-Languages: tr, en
+Canonical: https://www.atlasotomasyon.com/.well-known/security.txt

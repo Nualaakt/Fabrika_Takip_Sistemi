@@ -6,6 +6,8 @@
 <title>Sayfa Bulunamadı — ATLAS OTOMASYON</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#14171c">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-src 'none'; form-action 'self'; base-uri 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,16 +35,16 @@
   </nav>
 </header>
 
-<div class="page-head" style="border-bottom:none">
+<div class="page-head page-head--bare">
   <span class="eyebrow eyebrow--accent">Hata / Sinyal Yok</span>
   <h1>404<br>Kayıt Bulunamadı.</h1>
   <p>Aradığınız sayfa taşınmış, silinmiş ya da hiç var olmamış olabilir. Sensörlerimiz bu adreste veri okuyamadı.</p>
-  <p style="margin-top:28px">
+  <p class="page-head__cta">
     <a class="btn" href="index.html">Ana Sayfaya Dön</a>
   </p>
 </div>
 
-<footer class="footer" style="position:fixed;bottom:0;left:0;right:0;background:var(--paper)">
+<footer class="footer footer--fixed">
   <span>© 2026 ATLAS OTOMASYON — TÜM HAKLARI SAKLIDIR</span>
   <nav aria-label="Alt menü">
     <a href="hizmetler.html">Hizmetler</a>
