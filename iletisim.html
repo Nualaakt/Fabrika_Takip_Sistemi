@@ -190,6 +190,15 @@
 (function () {
   var form = document.getElementById("contact-form");
 
+  /* Modül plakasından gelindiyse mesajı önceden doldur */
+  var modul = new URLSearchParams(location.search).get("modul");
+  if (modul) {
+    var msgEl = document.getElementById("f-msg");
+    if (msgEl && !msgEl.value) {
+      msgEl.value = "İlgilendiğimiz modül: " + modul + "\n\n";
+    }
+  }
+
   document.getElementById("f-kvkk").addEventListener("change", function () {
     if (this.checked) document.getElementById("consent-error").hidden = true;
   });
