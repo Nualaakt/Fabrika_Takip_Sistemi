@@ -1148,6 +1148,48 @@ html.intro-lock { overflow: hidden; }
   font-size: 16px;
 }
 
+/* ---------- SSS (akordeon) ---------- */
+
+.faq { border: 1px solid var(--ink); }
+
+.faq details + details { border-top: 1px solid var(--line); }
+
+.faq summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px 22px;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--f-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: background 0.15s ease-out;
+}
+
+.faq summary::-webkit-details-marker { display: none; }
+
+.faq summary::after {
+  content: "+";
+  font-family: var(--f-mono);
+  font-size: 1.2rem;
+  color: var(--accent);
+  flex: none;
+}
+
+.faq details[open] summary::after { content: "–"; }
+
+.faq summary:hover { background: var(--paper-2); }
+
+.faq details p {
+  padding: 0 22px 22px;
+  max-width: 640px;
+  font-size: 15.5px;
+  color: var(--ink-60);
+}
+
 /* ============================================================
    WHATSAPP HIZLI İLETİŞİM
    ============================================================ */
@@ -1262,7 +1304,7 @@ html.intro-lock { overflow: hidden; }
   .stage-panel--center,
   .stage-panel--high {
     top: auto;
-    bottom: 56px;
+    bottom: 96px; /* WhatsApp butonuyla çakışmasın */
     transform: none;
     left: var(--pad-x);
     right: var(--pad-x);
